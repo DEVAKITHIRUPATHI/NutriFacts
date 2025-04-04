@@ -1,4 +1,5 @@
 import { pgTable, text, serial, integer, boolean, json, jsonb } from "drizzle-orm/pg-core";
+import { relations } from "drizzle-orm";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -53,6 +54,26 @@ export const cartItems = pgTable("cart_items", {
 export const insertCartItemSchema = createInsertSchema(cartItems).omit({
   id: true,
 });
+
+// Define relations between tables
+export const usersRelations = relations(users, ({ many }) => ({
+  cartItems: many(cartItems),
+}));
+
+export const foodItemsRelations = relations(foodItems, ({ many }) => ({
+  cartItems: many(cartItems),
+}));
+
+export const cartItemsRelations = relations(cartItems, ({ one }) => ({
+  user: one(users, {
+    fields: [cartItems.userId],
+    references: [users.id],
+  }),
+  foodItem: one(foodItems, {
+    fields: [cartItems.foodItemId],
+    references: [foodItems.itemId],
+  }),
+}));
 
 // Define all types
 export type User = typeof users.$inferSelect;
