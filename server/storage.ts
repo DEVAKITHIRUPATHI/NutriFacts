@@ -173,16 +173,8 @@ export class DatabaseStorage implements IStorage {
         probiotics: (item.probiotics as Record<string, string>) || undefined
       },
       // Additional health information
-      healthBenefits: item.healthBenefits ? {
-        en: item.healthBenefitsEn || '',
-        hi: item.healthBenefitsHi || '',
-        ta: item.healthBenefitsTa || ''
-      } : undefined,
-      recommendedIntake: item.recommendedIntake ? {
-        en: item.recommendedIntakeEn || '',
-        hi: item.recommendedIntakeHi || '',
-        ta: item.recommendedIntakeTa || ''
-      } : undefined,
+      healthBenefits: item.healthBenefits || undefined,
+      recommendedIntake: item.recommendedIntake || undefined,
       allergens: item.allergens || [],
       isPopular: Boolean(item.isPopular || item.is_popular)
     };

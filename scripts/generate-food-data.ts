@@ -214,8 +214,32 @@ export const generateFoodItems = (): FoodItemClient[] => {
         protein: 2.9,
         fat: 0.4,
         fiber: 2.2,
-        vitamins: { "A": "187%", "K": "604%", "Folate": "66%" }
+        vitamins: { "A": "187%", "K": "604%", "Folate": "66%", "C": "47%", "E": "13%" },
+        minerals: { "Iron": "36%", "Magnesium": "22%", "Potassium": "12%", "Calcium": "10%" },
+        antioxidants: { "Lutein": "high", "Zeaxanthin": "high", "Chlorophyll": "very high" }
       },
+      healthBenefits: [
+        createTranslatedContent(
+          "Supports eye health and reduces the risk of macular degeneration",
+          "आँखों के स्वास्थ्य का समर्थन करता है और मैकुलर डिजेनरेशन के जोखिम को कम करता है",
+          "கண் ஆரோக்கியத்தை ஆதரிக்கிறது மற்றும் மேக்குலர் சிதைவு அபாயத்தைக் குறைக்கிறது"
+        ),
+        createTranslatedContent(
+          "Helps lower blood pressure due to naturally occurring nitrates",
+          "प्राकृतिक रूप से पाए जाने वाले नाइट्रेट्स के कारण रक्तचाप को कम करने में मदद करता है",
+          "இயற்கையாக உருவாகும் நைட்ரேட்டுகள் காரணமாக இரத்த அழுத்தத்தைக் குறைக்க உதவுகிறது"
+        ),
+        createTranslatedContent(
+          "Rich in antioxidants that combat oxidative stress and inflammation",
+          "ऑक्सीडेटिव तनाव और सूजन से लड़ने वाले एंटीऑक्सीडेंट से भरपूर",
+          "ஆக்ஸிஜனேற்ற அழுத்தம் மற்றும் அழற்சியை எதிர்த்துப் போராடும் ஆக்ஸிஜனேற்ற எதிர்ப்பிகள் நிறைந்தது"
+        )
+      ],
+      recommendedIntake: createTranslatedContent(
+        "1-2 cups of raw spinach daily provides excellent nutritional benefits without concerns of oxalate buildup",
+        "प्रतिदिन 1-2 कप कच्चा पालक ऑक्सलेट के बिना उत्कृष्ट पोषण लाभ प्रदान करता है",
+        "ஆக்சலேட் குவிப்பு குறித்த கவலைகள் இல்லாமல் 1-2 கப் கச்சா கீரை சிறந்த ஊட்டச்சத்து நன்மைகளை வழங்குகிறது"
+      ),
       allergens: [],
       isPopular: true
     },
@@ -237,8 +261,32 @@ export const generateFoodItems = (): FoodItemClient[] => {
         protein: 0.9,
         fat: 0.2,
         fiber: 2.8,
-        vitamins: { "A": "334%", "K": "13%" }
+        vitamins: { "A": "334%", "K": "13%", "C": "9%", "B6": "7%" },
+        minerals: { "Potassium": "8%", "Manganese": "6%" },
+        antioxidants: { "Beta-carotene": "very high", "Alpha-carotene": "high", "Lutein": "moderate" }
       },
+      healthBenefits: [
+        createTranslatedContent(
+          "Supports eye health with high levels of beta-carotene which converts to vitamin A",
+          "बीटा-कैरोटीन के उच्च स्तर के साथ आंखों के स्वास्थ्य का समर्थन करता है जो विटामिन ए में परिवर्तित होता है",
+          "விட்டமின் ஏ ஆக மாறும் அதிக அளவிலான பீட்டா-கரோட்டீனுடன் கண் ஆரோக்கியத்தை ஆதரிக்கிறது"
+        ),
+        createTranslatedContent(
+          "Contains antioxidants that may help reduce the risk of certain cancers",
+          "एंटीऑक्सिडेंट्स युक्त है जो कुछ कैंसर के जोखिम को कम करने में मदद कर सकते हैं",
+          "சில புற்றுநோய்களின் ஆபத்தைக் குறைக்க உதவும் ஆக்ஸிஜனேற்ற எதிர்ப்பிகளைக் கொண்டுள்ளது"
+        ),
+        createTranslatedContent(
+          "Helps improve digestion due to its fiber content",
+          "फाइबर युक्त होने के कारण पाचन में सुधार करने में मदद करता है",
+          "இதன் நார்ச்சத்து உள்ளடக்கம் காரணமாக செரிமானத்தை மேம்படுத்த உதவுகிறது"
+        )
+      ],
+      recommendedIntake: createTranslatedContent(
+        "One medium carrot per day provides a significant amount of vitamin A and beneficial antioxidants",
+        "प्रतिदिन एक मध्यम गाजर विटामिन ए और लाभकारी एंटीऑक्सिडेंट्स की महत्वपूर्ण मात्रा प्रदान करता है",
+        "ஒரு நாளைக்கு ஒரு நடுத்தர கேரட் குறிப்பிடத்தக்க அளவு வைட்டமின் ஏ மற்றும் பயனுள்ள ஆக்ஸிஜனேற்ற எதிர்ப்பிகளை வழங்குகிறது"
+      ),
       allergens: [],
       isPopular: true
     },
@@ -333,8 +381,32 @@ export const generateFoodItems = (): FoodItemClient[] => {
         protein: 0.5,
         fat: 0.7,
         fiber: 1.4,
-        vitamins: { "Iron": "9%", "Manganese": "26%" }
+        vitamins: { "Iron": "9%", "Manganese": "26%", "Potassium": "3%" },
+        minerals: { "Calcium": "2%", "Magnesium": "5%" },
+        antioxidants: { "Curcumin": "very high", "Curcuminoids": "high" }
       },
+      healthBenefits: [
+        createTranslatedContent(
+          "Contains curcumin, a potent anti-inflammatory compound that helps reduce inflammation",
+          "इसमें करक्यूमिन होता है, एक शक्तिशाली एंटी-इंफ्लामेटरी यौगिक जो सूजन को कम करने में मदद करता है",
+          "வீக்கத்தைக் குறைக்க உதவும் ஒரு சக்திவாய்ந்த அழற்சி எதிர்ப்பு கலவையான குர்குமின் உள்ளது"
+        ),
+        createTranslatedContent(
+          "May help improve symptoms of arthritis and joint pain",
+          "आर्थराइटिस और जोड़ों के दर्द के लक्षणों को बेहतर बनाने में मदद कर सकता है",
+          "மூட்டு வாதம் மற்றும் மூட்டு வலி அறிகுறிகளை மேம்படுத்த உதவலாம்"
+        ),
+        createTranslatedContent(
+          "Boosts brain health by increasing BDNF, which promotes neuron growth",
+          "BDNF को बढ़ाकर मस्तिष्क के स्वास्थ्य को बढ़ावा देता है, जो न्यूरॉन के विकास को बढ़ावा देता है",
+          "நியூரான் வளர்ச்சியை ஊக்குவிக்கும் BDNF ஐ அதிகரிப்பதன் மூலம் மூளை ஆரோக்கியத்தை மேம்படுத்துகிறது"
+        )
+      ],
+      recommendedIntake: createTranslatedContent(
+        "500-2,000 mg of turmeric per day, or 100-500 mg of curcumin. Best absorbed when consumed with black pepper.",
+        "प्रतिदिन 500-2,000 मिलीग्राम हल्दी, या 100-500 मिलीग्राम करक्यूमिन। काली मिर्च के साथ खाने पर सबसे अच्छा अवशोषित होता है।",
+        "ஒரு நாளைக்கு 500-2,000 மி.கி மஞ்சள் அல்லது 100-500 மி.கி குர்குமின். கருப்பு மிளகுடன் சேர்த்து உட்கொள்ளும்போது சிறப்பாக உறிஞ்சப்படுகிறது."
+      ),
       allergens: [],
       isPopular: true
     },
@@ -660,15 +732,40 @@ export const generateFoodItems = (): FoodItemClient[] => {
       origin: "North Atlantic Ocean",
       price: 12.99,
       image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&q=80",
-      category: ["seafood", "protein"],
+      category: ["seafood", "protein", "non_vegetarian"],
       nutrition: {
         calories: 208,
         carbs: 0,
         protein: 20.4,
         fat: 13.4,
         fiber: 0,
-        vitamins: { "B12": "106%", "D": "66%" }
+        vitamins: { "B12": "106%", "D": "66%", "B6": "38%", "Niacin": "50%" },
+        minerals: { "Selenium": "53%", "Phosphorus": "21%", "Potassium": "8%" },
+        omega3: 2.6,
+        omega6: 0.1
       },
+      healthBenefits: [
+        createTranslatedContent(
+          "Rich in long-chain omega-3 fatty acids EPA and DHA that support heart and brain health",
+          "दिल और दिमाग के स्वास्थ्य का समर्थन करने वाले लंबी श्रृंखला वाले ओमेगा-3 फैटी एसिड EPA और DHA से भरपूर",
+          "இதயம் மற்றும் மூளை ஆரோக்கியத்தை ஆதரிக்கும் நீண்ட சங்கிலி ஒமேகா-3 கொழுப்பு அமிலங்கள் EPA மற்றும் DHA நிறைந்தது"
+        ),
+        createTranslatedContent(
+          "High-quality protein source containing all essential amino acids",
+          "सभी आवश्यक अमीनो एसिड वाला उच्च गुणवत्ता वाला प्रोटीन स्रोत",
+          "அனைத்து அத்தியாவசிய அமினோ அமிலங்களையும் கொண்ட உயர்தர புரத ஆதாரம்"
+        ),
+        createTranslatedContent(
+          "Contains astaxanthin, a powerful antioxidant that may reduce inflammation",
+          "एस्टाक्सैन्थिन युक्त है, एक शक्तिशाली एंटीऑक्सिडेंट जो सूजन को कम कर सकता है",
+          "அழற்சியைக் குறைக்கக்கூடிய சக்திவாய்ந்த ஆக்ஸிஜனேற்ற எதிர்ப்பியான அஸ்டாக்சாந்தினைக் கொண்டுள்ளது"
+        )
+      ],
+      recommendedIntake: createTranslatedContent(
+        "The American Heart Association recommends eating 2 servings of fatty fish like salmon per week",
+        "अमेरिकन हार्ट एसोसिएशन हर सप्ताह सैल्मन जैसी वसायुक्त मछली के 2 परोसने खाने की सिफारिश करता है",
+        "அமெரிக்க இதய சங்கம் வாரத்திற்கு 2 பரிமாறல்கள் சாமன் போன்ற கொழுப்பு மீன் சாப்பிட பரிந்துரைக்கிறது"
+      ),
       allergens: ["fish"],
       isPopular: true
     },
