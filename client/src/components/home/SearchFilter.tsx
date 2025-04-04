@@ -60,6 +60,30 @@ export function SearchFilter({ onSearch }: SearchFilterProps) {
             {getLocalizedText('filter.vegetables')}
           </FilterButton>
           <FilterButton 
+            active={category === 'meat'} 
+            onClick={() => handleFilterClick('meat')}
+          >
+            {getLocalizedText('filter.meat') || 'Meat'}
+          </FilterButton>
+          <FilterButton 
+            active={category === 'seafood'} 
+            onClick={() => handleFilterClick('seafood')}
+          >
+            {getLocalizedText('filter.seafood') || 'Seafood'}
+          </FilterButton>
+          <FilterButton 
+            active={category === 'poultry'} 
+            onClick={() => handleFilterClick('poultry')}
+          >
+            {getLocalizedText('filter.poultry') || 'Poultry'}
+          </FilterButton>
+          <FilterButton 
+            active={category === 'non_vegetarian'} 
+            onClick={() => handleFilterClick('non_vegetarian')}
+          >
+            {getLocalizedText('filter.non_vegetarian') || 'Non-Vegetarian'}
+          </FilterButton>
+          <FilterButton 
             active={category === 'indian'} 
             onClick={() => handleFilterClick('indian')}
           >

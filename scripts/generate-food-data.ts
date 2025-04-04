@@ -45,6 +45,26 @@ const foodImageUrls = {
     "https://images.unsplash.com/photo-1615937657715-bc7b4b7962c1?auto=format&fit=crop&q=80",
     "https://images.unsplash.com/photo-1617692855027-33b14f061079?auto=format&fit=crop&q=80",
   ],
+  meat: [
+    "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1602470520998-f4a52199a3d6?auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1560781290-7dc94c0f8f4f?auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1615937691194-97dbd3f3dc29?auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1529694157872-4e0c0f3b238b?auto=format&fit=crop&q=80",
+  ],
+  seafood: [
+    "https://images.unsplash.com/photo-1579684947550-22e945225d9a?auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1559737558-2f5a35f4523b?auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1498654896293-37aacf113fd9?auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1510130387422-82bed34b37e9?auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1599488394566-856f668835fc?auto=format&fit=crop&q=80",
+  ],
+  poultry: [
+    "https://images.unsplash.com/photo-1587593810167-a84920ea0781?auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1501200291289-c5a76c232e5f?auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1518492104633-130d0cc84637?auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1583033363768-f623d619ac1a?auto=format&fit=crop&q=80",
+  ],
 };
 
 // Function to get a random image for a category
@@ -747,7 +767,364 @@ export const generateFoodItems = (): FoodItemClient[] => {
   ];
 
   // Generate a large dataset by multiplying existing items
-  const baseItems = [...fruits, ...vegetables, ...spices, ...grains, ...dairy, ...proteins];
+  // Meat data from around the world
+  const meats = [
+    {
+      id: "beef_steak",
+      name: createTranslatedContent("Beef Steak", "बीफ स्टेक", "மாட்டிறைச்சி ஸ்டேக்"),
+      description: createTranslatedContent(
+        "Premium cut of beef, rich in protein and flavor",
+        "बीफ का प्रीमियम कट, प्रोटीन और स्वाद से भरपूर",
+        "மாட்டிறைச்சியின் பிரீமியம் கட், புரதம் மற்றும் சுவையில் வளமானது"
+      ),
+      origin: "Global",
+      price: 12.99,
+      image: "https://images.unsplash.com/photo-1594041680711-594a305999de?auto=format&fit=crop&q=80",
+      category: ["meat", "protein", "non_vegetarian"],
+      nutrition: {
+        calories: 277,
+        carbs: 0,
+        protein: 26,
+        fat: 19,
+        fiber: 0,
+        vitamins: { "B12": "70%", "Zinc": "42%", "Iron": "15%" }
+      },
+      allergens: [],
+      isPopular: true
+    },
+    {
+      id: "lamb_chops",
+      name: createTranslatedContent("Lamb Chops", "लैम्ब चॉप्स", "ஆட்டிறைச்சி சாப்ஸ்"),
+      description: createTranslatedContent(
+        "Tender cuts of lamb meat, often prepared with herbs and spices",
+        "मेमने के नरम कट, अक्सर जड़ी-बूटियों और मसालों के साथ तैयार किए जाते हैं",
+        "ஆட்டிறைச்சியின் மென்மையான துண்டுகள், பெரும்பாலும் மூலிகைகள் மற்றும் மசாலாக்களுடன் தயாரிக்கப்படுகிறது"
+      ),
+      origin: "Middle East, Mediterranean",
+      price: 14.99,
+      image: "https://images.unsplash.com/photo-1619022706178-dc4f0ba3ed65?auto=format&fit=crop&q=80",
+      category: ["meat", "protein", "non_vegetarian", "middle_eastern"],
+      nutrition: {
+        calories: 310,
+        carbs: 0,
+        protein: 22,
+        fat: 24,
+        fiber: 0,
+        vitamins: { "B12": "50%", "Zinc": "30%", "Iron": "12%" }
+      },
+      allergens: [],
+      isPopular: false
+    },
+    {
+      id: "pork_belly",
+      name: createTranslatedContent("Pork Belly", "सूअर का पेट", "பன்றி வயிறு"),
+      description: createTranslatedContent(
+        "Fatty cut of pork used in various cuisines for its rich flavor",
+        "अपने समृद्ध स्वाद के लिए विभिन्न व्यंजनों में उपयोग किया जाने वाला सूअर का वसायुक्त कट",
+        "அதன் வளமான சுவைக்காக பல்வேறு உணவு வகைகளில் பயன்படுத்தப்படும் பன்றியின் கொழுப்பு துண்டு"
+      ),
+      origin: "East Asia, Europe",
+      price: 9.99,
+      image: "https://images.unsplash.com/photo-1624538008140-5c1c91bfac2e?auto=format&fit=crop&q=80",
+      category: ["meat", "protein", "non_vegetarian", "asian", "european"],
+      nutrition: {
+        calories: 520,
+        carbs: 0,
+        protein: 9,
+        fat: 53,
+        fiber: 0,
+        vitamins: { "B1": "60%", "B12": "15%", "Selenium": "27%" }
+      },
+      allergens: [],
+      isPopular: true
+    },
+    {
+      id: "venison",
+      name: createTranslatedContent("Venison", "हिरण का मांस", "மான் இறைச்சி"),
+      description: createTranslatedContent(
+        "Lean game meat with a rich, earthy flavor",
+        "समृद्ध, मिट्टी के स्वाद वाला दुबला शिकार का मांस",
+        "வளமான, மண் போன்ற சுவையுடன் கூடிய மெலிந்த விளையாட்டு இறைச்சி"
+      ),
+      origin: "North America, Europe",
+      price: 16.99,
+      image: "https://images.unsplash.com/photo-1574484284002-952d92456975?auto=format&fit=crop&q=80",
+      category: ["meat", "protein", "non_vegetarian", "game"],
+      nutrition: {
+        calories: 175,
+        carbs: 0,
+        protein: 34,
+        fat: 3.5,
+        fiber: 0,
+        vitamins: { "B12": "33%", "Iron": "37%", "Zinc": "28%" }
+      },
+      allergens: [],
+      isPopular: false
+    },
+    {
+      id: "wagyu_beef",
+      name: createTranslatedContent("Wagyu Beef", "वाग्यू बीफ", "வாக்யு மாட்டிறைச்சி"),
+      description: createTranslatedContent(
+        "Premium Japanese beef known for its intense marbling and tenderness",
+        "तीव्र मार्बलिंग और कोमलता के लिए जाना जाने वाला प्रीमियम जापानी बीफ",
+        "அதன் தீவிர மார்பிளிங் மற்றும் மென்மைக்கு பெயர் பெற்ற பிரீமியம் ஜப்பானிய மாட்டிறைச்சி"
+      ),
+      origin: "Japan",
+      price: 45.99,
+      image: "https://images.unsplash.com/photo-1607116667981-ff437035388c?auto=format&fit=crop&q=80",
+      category: ["meat", "protein", "non_vegetarian", "japanese", "premium"],
+      nutrition: {
+        calories: 310,
+        carbs: 0,
+        protein: 22,
+        fat: 25,
+        fiber: 0,
+        vitamins: { "B12": "65%", "Zinc": "35%", "Iron": "20%" }
+      },
+      allergens: [],
+      isPopular: true
+    }
+  ];
+
+  // Seafood data from around the world
+  const seafood = [
+    {
+      id: "atlantic_salmon",
+      name: createTranslatedContent("Atlantic Salmon", "अटलांटिक सामन", "அட்லாண்டிக் சாமன்"),
+      description: createTranslatedContent(
+        "Rich, oily fish packed with omega-3 fatty acids",
+        "ओमेगा-3 फैटी एसिड से भरपूर समृद्ध, तैलीय मछली",
+        "ஒமேகா-3 கொழுப்பு அமிலங்கள் நிறைந்த வளமான, எண்ணெய்ப்பசை மீன்"
+      ),
+      origin: "North Atlantic Ocean",
+      price: 12.99,
+      image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&q=80",
+      category: ["seafood", "protein", "non_vegetarian", "fish"],
+      nutrition: {
+        calories: 208,
+        carbs: 0,
+        protein: 22,
+        fat: 13,
+        fiber: 0,
+        vitamins: { "B12": "106%", "D": "66%", "B6": "38%" }
+      },
+      allergens: ["fish"],
+      isPopular: true
+    },
+    {
+      id: "tiger_prawns",
+      name: createTranslatedContent("Tiger Prawns", "टाइगर प्रॉन", "டைகர் இறால்"),
+      description: createTranslatedContent(
+        "Large, flavorful shrimp with distinctive striped shells",
+        "विशिष्ट धारीदार खोल के साथ बड़े, स्वादिष्ट झींगे",
+        "தனித்துவமான கோடுகளுடன் கூடிய பெரிய, சுவையான இறால்"
+      ),
+      origin: "Indo-Pacific Ocean",
+      price: 18.99,
+      image: "https://images.unsplash.com/photo-1565680018485-43c7688faf7e?auto=format&fit=crop&q=80",
+      category: ["seafood", "protein", "non_vegetarian", "shellfish", "asian"],
+      nutrition: {
+        calories: 120,
+        carbs: 0,
+        protein: 24,
+        fat: 2,
+        fiber: 0,
+        vitamins: { "B12": "80%", "Selenium": "78%", "Copper": "30%" }
+      },
+      allergens: ["shellfish"],
+      isPopular: true
+    },
+    {
+      id: "octopus",
+      name: createTranslatedContent("Octopus", "ऑक्टोपस", "ஆக்டோபஸ்"),
+      description: createTranslatedContent(
+        "Tender seafood popular in Mediterranean and Asian cuisines",
+        "भूमध्य और एशियाई व्यंजनों में लोकप्रिय कोमल समुद्री भोजन",
+        "மெடிட்டரேனியன் மற்றும் ஆசிய உணவுகளில் பிரபலமான மென்மையான கடல் உணவு"
+      ),
+      origin: "Mediterranean, Pacific Ocean",
+      price: 16.99,
+      image: "https://images.unsplash.com/photo-1565722625536-55bdb21c969a?auto=format&fit=crop&q=80",
+      category: ["seafood", "protein", "non_vegetarian", "mediterranean", "asian"],
+      nutrition: {
+        calories: 140,
+        carbs: 4,
+        protein: 25,
+        fat: 2,
+        fiber: 0,
+        vitamins: { "B12": "360%", "Iron": "45%", "Copper": "168%" }
+      },
+      allergens: ["mollusk"],
+      isPopular: false
+    },
+    {
+      id: "snow_crab",
+      name: createTranslatedContent("Snow Crab", "स्नो क्रैब", "ஸ்னோ நண்டு"),
+      description: createTranslatedContent(
+        "Sweet, delicate crab meat from cold northern waters",
+        "ठंडे उत्तरी पानी से मीठा, नाजुक केकड़ा मांस",
+        "குளிர்ந்த வடக்கு நீரில் இருந்து இனிப்பு, நாசுக்கான நண்டு இறைச்சி"
+      ),
+      origin: "North Atlantic, North Pacific",
+      price: 22.99,
+      image: "https://images.unsplash.com/photo-1559737558-2f5a35f4523b?auto=format&fit=crop&q=80",
+      category: ["seafood", "protein", "non_vegetarian", "shellfish", "premium"],
+      nutrition: {
+        calories: 120,
+        carbs: 0,
+        protein: 26,
+        fat: 1.5,
+        fiber: 0,
+        vitamins: { "B12": "233%", "Zinc": "40%", "Copper": "68%" }
+      },
+      allergens: ["shellfish"],
+      isPopular: true
+    },
+    {
+      id: "tuna_sashimi",
+      name: createTranslatedContent("Tuna Sashimi", "टूना सशिमी", "டுனா சாஷிமி"),
+      description: createTranslatedContent(
+        "Raw, high-grade tuna slices popular in Japanese cuisine",
+        "जापानी व्यंजनों में लोकप्रिय कच्चे, उच्च-ग्रेड टूना के टुकड़े",
+        "ஜப்பானிய உணவில் பிரபலமான, உயர்தர கச்சா டுனா துண்டுகள்"
+      ),
+      origin: "Japan",
+      price: 24.99,
+      image: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&q=80",
+      category: ["seafood", "protein", "non_vegetarian", "japanese", "raw", "premium"],
+      nutrition: {
+        calories: 180,
+        carbs: 0,
+        protein: 39,
+        fat: 1,
+        fiber: 0,
+        vitamins: { "B12": "120%", "Selenium": "167%", "B6": "53%" }
+      },
+      allergens: ["fish"],
+      isPopular: true
+    }
+  ];
+
+  // Poultry data from around the world
+  const poultry = [
+    {
+      id: "chicken_breast",
+      name: createTranslatedContent("Chicken Breast", "चिकन ब्रेस्ट", "கோழி மார்பு"),
+      description: createTranslatedContent(
+        "Lean, versatile cut of chicken, high in protein and low in fat",
+        "दुबला, बहुमुखी चिकन कट, प्रोटीन में उच्च और वसा में कम",
+        "மெலிந்த, பன்முக பயன்பாட்டு கோழி துண்டு, அதிக புரதம் மற்றும் குறைந்த கொழுப்பு"
+      ),
+      origin: "Global",
+      price: 5.99,
+      image: "https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&q=80",
+      category: ["poultry", "protein", "non_vegetarian"],
+      nutrition: {
+        calories: 165,
+        carbs: 0,
+        protein: 31,
+        fat: 3.6,
+        fiber: 0,
+        vitamins: { "B6": "30%", "B3": "70%", "Phosphorus": "20%" }
+      },
+      allergens: [],
+      isPopular: true
+    },
+    {
+      id: "duck_breast",
+      name: createTranslatedContent("Duck Breast", "बत्तख का सीना", "வாத்து மார்பு"),
+      description: createTranslatedContent(
+        "Rich, flavorful poultry with a crispy skin when cooked properly",
+        "सही से पकाए जाने पर कुरकुरी त्वचा के साथ समृद्ध, स्वादिष्ट पोल्ट्री",
+        "சரியாக சமைக்கப்படும்போது கிரிஸ்பி தோலுடன் வளமான, சுவையான கோழி வகை"
+      ),
+      origin: "France, China",
+      price: 12.99,
+      image: "https://images.unsplash.com/photo-1619301679082-fbb1dd0adb93?auto=format&fit=crop&q=80",
+      category: ["poultry", "protein", "non_vegetarian", "french", "chinese"],
+      nutrition: {
+        calories: 250,
+        carbs: 0,
+        protein: 19,
+        fat: 19,
+        fiber: 0,
+        vitamins: { "B12": "28%", "Iron": "25%", "Selenium": "33%" }
+      },
+      allergens: [],
+      isPopular: false
+    },
+    {
+      id: "turkey_leg",
+      name: createTranslatedContent("Turkey Leg", "टर्की लेग", "வான்கோழி கால்"),
+      description: createTranslatedContent(
+        "Flavorful dark meat from turkey, often slow-cooked for tenderness",
+        "टर्की से स्वादिष्ट डार्क मीट, अक्सर कोमलता के लिए धीमी आंच पर पकाया जाता है",
+        "வான்கோழியின் சுவையான கருப்பு இறைச்சி, பெரும்பாலும் மென்மைக்காக மெதுவாக சமைக்கப்படுகிறது"
+      ),
+      origin: "North America",
+      price: 4.99,
+      image: "https://images.unsplash.com/photo-1606502973842-f64bc2785fe5?auto=format&fit=crop&q=80",
+      category: ["poultry", "protein", "non_vegetarian", "american"],
+      nutrition: {
+        calories: 210,
+        carbs: 0,
+        protein: 28,
+        fat: 10,
+        fiber: 0,
+        vitamins: { "B6": "35%", "B12": "15%", "Zinc": "20%" }
+      },
+      allergens: [],
+      isPopular: true
+    },
+    {
+      id: "quail",
+      name: createTranslatedContent("Quail", "बटेर", "காடை"),
+      description: createTranslatedContent(
+        "Small game bird with delicate, flavorful meat",
+        "नाजुक, स्वादिष्ट मांस वाला छोटा शिकार पक्षी",
+        "நாசுக்கான, சுவையான இறைச்சி கொண்ட சிறிய விளையாட்டு பறவை"
+      ),
+      origin: "Europe, Asia",
+      price: 9.99,
+      image: "https://images.unsplash.com/photo-1592153964820-a029c80a8191?auto=format&fit=crop&q=80",
+      category: ["poultry", "protein", "non_vegetarian", "game", "premium"],
+      nutrition: {
+        calories: 180,
+        carbs: 0,
+        protein: 25,
+        fat: 8,
+        fiber: 0,
+        vitamins: { "Iron": "30%", "B12": "25%", "Phosphorus": "22%" }
+      },
+      allergens: [],
+      isPopular: false
+    },
+    {
+      id: "tandoori_chicken",
+      name: createTranslatedContent("Tandoori Chicken", "तंदूरी चिकन", "தந்தூரி கோழி"),
+      description: createTranslatedContent(
+        "Indian specialty of chicken marinated in yogurt and spices, cooked in a clay oven",
+        "दही और मसालों में मैरिनेटेड चिकन का भारतीय विशेष व्यंजन, मिट्टी के तंदूर में पकाया जाता है",
+        "தயிர் மற்றும் மசாலாக்களில் ஊறவைக்கப்பட்ட கோழி, களிமண் அடுப்பில் சமைக்கப்பட்ட இந்திய சிறப்பு உணவு"
+      ),
+      origin: "India",
+      price: 8.99,
+      image: "https://images.unsplash.com/photo-1610057099431-d73a1c9d2f2f?auto=format&fit=crop&q=80",
+      category: ["poultry", "protein", "non_vegetarian", "indian", "spicy"],
+      nutrition: {
+        calories: 210,
+        carbs: 2,
+        protein: 32,
+        fat: 8,
+        fiber: 0,
+        vitamins: { "B6": "28%", "B3": "65%", "B12": "12%" }
+      },
+      allergens: ["dairy"],
+      isPopular: true
+    }
+  ];
+
+  const baseItems = [...fruits, ...vegetables, ...spices, ...grains, ...dairy, ...proteins, ...meats, ...seafood, ...poultry];
   
   // Function to create variations of food items
   const createVariations = (item: FoodItemClient, count: number): FoodItemClient[] => {

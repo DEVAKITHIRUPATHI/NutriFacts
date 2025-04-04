@@ -67,6 +67,26 @@ export function useTranslation() {
         hi: 'वैश्विक',
         ta: 'உலகளாவிய'
       },
+      'filter.meat': {
+        en: 'Meat',
+        hi: 'मांस',
+        ta: 'இறைச்சி'
+      },
+      'filter.seafood': {
+        en: 'Seafood',
+        hi: 'समुद्री भोजन',
+        ta: 'கடல் உணவு'
+      },
+      'filter.poultry': {
+        en: 'Poultry',
+        hi: 'पोल्ट्री',
+        ta: 'கோழி வகைகள்'
+      },
+      'filter.non_vegetarian': {
+        en: 'Non-Vegetarian',
+        hi: 'मांसाहारी',
+        ta: 'அசைவம்'
+      },
       'popular.foods': {
         en: 'Popular Foods',
         hi: 'लोकप्रिय खाद्य पदार्थ',
