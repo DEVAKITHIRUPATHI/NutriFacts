@@ -107,7 +107,16 @@ export type FoodItemClient = {
     fat: number;
     fiber: number;
     vitamins: Record<string, string>;
+    minerals?: Record<string, string>;
+    omega3?: number;
+    omega6?: number;
+    omega9?: number;
+    collagen?: number;
+    antioxidants?: Record<string, string>;
+    probiotics?: Record<string, string>;
   };
+  healthBenefits?: TranslatedContent[];
+  recommendedIntake?: TranslatedContent;
   allergens: string[];
   isPopular: boolean;
 };

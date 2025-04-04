@@ -346,6 +346,131 @@ export function useTranslation() {
         en: 'Popular',
         hi: 'लोकप्रिय',
         ta: 'பிரபலமானது'
+      },
+      'nutrition.essentialNutrients': {
+        en: 'Essential Nutrients',
+        hi: 'आवश्यक पोषक तत्व',
+        ta: 'அத்தியாவசிய ஊட்டச்சத்துக்கள்'
+      },
+      'nutrition.omega3': {
+        en: 'Omega-3',
+        hi: 'ओमेगा-3',
+        ta: 'ஒமேகா-3'
+      },
+      'nutrition.omega6': {
+        en: 'Omega-6',
+        hi: 'ओमेगा-6',
+        ta: 'ஒமேகா-6'
+      },
+      'nutrition.omega9': {
+        en: 'Omega-9',
+        hi: 'ओमेगा-9',
+        ta: 'ஒமேகா-9'
+      },
+      'nutrition.collagen': {
+        en: 'Collagen',
+        hi: 'कोलेजन',
+        ta: 'கொலாஜன்'
+      },
+      'nutrition.antioxidants': {
+        en: 'Antioxidants',
+        hi: 'एंटीऑक्सीडेंट',
+        ta: 'ஆக்ஸிஜனேற்ற எதிர்ப்பிகள்'
+      },
+      'nutrition.minerals': {
+        en: 'Minerals',
+        hi: 'खनिज',
+        ta: 'தாதுக்கள்'
+      },
+      'nutrition.probiotics': {
+        en: 'Probiotics',
+        hi: 'प्रोबायोटिक्स',
+        ta: 'புரோபயாடிக்ஸ்'
+      },
+      'food.healthBenefits': {
+        en: 'Health Benefits',
+        hi: 'स्वास्थ्य लाभ',
+        ta: 'ஆரோக்கிய நன்மைகள்'
+      },
+      'food.recommendedIntake': {
+        en: 'Recommended Intake',
+        hi: 'अनुशंसित सेवन',
+        ta: 'பரிந்துரைக்கப்பட்ட உட்கொள்ளல்'
+      },
+      'vitamin.a.benefit': {
+        en: 'Essential for vision and immune function',
+        hi: 'दृष्टि और प्रतिरक्षा प्रणाली के लिए आवश्यक',
+        ta: 'பார்வை மற்றும் நோய் எதிர்ப்பு செயல்பாட்டிற்கு அவசியம்'
+      },
+      'vitamin.c.benefit': {
+        en: 'Boosts immunity and collagen production',
+        hi: 'प्रतिरक्षा और कोलेजन उत्पादन को बढ़ावा देता है',
+        ta: 'நோய் எதிர்ப்பு சக்தி மற்றும் கொலாஜன் உற்பத்தியை அதிகரிக்கிறது'
+      },
+      'vitamin.d.benefit': {
+        en: 'Essential for bone health and immune function',
+        hi: 'हड्डी के स्वास्थ्य और प्रतिरक्षा प्रणाली के लिए आवश्यक',
+        ta: 'எலும்பு ஆரோக்கியம் மற்றும் நோய் எதிர்ப்பு செயல்பாட்டிற்கு அவசியம்'
+      },
+      'vitamin.e.benefit': {
+        en: 'Powerful antioxidant protecting cells',
+        hi: 'कोशिकाओं की रक्षा करने वाला शक्तिशाली एंटीऑक्सीडेंट',
+        ta: 'செல்களைப் பாதுகாக்கும் சக்திவாய்ந்த ஆக்ஸிஜனேற்ற எதிர்ப்பி'
+      },
+      'vitamin.k.benefit': {
+        en: 'Essential for blood clotting and bone health',
+        hi: 'रक्त का थक्का जमने और हड्डी के स्वास्थ्य के लिए आवश्यक',
+        ta: 'இரத்தம் உறைதல் மற்றும் எலும்பு ஆரோக்கியத்திற்கு அவசியம்'
+      },
+      'vitamin.b6.benefit': {
+        en: 'Important for brain development and function',
+        hi: 'मस्तिष्क के विकास और कार्य के लिए महत्वपूर्ण',
+        ta: 'மூளை வளர்ச்சி மற்றும் செயல்பாட்டிற்கு முக்கியமானது'
+      },
+      'vitamin.b12.benefit': {
+        en: 'Essential for nerve function and red blood cell formation',
+        hi: 'तंत्रिका कार्य और लाल रक्त कोशिकाओं के निर्माण के लिए आवश्यक',
+        ta: 'நரம்பு செயல்பாடு மற்றும் சிவப்பு இரத்த அணுக்கள் உருவாக்கத்திற்கு அவசியம்'
+      },
+      'mineral.iron.benefit': {
+        en: 'Essential for oxygen transport in the blood',
+        hi: 'रक्त में ऑक्सीजन परिवहन के लिए आवश्यक',
+        ta: 'இரத்தத்தில் ஆக்ஸிஜன் போக்குவரத்துக்கு அவசியம்'
+      },
+      'mineral.calcium.benefit': {
+        en: 'Essential for bone and teeth health',
+        hi: 'हड्डी और दांतों के स्वास्थ्य के लिए आवश्यक',
+        ta: 'எலும்பு மற்றும் பற்கள் ஆரோக்கியத்திற்கு அவசியம்'
+      },
+      'mineral.zinc.benefit': {
+        en: 'Supports immune function and wound healing',
+        hi: 'प्रतिरक्षा प्रणाली और घाव भरने में सहायता करता है',
+        ta: 'நோய் எதிர்ப்பு செயல்பாடு மற்றும் காயம் ஆறுவதை ஆதரிக்கிறது'
+      },
+      'mineral.magnesium.benefit': {
+        en: 'Essential for muscle and nerve function',
+        hi: 'मांसपेशियों और तंत्रिका कार्य के लिए आवश्यक',
+        ta: 'தசை மற்றும் நரம்பு செயல்பாட்டிற்கு அவசியம்'
+      },
+      'antioxidant.lycopene.benefit': {
+        en: 'Powerful antioxidant with heart health benefits',
+        hi: 'हृदय स्वास्थ्य लाभों के साथ शक्तिशाली एंटीऑक्सीडेंट',
+        ta: 'இதய ஆரோக்கிய நன்மைகளுடன் சக்திவாய்ந்த ஆக்ஸிஜனேற்ற எதிர்ப்பி'
+      },
+      'antioxidant.lutein.benefit': {
+        en: 'Supports eye health and vision',
+        hi: 'आंखों के स्वास्थ्य और दृष्टि का समर्थन करता है',
+        ta: 'கண் ஆரோக்கியம் மற்றும் பார்வையை ஆதரிக்கிறது'
+      },
+      'omega.benefit': {
+        en: 'Essential fatty acids supporting heart and brain health',
+        hi: 'हृदय और मस्तिष्क के स्वास्थ्य का समर्थन करने वाले आवश्यक वसा अम्ल',
+        ta: 'இதயம் மற்றும் மூளை ஆரோக்கியத்தை ஆதரிக்கும் அத்தியாவசிய கொழுப்பு அமிலங்கள்'
+      },
+      'collagen.benefit': {
+        en: 'Supports skin, joint, and bone health',
+        hi: 'त्वचा, जोड़ों और हड्डियों के स्वास्थ्य का समर्थन करता है',
+        ta: 'தோல், மூட்டு மற்றும் எலும்பு ஆரோக்கியத்தை ஆதரிக்கிறது'
       }
     };
 

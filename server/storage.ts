@@ -163,7 +163,26 @@ export class DatabaseStorage implements IStorage {
         fat: (item.fat || 0) / 10,
         fiber: (item.fiber || 0) / 10,
         vitamins: (item.vitamins as Record<string, string>) || {},
+        // Enhanced nutritional information
+        minerals: (item.minerals as Record<string, string>) || undefined,
+        omega3: item.omega3 || undefined,
+        omega6: item.omega6 || undefined,
+        omega9: item.omega9 || undefined,
+        collagen: item.collagen || undefined,
+        antioxidants: (item.antioxidants as Record<string, string>) || undefined,
+        probiotics: (item.probiotics as Record<string, string>) || undefined
       },
+      // Additional health information
+      healthBenefits: item.healthBenefits ? {
+        en: item.healthBenefitsEn || '',
+        hi: item.healthBenefitsHi || '',
+        ta: item.healthBenefitsTa || ''
+      } : undefined,
+      recommendedIntake: item.recommendedIntake ? {
+        en: item.recommendedIntakeEn || '',
+        hi: item.recommendedIntakeHi || '',
+        ta: item.recommendedIntakeTa || ''
+      } : undefined,
       allergens: item.allergens || [],
       isPopular: Boolean(item.isPopular || item.is_popular)
     };

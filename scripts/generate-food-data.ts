@@ -879,8 +879,34 @@ export const generateFoodItems = (): FoodItemClient[] => {
         protein: 22,
         fat: 25,
         fiber: 0,
-        vitamins: { "B12": "65%", "Zinc": "35%", "Iron": "20%" }
+        vitamins: { "B12": "65%", "Zinc": "35%", "Iron": "20%" },
+        minerals: { "Phosphorus": "22%", "Selenium": "35%", "Potassium": "8%" },
+        omega3: 0.1,
+        omega6: 0.4,
+        collagen: 2.8
       },
+      healthBenefits: [
+        createTranslatedContent(
+          "Rich source of high-quality protein for muscle growth and repair",
+          "मांसपेशियों के विकास और मरम्मत के लिए उच्च गुणवत्ता वाले प्रोटीन का समृद्ध स्रोत",
+          "தசை வளர்ச்சி மற்றும் மறுசீரமைப்புக்கான உயர்தர புரதத்தின் வளமான ஆதாரம்"
+        ),
+        createTranslatedContent(
+          "Contains conjugated linoleic acid (CLA) which may have anti-cancer properties",
+          "इसमें कॉन्जुगेटेड लिनोलिक एसिड (CLA) होता है जिसमें कैंसर-रोधी गुण हो सकते हैं",
+          "புற்றுநோய் எதிர்ப்பு பண்புகளைக் கொண்டிருக்கக்கூடிய இணைந்த லினோலிக் அமிலம் (CLA) உள்ளது"
+        ),
+        createTranslatedContent(
+          "High in B vitamins that support energy production and brain function",
+          "बी विटामिन में उच्च जो ऊर्जा उत्पादन और मस्तिष्क के कार्य का समर्थन करता है",
+          "ஆற்றல் உற்பத்தி மற்றும் மூளைச் செயல்பாட்டை ஆதரிக்கும் பி வைட்டமின்கள் அதிகம் உள்ளது"
+        )
+      ],
+      recommendedIntake: createTranslatedContent(
+        "The American Heart Association recommends limiting red meat to 1-2 servings per week of 3 oz (85g) portions",
+        "अमेरिकन हार्ट एसोसिएशन 3 औंस (85 ग्राम) हिस्सों के प्रति सप्ताह 1-2 सर्विंग्स तक रेड मीट को सीमित करने की सलाह देता है",
+        "அமெரிக்க இதய சங்கம் 3 அவுன்ஸ் (85கி) அளவுகளில் வாரத்திற்கு 1-2 பரிமாறல்களுக்கு சிவப்பு இறைச்சியை வரம்புக்குட்படுத்த பரிந்துரைக்கிறது"
+      ),
       allergens: [],
       isPopular: true
     }
@@ -906,8 +932,34 @@ export const generateFoodItems = (): FoodItemClient[] => {
         protein: 22,
         fat: 13,
         fiber: 0,
-        vitamins: { "B12": "106%", "D": "66%", "B6": "38%" }
+        vitamins: { "B12": "106%", "D": "66%", "B6": "38%" },
+        minerals: { "Selenium": "57%", "Phosphorus": "28%", "Potassium": "18%" },
+        omega3: 2.6,
+        omega6: 0.2,
+        antioxidants: { "Astaxanthin": "high" }
       },
+      healthBenefits: [
+        createTranslatedContent(
+          "Supports heart health by lowering triglycerides and reducing inflammation",
+          "ट्राइग्लिसराइड्स को कम करके और सूजन को कम करके हृदय स्वास्थ्य का समर्थन करता है",
+          "டிரைகிளிசரைடுகளைக் குறைப்பதன் மூலமும், அழற்சியைக் குறைப்பதன் மூலமும் இதய ஆரோக்கியத்தை ஆதரிக்கிறது"
+        ),
+        createTranslatedContent(
+          "Promotes brain health and cognitive function throughout life",
+          "जीवन भर मस्तिष्क के स्वास्थ्य और संज्ञानात्मक कार्य को बढ़ावा देता है",
+          "வாழ்க்கை முழுவதும் மூளை ஆரோக்கியத்தையும் அறிவாற்றல் செயல்பாட்டையும் மேம்படுத்துகிறது"
+        ),
+        createTranslatedContent(
+          "May reduce risk factors for several chronic diseases",
+          "कई पुरानी बीमारियों के जोखिम कारकों को कम कर सकता है",
+          "பல நாள்பட்ட நோய்களுக்கான ஆபத்து காரணிகளைக் குறைக்கலாம்"
+        )
+      ],
+      recommendedIntake: createTranslatedContent(
+        "The American Heart Association recommends eating fatty fish like salmon at least twice per week",
+        "अमेरिकन हार्ट एसोसिएशन सप्ताह में कम से कम दो बार सामन जैसी वसायुक्त मछली खाने की सलाह देता है",
+        "அமெரிக்க இதய சங்கம் வாரத்திற்கு குறைந்தது இரண்டு முறையாவது சாமன் போன்ற கொழுப்புள்ள மீன்களை உண்ண பரிந்துரைக்கிறது"
+      ),
       allergens: ["fish"],
       isPopular: true
     },
@@ -1124,13 +1176,50 @@ export const generateFoodItems = (): FoodItemClient[] => {
     }
   ];
 
-  const baseItems = [...fruits, ...vegetables, ...spices, ...grains, ...dairy, ...proteins, ...meats, ...seafood, ...poultry];
+  // Process all items to ensure they match the FoodItemClient type exactly
+  const processItem = (item: any): FoodItemClient => {
+    // Make sure vitamins is a proper Record<string, string>
+    if (item.nutrition && item.nutrition.vitamins) {
+      const vitamins: Record<string, string> = {};
+      Object.entries(item.nutrition.vitamins).forEach(([key, value]) => {
+        if (value !== undefined) {
+          vitamins[key] = value as string;
+        }
+      });
+      item.nutrition.vitamins = vitamins;
+    }
+    
+    return item as FoodItemClient;
+  };
+  
+  const baseItems: FoodItemClient[] = [
+    ...fruits.map(processItem),
+    ...vegetables.map(processItem),
+    ...spices.map(processItem),
+    ...grains.map(processItem),
+    ...dairy.map(processItem),
+    ...proteins.map(processItem),
+    ...meats.map(processItem),
+    ...seafood.map(processItem),
+    ...poultry.map(processItem)
+  ];
   
   // Function to create variations of food items
-  const createVariations = (item: FoodItemClient, count: number): FoodItemClient[] => {
+  const createVariations = (item: any, count: number): FoodItemClient[] => {
     const variations: FoodItemClient[] = [];
     
     for (let i = 1; i <= count; i++) {
+      // Make sure vitamins is a proper Record<string, string>
+      if (item.nutrition && item.nutrition.vitamins) {
+        const vitamins: Record<string, string> = {};
+        Object.entries(item.nutrition.vitamins).forEach(([key, value]) => {
+          if (value !== undefined) {
+            vitamins[key] = value as string;
+          }
+        });
+        item.nutrition.vitamins = vitamins;
+      }
+      
       const variation: FoodItemClient = {
         ...item,
         id: `${item.id}_${i}`,

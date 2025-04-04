@@ -90,117 +90,268 @@ export function FoodDetail({ item, isOpen, onClose }: FoodDetailProps) {
                 <h4 className="font-semibold mb-3">
                   {getLocalizedText('nutrition.facts')}
                 </h4>
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <div className="mb-2">
-                      <span className="text-sm text-gray-500 dark:text-gray-400">
-                        {getLocalizedText('food.calories')}
-                      </span>
-                      <div className="flex justify-between">
-                        <span className="font-mono font-medium text-lg">{item.nutrition.calories}</span>
-                        <span className="text-sm text-gray-500 dark:text-gray-400">kcal</span>
-                      </div>
-                      <div className="w-full bg-gray-200 rounded-full h-1.5 dark:bg-gray-600">
-                        <div 
-                          className="bg-primary-500 h-1.5 rounded-full" 
-                          style={{ width: `${Math.min(item.nutrition.calories / 10, 100)}%` }}
-                        ></div>
-                      </div>
-                    </div>
-                    
-                    <div className="mb-2">
-                      <span className="text-sm text-gray-500 dark:text-gray-400">
-                        {getLocalizedText('food.protein')}
-                      </span>
-                      <div className="flex justify-between">
-                        <span className="font-mono font-medium text-lg">{item.nutrition.protein}g</span>
-                        <span className="text-sm text-gray-500 dark:text-gray-400">
-                          {getLocalizedText('nutrition.per100g')}
-                        </span>
-                      </div>
-                      <div className="w-full bg-gray-200 rounded-full h-1.5 dark:bg-gray-600">
-                        <div 
-                          className="bg-blue-500 h-1.5 rounded-full" 
-                          style={{ width: `${Math.min(item.nutrition.protein * 5, 100)}%` }}
-                        ></div>
-                      </div>
-                    </div>
-                    
-                    <div className="mb-2">
-                      <span className="text-sm text-gray-500 dark:text-gray-400">
-                        {getLocalizedText('food.carbs')}
-                      </span>
-                      <div className="flex justify-between">
-                        <span className="font-mono font-medium text-lg">{item.nutrition.carbs}g</span>
-                        <span className="text-sm text-gray-500 dark:text-gray-400">
-                          {getLocalizedText('nutrition.per100g')}
-                        </span>
-                      </div>
-                      <div className="w-full bg-gray-200 rounded-full h-1.5 dark:bg-gray-600">
-                        <div 
-                          className="bg-orange-500 h-1.5 rounded-full" 
-                          style={{ width: `${Math.min(item.nutrition.carbs * 1.5, 100)}%` }}
-                        ></div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <div className="mb-2">
-                      <span className="text-sm text-gray-500 dark:text-gray-400">
-                        {getLocalizedText('food.fat')}
-                      </span>
-                      <div className="flex justify-between">
-                        <span className="font-mono font-medium text-lg">{item.nutrition.fat}g</span>
-                        <span className="text-sm text-gray-500 dark:text-gray-400">
-                          {getLocalizedText('nutrition.per100g')}
-                        </span>
-                      </div>
-                      <div className="w-full bg-gray-200 rounded-full h-1.5 dark:bg-gray-600">
-                        <div 
-                          className="bg-pink-500 h-1.5 rounded-full" 
-                          style={{ width: `${Math.min(item.nutrition.fat * 3, 100)}%` }}
-                        ></div>
-                      </div>
-                    </div>
-                    
-                    <div className="mb-2">
-                      <span className="text-sm text-gray-500 dark:text-gray-400">
-                        {getLocalizedText('food.fiber')}
-                      </span>
-                      <div className="flex justify-between">
-                        <span className="font-mono font-medium text-lg">{item.nutrition.fiber}g</span>
-                        <span className="text-sm text-gray-500 dark:text-gray-400">
-                          {getLocalizedText('nutrition.per100g')}
-                        </span>
-                      </div>
-                      <div className="w-full bg-gray-200 rounded-full h-1.5 dark:bg-gray-600">
-                        <div 
-                          className="bg-purple-500 h-1.5 rounded-full" 
-                          style={{ width: `${Math.min(item.nutrition.fiber * 8, 100)}%` }}
-                        ></div>
-                      </div>
-                    </div>
-                    
-                    {/* Vitamins */}
+                
+                {/* Macronutrients */}
+                <div className="mb-4">
+                  <h5 className="text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
+                    {getLocalizedText('nutrition.macronutrients')}
+                  </h5>
+                  <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <span className="text-sm text-gray-500 dark:text-gray-400">
-                        {getLocalizedText('nutrition.vitamins')}
-                      </span>
-                      <div className="flex flex-wrap gap-2 mt-1">
-                        {Object.entries(item.nutrition.vitamins).map(([key, value]) => (
-                          <span 
-                            key={key}
-                            className="bg-gray-200 text-gray-800 text-xs px-2 py-1 rounded flex items-center gap-1 dark:bg-gray-600 dark:text-gray-200"
-                          >
-                            <span>{key}</span>
-                            <span>{value}</span>
+                      <div className="mb-2">
+                        <span className="text-sm text-gray-500 dark:text-gray-400">
+                          {getLocalizedText('food.calories')}
+                        </span>
+                        <div className="flex justify-between">
+                          <span className="font-mono font-medium text-lg">{item.nutrition.calories}</span>
+                          <span className="text-sm text-gray-500 dark:text-gray-400">kcal</span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-1.5 dark:bg-gray-600">
+                          <div 
+                            className="bg-primary-500 h-1.5 rounded-full" 
+                            style={{ width: `${Math.min(item.nutrition.calories / 10, 100)}%` }}
+                          ></div>
+                        </div>
+                      </div>
+                      
+                      <div className="mb-2">
+                        <span className="text-sm text-gray-500 dark:text-gray-400">
+                          {getLocalizedText('food.protein')}
+                        </span>
+                        <div className="flex justify-between">
+                          <span className="font-mono font-medium text-lg">{item.nutrition.protein}g</span>
+                          <span className="text-sm text-gray-500 dark:text-gray-400">
+                            {getLocalizedText('nutrition.per100g')}
                           </span>
-                        ))}
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-1.5 dark:bg-gray-600">
+                          <div 
+                            className="bg-blue-500 h-1.5 rounded-full" 
+                            style={{ width: `${Math.min(item.nutrition.protein * 5, 100)}%` }}
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <div className="mb-2">
+                        <span className="text-sm text-gray-500 dark:text-gray-400">
+                          {getLocalizedText('food.carbs')}
+                        </span>
+                        <div className="flex justify-between">
+                          <span className="font-mono font-medium text-lg">{item.nutrition.carbs}g</span>
+                          <span className="text-sm text-gray-500 dark:text-gray-400">
+                            {getLocalizedText('nutrition.per100g')}
+                          </span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-1.5 dark:bg-gray-600">
+                          <div 
+                            className="bg-orange-500 h-1.5 rounded-full" 
+                            style={{ width: `${Math.min(item.nutrition.carbs * 1.5, 100)}%` }}
+                          ></div>
+                        </div>
+                      </div>
+                      
+                      <div className="mb-2">
+                        <span className="text-sm text-gray-500 dark:text-gray-400">
+                          {getLocalizedText('food.fat')}
+                        </span>
+                        <div className="flex justify-between">
+                          <span className="font-mono font-medium text-lg">{item.nutrition.fat}g</span>
+                          <span className="text-sm text-gray-500 dark:text-gray-400">
+                            {getLocalizedText('nutrition.per100g')}
+                          </span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-1.5 dark:bg-gray-600">
+                          <div 
+                            className="bg-pink-500 h-1.5 rounded-full" 
+                            style={{ width: `${Math.min(item.nutrition.fat * 3, 100)}%` }}
+                          ></div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                
+                {/* Essential Nutrients */}
+                <div className="mb-4">
+                  <h5 className="text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
+                    {getLocalizedText('nutrition.essentialNutrients') || 'Essential Nutrients'}
+                  </h5>
+                  
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <div className="mb-2">
+                        <span className="text-sm text-gray-500 dark:text-gray-400">
+                          {getLocalizedText('food.fiber')}
+                        </span>
+                        <div className="flex justify-between">
+                          <span className="font-mono font-medium text-lg">{item.nutrition.fiber}g</span>
+                          <span className="text-sm text-gray-500 dark:text-gray-400">
+                            {getLocalizedText('nutrition.per100g')}
+                          </span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-1.5 dark:bg-gray-600">
+                          <div 
+                            className="bg-purple-500 h-1.5 rounded-full" 
+                            style={{ width: `${Math.min(item.nutrition.fiber * 8, 100)}%` }}
+                          ></div>
+                        </div>
+                      </div>
+                      
+                      {/* Omega-3 */}
+                      {item.nutrition.omega3 !== undefined && (
+                        <div className="mb-2">
+                          <span className="text-sm text-gray-500 dark:text-gray-400">
+                            {getLocalizedText('nutrition.omega3') || 'Omega-3'}
+                          </span>
+                          <div className="flex justify-between">
+                            <span className="font-mono font-medium text-lg">{item.nutrition.omega3}g</span>
+                            <span className="text-sm text-gray-500 dark:text-gray-400">
+                              {getLocalizedText('nutrition.per100g')}
+                            </span>
+                          </div>
+                          <div className="w-full bg-gray-200 rounded-full h-1.5 dark:bg-gray-600">
+                            <div 
+                              className="bg-green-500 h-1.5 rounded-full" 
+                              style={{ width: `${Math.min(item.nutrition.omega3 * 50, 100)}%` }}
+                            ></div>
+                          </div>
+                        </div>
+                      )}
+                      
+                      {/* Omega-6 */}
+                      {item.nutrition.omega6 !== undefined && (
+                        <div className="mb-2">
+                          <span className="text-sm text-gray-500 dark:text-gray-400">
+                            {getLocalizedText('nutrition.omega6') || 'Omega-6'}
+                          </span>
+                          <div className="flex justify-between">
+                            <span className="font-mono font-medium text-lg">{item.nutrition.omega6}g</span>
+                            <span className="text-sm text-gray-500 dark:text-gray-400">
+                              {getLocalizedText('nutrition.per100g')}
+                            </span>
+                          </div>
+                          <div className="w-full bg-gray-200 rounded-full h-1.5 dark:bg-gray-600">
+                            <div 
+                              className="bg-cyan-500 h-1.5 rounded-full" 
+                              style={{ width: `${Math.min(item.nutrition.omega6 * 20, 100)}%` }}
+                            ></div>
+                          </div>
+                        </div>
+                      )}
+                      
+                      {/* Collagen */}
+                      {item.nutrition.collagen !== undefined && (
+                        <div className="mb-2">
+                          <span className="text-sm text-gray-500 dark:text-gray-400">
+                            {getLocalizedText('nutrition.collagen') || 'Collagen'}
+                          </span>
+                          <div className="flex justify-between">
+                            <span className="font-mono font-medium text-lg">{item.nutrition.collagen}g</span>
+                            <span className="text-sm text-gray-500 dark:text-gray-400">
+                              {getLocalizedText('nutrition.per100g')}
+                            </span>
+                          </div>
+                          <div className="w-full bg-gray-200 rounded-full h-1.5 dark:bg-gray-600">
+                            <div 
+                              className="bg-amber-500 h-1.5 rounded-full" 
+                              style={{ width: `${Math.min(item.nutrition.collagen * 10, 100)}%` }}
+                            ></div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                    
+                    <div>
+                      {/* Vitamins */}
+                      <div className="mb-3">
+                        <span className="text-sm text-gray-500 dark:text-gray-400">
+                          {getLocalizedText('nutrition.vitamins')}
+                        </span>
+                        <div className="flex flex-wrap gap-2 mt-1">
+                          {Object.entries(item.nutrition.vitamins).map(([key, value]) => (
+                            <span 
+                              key={key}
+                              className="bg-gray-200 text-gray-800 text-xs px-2 py-1 rounded flex items-center gap-1 dark:bg-gray-600 dark:text-gray-200"
+                              title={getLocalizedText(`vitamin.${key.toLowerCase()}.benefit`) || `Vitamin ${key}`}
+                            >
+                              <span>{key}</span>
+                              <span>{value}</span>
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                      
+                      {/* Minerals */}
+                      {item.nutrition.minerals && Object.keys(item.nutrition.minerals).length > 0 && (
+                        <div className="mb-3">
+                          <span className="text-sm text-gray-500 dark:text-gray-400">
+                            {getLocalizedText('nutrition.minerals') || 'Minerals'}
+                          </span>
+                          <div className="flex flex-wrap gap-2 mt-1">
+                            {Object.entries(item.nutrition.minerals).map(([key, value]) => (
+                              <span 
+                                key={key}
+                                className="bg-gray-200 text-gray-800 text-xs px-2 py-1 rounded flex items-center gap-1 dark:bg-gray-600 dark:text-gray-200"
+                                title={getLocalizedText(`mineral.${key.toLowerCase()}.benefit`) || key}
+                              >
+                                <span>{key}</span>
+                                <span>{value}</span>
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                      
+                      {/* Antioxidants */}
+                      {item.nutrition.antioxidants && Object.keys(item.nutrition.antioxidants).length > 0 && (
+                        <div className="mb-3">
+                          <span className="text-sm text-gray-500 dark:text-gray-400">
+                            {getLocalizedText('nutrition.antioxidants') || 'Antioxidants'}
+                          </span>
+                          <div className="flex flex-wrap gap-2 mt-1">
+                            {Object.entries(item.nutrition.antioxidants).map(([key, value]) => (
+                              <span 
+                                key={key}
+                                className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded flex items-center gap-1 dark:bg-green-900 dark:text-green-200"
+                              >
+                                <span>{key}</span>
+                                <span>{value}</span>
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Health Benefits Section */}
+                {item.healthBenefits && item.healthBenefits.length > 0 && (
+                  <div className="mb-3">
+                    <h5 className="text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
+                      {getLocalizedText('food.healthBenefits') || 'Health Benefits'}
+                    </h5>
+                    <ul className="list-disc pl-5 text-sm text-gray-600 dark:text-gray-300 space-y-1">
+                      {item.healthBenefits.map((benefit, index) => (
+                        <li key={index}>{t(benefit)}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                
+                {/* Recommended Intake */}
+                {item.recommendedIntake && (
+                  <div>
+                    <h5 className="text-sm font-medium mb-1 text-gray-700 dark:text-gray-300">
+                      {getLocalizedText('food.recommendedIntake') || 'Recommended Intake'}
+                    </h5>
+                    <p className="text-sm text-gray-600 dark:text-gray-300">
+                      {t(item.recommendedIntake)}
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
           </div>
