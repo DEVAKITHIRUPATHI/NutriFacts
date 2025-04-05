@@ -113,7 +113,7 @@ export const foodItems: FoodItemClient[] = [
     },
     origin: 'India',
     price: 1.99,
-    image: 'https://images.unsplash.com/photo-1615484477201-9f4953340fab?auto=format&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1615485500704-8e505ecbe124?auto=format&fit=crop&q=80',
     category: ['spices', 'indian', 'ayurvedic'],
     nutrition: {
       calories: 29,
@@ -167,7 +167,7 @@ export const foodItems: FoodItemClient[] = [
     },
     origin: 'India',
     price: 3.49,
-    image: 'https://images.unsplash.com/photo-1603786314858-06f83011029b?auto=format&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1601055283742-8b27e81b5553?auto=format&fit=crop&q=80',
     category: ['fruits', 'indian', 'ayurvedic'],
     nutrition: {
       calories: 44,
@@ -302,7 +302,7 @@ export const foodItems: FoodItemClient[] = [
     },
     origin: 'Middle East',
     price: 7.99,
-    image: 'https://images.unsplash.com/photo-1536816579748-4ecb3f03d72a?auto=format&fit=crop&q=80',
+    image: 'https://images.unsplash.com/photo-1567007601203-767b7dcfcf10?auto=format&fit=crop&q=80',
     category: ['nuts', 'global', 'protein'],
     nutrition: {
       calories: 164,
@@ -764,6 +764,600 @@ export const foodItems: FoodItemClient[] = [
       en: '1-2 cloves daily, crushed or minced in food',
       hi: 'रोजाना 1-2 लौंग, भोजन में कुचले या बारीक कटे हुए',
       ta: 'தினசரி 1-2 பற்கள், உணவில் நசுக்கியது அல்லது நறுக்கியது'
+    }
+  ),
+  // Adding chicken meat
+  createFoodItem(
+    'chicken_breast',
+    {
+      en: 'Chicken Breast',
+      hi: 'चिकन ब्रेस्ट',
+      ta: 'சிக்கன் மார்புக்கறி'
+    },
+    {
+      en: 'Lean, boneless cut of poultry meat, high in protein',
+      hi: 'प्रोटीन में उच्च, दुबला, हड्डी रहित पोल्ट्री मांस',
+      ta: 'புரதம் நிறைந்த, மெலிந்த, எலும்பு இல்லாத கோழி இறைச்சி'
+    },
+    'Global',
+    6.99,
+    'https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&q=80',
+    ['poultry', 'meat', 'protein'],
+    {
+      calories: 165,
+      carbs: 0,
+      protein: 31,
+      fat: 3.6,
+      fiber: 0,
+      vitamins: { 'B6': '25%', 'Niacin': '70%', 'Phosphorus': '17%' }
+    },
+    ['animal', 'bird'],
+    true,
+    [
+      {
+        en: 'Supports muscle growth and tissue repair',
+        hi: 'मांसपेशियों के विकास और ऊतक मरम्मत का समर्थन करता है',
+        ta: 'தசை வளர்ச்சி மற்றும் திசு பழுதுபார்ப்பை ஆதரிக்கிறது'
+      }
+    ],
+    {
+      en: '3-4 ounces as part of a balanced meal',
+      hi: 'संतुलित भोजन के हिस्से के रूप में 3-4 औंस',
+      ta: 'சமநிலையான உணவின் ஒரு பகுதியாக 3-4 அவுன்ஸ்'
+    }
+  ),
+  createFoodItem(
+    'chicken_thighs',
+    {
+      en: 'Chicken Thighs',
+      hi: 'चिकन थाई',
+      ta: 'சிக்கன் தொடைக்கறி'
+    },
+    {
+      en: 'Juicy, flavorful dark meat cut from the chicken leg',
+      hi: 'चिकन लेग से काटा गया रसदार, स्वादिष्ट डार्क मीट',
+      ta: 'கோழி காலில் இருந்து வெட்டப்பட்ட சாறுள்ள, சுவையான இருண்ட இறைச்சி'
+    },
+    'Global',
+    5.99,
+    'https://images.unsplash.com/photo-1622118713114-ac2475a7b0c1?auto=format&fit=crop&q=80',
+    ['poultry', 'meat', 'protein'],
+    {
+      calories: 209,
+      carbs: 0,
+      protein: 26,
+      fat: 10.9,
+      fiber: 0,
+      vitamins: { 'B12': '12%', 'Zinc': '15%', 'Iron': '7%' }
+    },
+    ['animal', 'bird'],
+    false,
+    [
+      {
+        en: 'Provides complete protein and essential minerals',
+        hi: 'पूर्ण प्रोटीन और आवश्यक खनिज प्रदान करता है',
+        ta: 'முழுமையான புரதம் மற்றும் அத்தியாவசிய தாதுக்களை வழங்குகிறது'
+      }
+    ],
+    {
+      en: '3-4 ounces, 2-3 times per week',
+      hi: '3-4 औंस, प्रति सप्ताह 2-3 बार',
+      ta: '3-4 அவுன்ஸ், வாரத்திற்கு 2-3 முறை'
+    }
+  ),
+  // Adding river foods like crab
+  createFoodItem(
+    'crab',
+    {
+      en: 'Blue Crab',
+      hi: 'नीला केकड़ा',
+      ta: 'நீல நண்டு'
+    },
+    {
+      en: 'Sweet, delicate shellfish with tender meat',
+      hi: 'कोमल मांस के साथ मीठे, नाजुक शेलफिश',
+      ta: 'மென்மையான இறைச்சியுடன் இனிப்பான, மெல்லிய சிப்பி'
+    },
+    'North America',
+    14.99,
+    'https://images.unsplash.com/photo-1565333280022-9b7f020c67e3?auto=format&fit=crop&q=80',
+    ['seafood', 'shellfish', 'protein'],
+    {
+      calories: 98,
+      carbs: 0,
+      protein: 20.2,
+      fat: 1.5,
+      fiber: 0,
+      vitamins: { 'B12': '339%', 'Copper': '85%', 'Zinc': '43%' }
+    },
+    ['shellfish', 'crustacean'],
+    true,
+    [
+      {
+        en: 'Rich source of omega-3 fatty acids and essential minerals',
+        hi: 'ओमेगा-3 फैटी एसिड और आवश्यक खनिजों का समृद्ध स्रोत',
+        ta: 'ஒமேகா-3 கொழுப்பு அமிலங்கள் மற்றும் அத்தியாவசிய தாதுக்களின் செறிவான ஆதாரம்'
+      }
+    ],
+    {
+      en: '4-6 ounces, 1-2 times per week',
+      hi: '4-6 औंस, प्रति सप्ताह 1-2 बार',
+      ta: '4-6 அவுன்ஸ், வாரத்திற்கு 1-2 முறை'
+    }
+  ),
+  createFoodItem(
+    'river_prawns',
+    {
+      en: 'Freshwater Prawns',
+      hi: 'मीठे पानी के झींगे',
+      ta: 'நன்னீர் இறால்'
+    },
+    {
+      en: 'Tender, sweet river crustaceans with firm texture',
+      hi: 'दृढ़ बनावट के साथ कोमल, मीठे नदी के क्रस्टेशियन',
+      ta: 'உறுதியான அமைப்புடன் மென்மையான, இனிப்பான நதி உணவினம்'
+    },
+    'Southeast Asia',
+    16.99,
+    'https://images.unsplash.com/photo-1579191203419-1085567db843?auto=format&fit=crop&q=80',
+    ['seafood', 'shellfish', 'river'],
+    {
+      calories: 119,
+      carbs: 0.2,
+      protein: 22.6,
+      fat: 2.7,
+      fiber: 0,
+      vitamins: { 'B12': '117%', 'Selenium': '67%', 'Phosphorus': '25%' }
+    },
+    ['shellfish', 'crustacean'],
+    false,
+    [
+      {
+        en: 'Excellent source of lean protein and essential nutrients',
+        hi: 'दुबले प्रोटीन और आवश्यक पोषक तत्वों का उत्कृष्ट स्रोत',
+        ta: 'குறைந்த கொழுப்புள்ள புரதம் மற்றும் அத்தியாவசிய ஊட்டச்சத்துக்களின் சிறந்த ஆதாரம்'
+      }
+    ],
+    {
+      en: '4-6 ounces as part of a meal, 1-2 times per week',
+      hi: 'भोजन के हिस्से के रूप में 4-6 औंस, प्रति सप्ताह 1-2 बार',
+      ta: 'உணவின் ஒரு பகுதியாக 4-6 அவுன்ஸ், வாரத்திற்கு 1-2 முறை'
+    }
+  ),
+  // Adding grocery staples
+  createFoodItem(
+    'rice_basmati',
+    {
+      en: 'Basmati Rice',
+      hi: 'बासमती चावल',
+      ta: 'பாசுமதி அரிசி'
+    },
+    {
+      en: 'Aromatic long-grain rice with distinctive flavor',
+      hi: 'विशिष्ट स्वाद के साथ सुगंधित लंबे दाने वाले चावल',
+      ta: 'தனித்துவமான சுவையுடன் மணமுள்ள நீண்ட தானிய அரிசி'
+    },
+    'India',
+    4.49,
+    'https://images.unsplash.com/photo-1586201375761-83865001e8ac?auto=format&fit=crop&q=80',
+    ['grains', 'indian', 'staple'],
+    {
+      calories: 190,
+      carbs: 45,
+      protein: 3.8,
+      fat: 0.2,
+      fiber: 0.5,
+      vitamins: { 'Manganese': '19%', 'Selenium': '11%' }
+    },
+    ['vegan', 'gluten-free'],
+    true,
+    [
+      {
+        en: 'Low glycemic index version of rice for sustained energy',
+        hi: 'निरंतर ऊर्जा के लिए चावल का कम ग्लाइसेमिक इंडेक्स वाला संस्करण',
+        ta: 'நீடித்த ஆற்றலுக்கான குறைந்த கிளைசெமிக் குறியீடு அரிசி வகை'
+      }
+    ],
+    {
+      en: '1/2 - 3/4 cup cooked as part of a balanced meal',
+      hi: 'संतुलित भोजन के हिस्से के रूप में 1/2 - 3/4 कप पका हुआ',
+      ta: 'சமநிலையான உணவின் ஒரு பகுதியாக 1/2 - 3/4 கப் சமைத்தது'
+    }
+  ),
+  createFoodItem(
+    'eggs',
+    {
+      en: 'Eggs',
+      hi: 'अंडे',
+      ta: 'முட்டைகள்'
+    },
+    {
+      en: 'Versatile, nutrient-dense food with complete protein',
+      hi: 'पूर्ण प्रोटीन के साथ बहुमुखी, पोषक तत्वों से भरपूर खाद्य पदार्थ',
+      ta: 'முழுமையான புரதத்துடன் பல்துறை, சத்து நிறைந்த உணவு'
+    },
+    'Global',
+    3.49,
+    'https://images.unsplash.com/photo-1506976785307-8732e854ad03?auto=format&fit=crop&q=80',
+    ['protein', 'animal', 'breakfast'],
+    {
+      calories: 72,
+      carbs: 0.4,
+      protein: 6.3,
+      fat: 5,
+      fiber: 0,
+      vitamins: { 'B12': '23%', 'Selenium': '28%', 'Vitamin D': '6%' },
+      omega3: 0.1
+    },
+    ['eggs'],
+    true,
+    [
+      {
+        en: 'Contains all essential amino acids and important nutrients for brain health',
+        hi: 'सभी आवश्यक अमीनो एसिड और मस्तिष्क स्वास्थ्य के लिए महत्वपूर्ण पोषक तत्व होते हैं',
+        ta: 'அனைத்து அத்தியாவசிய அமினோ அமிலங்கள் மற்றும் மூளை ஆரோக்கியத்திற்கான முக்கியமான ஊட்டச்சத்துக்களைக் கொண்டுள்ளது'
+      }
+    ],
+    {
+      en: '1-2 eggs daily for most healthy adults',
+      hi: 'अधिकांश स्वस्थ वयस्कों के लिए रोजाना 1-2 अंडे',
+      ta: 'பெரும்பாலான ஆரோக்கியமான வயது வந்தவர்களுக்கு தினசரி 1-2 முட்டைகள்'
+    }
+  ),
+  createFoodItem(
+    'milk',
+    {
+      en: 'Whole Milk',
+      hi: 'पूरा दूध',
+      ta: 'முழு பால்'
+    },
+    {
+      en: 'Nutrient-rich dairy beverage with protein, fat, and carbohydrates',
+      hi: 'प्रोटीन, वसा और कार्बोहाइड्रेट के साथ पोषक तत्वों से भरपूर डेयरी पेय',
+      ta: 'புரதம், கொழுப்பு மற்றும் கார்போஹைட்ரேட்டுகள் கொண்ட ஊட்டச்சத்து நிறைந்த பால் பானம்'
+    },
+    'Global',
+    2.99,
+    'https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&q=80',
+    ['dairy', 'beverage', 'calcium'],
+    {
+      calories: 149,
+      carbs: 12,
+      protein: 8,
+      fat: 8,
+      fiber: 0,
+      vitamins: { 'Calcium': '28%', 'Vitamin D': '24%', 'B12': '18%' }
+    },
+    ['milk', 'dairy'],
+    true,
+    [
+      {
+        en: 'Supports bone health and provides complete protein',
+        hi: 'हड्डी के स्वास्थ्य का समर्थन करता है और पूर्ण प्रोटीन प्रदान करता है',
+        ta: 'எலும்பு ஆரோக்கியத்தை ஆதரிக்கிறது மற்றும் முழுமையான புரதத்தை வழங்குகிறது'
+      }
+    ],
+    {
+      en: '1-2 cups daily as part of a balanced diet',
+      hi: 'संतुलित आहार के हिस्से के रूप में रोजाना 1-2 कप',
+      ta: 'சமநிலையான உணவின் ஒரு பகுதியாக தினசரி 1-2 கப்'
+    }
+  ),
+  createFoodItem(
+    'tomatoes',
+    {
+      en: 'Tomatoes',
+      hi: 'टमाटर',
+      ta: 'தக்காளி'
+    },
+    {
+      en: 'Versatile red fruit used as a vegetable in cooking',
+      hi: 'खाना पकाने में सब्जी के रूप में इस्तेमाल किया जाने वाला बहुमुखी लाल फल',
+      ta: 'சமையலில் காய்கறியாகப் பயன்படுத்தப்படும் பல்துறை சிவப்பு பழம்'
+    },
+    'South America',
+    1.99,
+    'https://images.unsplash.com/photo-1561136594-7f68413baa99?auto=format&fit=crop&q=80',
+    ['vegetables', 'fruits', 'nightshade'],
+    {
+      calories: 18,
+      carbs: 3.9,
+      protein: 0.9,
+      fat: 0.2,
+      fiber: 1.2,
+      vitamins: { 'C': '28%', 'K': '12%', 'A': '20%' },
+      antioxidants: { 'Lycopene': 'very high', 'Beta-carotene': 'high' }
+    },
+    ['vegan', 'gluten-free'],
+    true,
+    [
+      {
+        en: 'Rich in lycopene, which may protect against certain cancers',
+        hi: 'लाइकोपीन से भरपूर, जो कुछ कैंसर से सुरक्षा कर सकता है',
+        ta: 'லைகோபீன் நிறைந்தது, இது சில புற்றுநோய்களில் இருந்து பாதுகாக்கலாம்'
+      }
+    ],
+    {
+      en: '1-2 medium tomatoes daily in various forms',
+      hi: 'विभिन्न रूपों में रोजाना 1-2 मध्यम टमाटर',
+      ta: 'தினசரி 1-2 நடுத்தர தக்காளிகள் பல்வேறு வடிவங்களில்'
+    }
+  ),
+  createFoodItem(
+    'ginger',
+    {
+      en: 'Ginger',
+      hi: 'अदरक',
+      ta: 'இஞ்சி'
+    },
+    {
+      en: 'Pungent, spicy root used in cooking and traditional medicine',
+      hi: 'खाना पकाने और पारंपरिक चिकित्सा में उपयोग किया जाने वाला तीखा, मसालेदार जड़',
+      ta: 'சமையலிலும் பாரம்பரிய மருத்துவத்திலும் பயன்படுத்தப்படும் காரமான, மசாலா வேர்'
+    },
+    'Southeast Asia',
+    2.49,
+    'https://images.unsplash.com/photo-1574856344991-aaa31b6f4ce3?auto=format&fit=crop&q=80',
+    ['spices', 'roots', 'medicinal'],
+    {
+      calories: 80,
+      carbs: 17.8,
+      protein: 1.8,
+      fat: 0.8,
+      fiber: 2,
+      vitamins: { 'Magnesium': '7%', 'Vitamin B6': '5%', 'Potassium': '5%' },
+      antioxidants: { 'Gingerol': 'high', 'Shogaol': 'high' }
+    },
+    ['vegan', 'gluten-free'],
+    false,
+    [
+      {
+        en: 'Natural anti-nausea remedy with anti-inflammatory properties',
+        hi: 'एंटी-इंफ्लेमेटरी गुणों के साथ प्राकृतिक एंटी-मतली उपाय',
+        ta: 'அழற்சி எதிர்ப்பு பண்புகளுடன் இயற்கை குமட்டல் எதிர்ப்பு மருந்து'
+      }
+    ],
+    {
+      en: '1-2 teaspoons freshly grated daily in food or tea',
+      hi: 'खाने या चाय में रोजाना 1-2 चम्मच ताजा कसा हुआ',
+      ta: 'உணவு அல்லது தேநீரில் தினசரி 1-2 தேக்கரண்டி புதிதாக துருவியது'
+    }
+  ),
+  createFoodItem(
+    'cucumber',
+    {
+      en: 'Cucumber',
+      hi: 'खीरा',
+      ta: 'வெள்ளரிக்காய்'
+    },
+    {
+      en: 'Cool, crisp vegetable with high water content',
+      hi: 'उच्च पानी की मात्रा के साथ ठंडी, कुरकुरी सब्जी',
+      ta: 'அதிக நீர் அளவு கொண்ட குளிர்ந்த, நொறுங்கும் காய்கறி'
+    },
+    'India',
+    0.99,
+    'https://images.unsplash.com/photo-1604977042946-1eecc30f269e?auto=format&fit=crop&q=80',
+    ['vegetables', 'salad', 'hydrating'],
+    {
+      calories: 16,
+      carbs: 3.6,
+      protein: 0.7,
+      fat: 0.1,
+      fiber: 0.5,
+      vitamins: { 'K': '16%', 'C': '5%', 'Magnesium': '4%' }
+    },
+    ['vegan', 'gluten-free'],
+    false,
+    [
+      {
+        en: 'Supports hydration and contains compounds that may reduce inflammation',
+        hi: 'हाइड्रेशन का समर्थन करता है और ऐसे यौगिक होते हैं जो सूजन को कम कर सकते हैं',
+        ta: 'நீரேற்றத்தை ஆதரிக்கிறது மற்றும் அழற்சியைக் குறைக்கக்கூடிய சேர்மங்களைக் கொண்டுள்ளது'
+      }
+    ],
+    {
+      en: '1/2 - 1 medium cucumber daily in salads or as a snack',
+      hi: 'सलाद में या नाश्ते के रूप में रोजाना 1/2 - 1 मध्यम खीरा',
+      ta: 'சலாட்களில் அல்லது சிற்றுண்டியாக தினசரி 1/2 - 1 நடுத்தர வெள்ளரிக்காய்'
+    }
+  ),
+  createFoodItem(
+    'mango_green',
+    {
+      en: 'Green Mango',
+      hi: 'कच्चा आम',
+      ta: 'மாங்காய்'
+    },
+    {
+      en: 'Unripe mango with sour, tangy flavor used in cooking',
+      hi: 'खाना पकाने में उपयोग किया जाने वाला खट्टे, तीखे स्वाद वाला कच्चा आम',
+      ta: 'சமையலில் பயன்படுத்தப்படும் புளிப்பு, காரமான சுவையுடன் கூடிய முற்றாத மாம்பழம்'
+    },
+    'India',
+    2.99,
+    'https://images.unsplash.com/photo-1590677702647-190120787dae?auto=format&fit=crop&q=80',
+    ['fruits', 'unripe', 'indian'],
+    {
+      calories: 60,
+      carbs: 15,
+      protein: 0.8,
+      fat: 0.2,
+      fiber: 1.6,
+      vitamins: { 'C': '50%', 'A': '10%', 'B6': '5%' }
+    },
+    ['vegan', 'gluten-free'],
+    false,
+    [
+      {
+        en: 'Rich in vitamin C and may aid digestion',
+        hi: 'विटामिन सी से भरपूर और पाचन में सहायता कर सकता है',
+        ta: 'வைட்டமின் சி நிறைந்தது மற்றும் செரிமானத்திற்கு உதவலாம்'
+      }
+    ],
+    {
+      en: 'Small amount as a condiment or in chutneys',
+      hi: 'कॉन्डिमेंट के रूप में या चटनी में थोड़ी मात्रा',
+      ta: 'தொட்டுக்கொள்ளும் உணவாக அல்லது சட்னிகளில் சிறிய அளவு'
+    }
+  ),
+  createFoodItem(
+    'cauliflower',
+    {
+      en: 'Cauliflower',
+      hi: 'फूलगोभी',
+      ta: 'காலிஃப்ளவர்'
+    },
+    {
+      en: 'Versatile cruciferous vegetable with mild flavor',
+      hi: 'हल्के स्वाद के साथ बहुमुखी क्रूसिफेरस सब्जी',
+      ta: 'மிதமான சுவையுடன் பல்துறை குறுக்கு வகை காய்கறி'
+    },
+    'Mediterranean',
+    2.49,
+    'https://images.unsplash.com/photo-1568584711075-3d021a7c3ca3?auto=format&fit=crop&q=80',
+    ['vegetables', 'cruciferous', 'keto'],
+    {
+      calories: 25,
+      carbs: 5,
+      protein: 2,
+      fat: 0.1,
+      fiber: 2.5,
+      vitamins: { 'C': '77%', 'K': '20%', 'B6': '11%' },
+      antioxidants: { 'Glucosinolates': 'high', 'Sulforaphane': 'high' }
+    },
+    ['vegan', 'gluten-free'],
+    true,
+    [
+      {
+        en: 'Contains compounds that may help reduce cancer risk',
+        hi: 'ऐसे यौगिक होते हैं जो कैंसर के जोखिम को कम करने में मदद कर सकते हैं',
+        ta: 'புற்றுநோய் அபாயத்தைக் குறைக்க உதவும் சேர்மங்களைக் கொண்டுள்ளது'
+      }
+    ],
+    {
+      en: '1 cup cooked or raw, 3-4 times per week',
+      hi: '1 कप पका हुआ या कच्चा, प्रति सप्ताह 3-4 बार',
+      ta: '1 கப் சமைத்தது அல்லது பச்சையானது, வாரத்திற்கு 3-4 முறை'
+    }
+  ),
+  createFoodItem(
+    'ghee',
+    {
+      en: 'Ghee',
+      hi: 'घी',
+      ta: 'நெய்'
+    },
+    {
+      en: 'Clarified butter with rich flavor and high smoke point',
+      hi: 'समृद्ध स्वाद और उच्च धुएं के बिंदु के साथ स्पष्ट मक्खन',
+      ta: 'வளமான சுவை மற்றும் உயர் புகைப்புள்ளி கொண்ட தெளிந்த வெண்ணெய்'
+    },
+    'India',
+    7.99,
+    'https://images.unsplash.com/photo-1594014366117-0d303dd6b83c?auto=format&fit=crop&q=80',
+    ['dairy', 'fats', 'indian'],
+    {
+      calories: 112,
+      carbs: 0,
+      protein: 0,
+      fat: 12.7,
+      fiber: 0,
+      vitamins: { 'A': '15%', 'E': '2%', 'K': '1%' },
+      omega3: 0.1
+    },
+    ['dairy'],
+    true,
+    [
+      {
+        en: 'Contains butyrate which may support gut health',
+        hi: 'ब्यूटिरेट युक्त होता है जो आंत के स्वास्थ्य का समर्थन कर सकता है',
+        ta: 'குடல் ஆரோக்கியத்தை ஆதரிக்கக்கூடிய பியூட்டிரேட் கொண்டுள்ளது'
+      }
+    ],
+    {
+      en: '1-2 teaspoons daily for cooking',
+      hi: 'खाना पकाने के लिए रोजाना 1-2 चम्मच',
+      ta: 'சமைப்பதற்கு தினசரி 1-2 தேக்கரண்டி'
+    }
+  ),
+  createFoodItem(
+    'papaya',
+    {
+      en: 'Papaya',
+      hi: 'पपीता',
+      ta: 'பப்பாளி'
+    },
+    {
+      en: 'Sweet tropical fruit with orange flesh and digestive enzymes',
+      hi: 'नारंगी गूदे और पाचक एंजाइमों के साथ मीठा उष्णकटिबंधीय फल',
+      ta: 'ஆரஞ்சு சதை மற்றும் செரிமான நொதிகளுடன் இனிப்பான வெப்பமண்டல பழம்'
+    },
+    'Central America',
+    3.99,
+    'https://images.unsplash.com/photo-1617112848923-cc2234396a8d?auto=format&fit=crop&q=80',
+    ['fruits', 'tropical', 'digestive'],
+    {
+      calories: 43,
+      carbs: 11,
+      protein: 0.5,
+      fat: 0.1,
+      fiber: 1.7,
+      vitamins: { 'C': '62%', 'A': '18%', 'Folate': '14%' },
+      enzymes: { 'Papain': 'high', 'Chymopapain': 'high' }
+    },
+    ['vegan', 'gluten-free'],
+    false,
+    [
+      {
+        en: 'Contains digestive enzymes that may help with protein digestion',
+        hi: 'पाचक एंजाइम होते हैं जो प्रोटीन पाचन में मदद कर सकते हैं',
+        ta: 'புரத செரிமானத்திற்கு உதவக்கூடிய செரிமான நொதிகளைக் கொண்டுள்ளது'
+      }
+    ],
+    {
+      en: '1 cup diced as part of a meal or snack',
+      hi: 'भोजन या नाश्ते के हिस्से के रूप में 1 कप टुकड़े',
+      ta: 'உணவு அல்லது சிற்றுண்டியின் ஒரு பகுதியாக 1 கப் துண்டுகள்'
+    }
+  ),
+  createFoodItem(
+    'tilapia',
+    {
+      en: 'Tilapia',
+      hi: 'तिलापिया मछली',
+      ta: 'திலாப்பியா மீன்'
+    },
+    {
+      en: 'Mild, white freshwater fish that is farm-raised globally',
+      hi: 'हल्की, सफेद मीठे पानी की मछली जो वैश्विक स्तर पर फार्म में उगाई जाती है',
+      ta: 'உலகளவில் பண்ணை வளர்ப்பு செய்யப்படும் மிதமான, வெள்ளை நன்னீர் மீன்'
+    },
+    'Global',
+    5.99,
+    'https://images.unsplash.com/photo-1583833946873-5c944fc84783?auto=format&fit=crop&q=80',
+    ['seafood', 'fish', 'protein'],
+    {
+      calories: 128,
+      carbs: 0,
+      protein: 26,
+      fat: 2.7,
+      fiber: 0,
+      vitamins: { 'B12': '31%', 'Niacin': '24%', 'Selenium': '78%' }
+    },
+    ['fish'],
+    true,
+    [
+      {
+        en: 'Lean source of complete protein with essential nutrients',
+        hi: 'आवश्यक पोषक तत्वों के साथ पूर्ण प्रोटीन का दुबला स्रोत',
+        ta: 'அத்தியாவசிய ஊட்டச்சத்துக்களுடன் முழுமையான புரதத்தின் மெலிந்த ஆதாரம்'
+      }
+    ],
+    {
+      en: '4-6 ounce portion, 2-3 times per week',
+      hi: '4-6 औंस हिस्सा, प्रति सप्ताह 2-3 बार',
+      ta: '4-6 அவுன்ஸ் பகுதி, வாரத்திற்கு 2-3 முறை'
     }
   )
 ];
