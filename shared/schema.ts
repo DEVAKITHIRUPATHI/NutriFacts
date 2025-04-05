@@ -136,6 +136,7 @@ export type FoodItemClient = {
     collagen?: number;
     antioxidants?: Record<string, string>;
     probiotics?: Record<string, string>;
+    enzymes?: Record<string, string>;
   };
   healthBenefits?: TranslatedContent[];
   recommendedIntake?: TranslatedContent;

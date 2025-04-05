@@ -1359,5 +1359,446 @@ export const foodItems: FoodItemClient[] = [
       hi: '4-6 औंस हिस्सा, प्रति सप्ताह 2-3 बार',
       ta: '4-6 அவுன்ஸ் பகுதி, வாரத்திற்கு 2-3 முறை'
     }
+  ),
+  // Adding foods from the provided dataset
+  createFoodItem(
+    'watermelon',
+    {
+      en: 'Watermelon',
+      hi: 'तरबूज',
+      ta: 'தர்பூசணி'
+    },
+    {
+      en: 'Sweet, juicy summer fruit with high water content and red flesh',
+      hi: 'उच्च पानी की मात्रा और लाल गूदे के साथ मीठा, रसदार गर्मियों का फल',
+      ta: 'அதிக நீர் அளவு மற்றும் சிவப்பு தசையுடன் இனிப்பான, சாறுள்ள கோடைகால பழம்'
+    },
+    'Africa',
+    3.99,
+    'https://cdn.pixabay.com/photo/2016/02/23/17/42/watermelon-1219017_640.jpg',
+    ['fruits', 'summer', 'hydrating'],
+    {
+      calories: 46,
+      carbs: 11.5,
+      protein: 0.9,
+      fat: 0.2,
+      fiber: 0.6,
+      vitamins: { 'C': '25%', 'A': '18%', 'B6': '8%' },
+      antioxidants: { 'Lycopene': 'high', 'Beta-carotene': 'medium' }
+    },
+    ['vegan', 'gluten-free'],
+    true,
+    [
+      {
+        en: 'Supports hydration and contains antioxidants that may reduce inflammation',
+        hi: 'हाइड्रेशन का समर्थन करता है और एंटीऑक्सिडेंट होते हैं जो सूजन को कम कर सकते हैं',
+        ta: 'நீரேற்றத்தை ஆதரிக்கிறது மற்றும் அழற்சியைக் குறைக்கக்கூடிய ஆன்டிஆக்ஸிடன்ட்களைக் கொண்டுள்ளது'
+      }
+    ],
+    {
+      en: '1-2 cups of diced watermelon daily in hot weather',
+      hi: 'गर्म मौसम में रोजाना 1-2 कप कटा हुआ तरबूज',
+      ta: 'வெப்பமான வானிலையில் தினசரி 1-2 கப் துண்டாக்கப்பட்ட தர்பூசணி'
+    }
+  ),
+  createFoodItem(
+    'beef_steak',
+    {
+      en: 'Beef Steak',
+      hi: 'बीफ स्टेक',
+      ta: 'பீஃப் ஸ்டேக்'
+    },
+    {
+      en: 'Premium cut of beef with rich flavor and tender texture',
+      hi: 'समृद्ध स्वाद और कोमल बनावट के साथ बीफ का प्रीमियम कट',
+      ta: 'வளமான சுவை மற்றும் மென்மையான அமைப்புடன் கூடிய பீஃப்பின் தரமான துண்டு'
+    },
+    'Global',
+    15.99,
+    'https://cdn.pixabay.com/photo/2018/02/25/07/15/steak-3179655_640.jpg',
+    ['meat', 'beef', 'protein'],
+    {
+      calories: 252,
+      carbs: 0,
+      protein: 26,
+      fat: 17,
+      fiber: 0,
+      vitamins: { 'B12': '85%', 'Zinc': '42%', 'Iron': '27%' },
+      omega3: 0.3
+    },
+    ['meat', 'beef'],
+    true,
+    [
+      {
+        en: 'Excellent source of high-quality protein, iron, and B vitamins',
+        hi: 'उच्च गुणवत्ता वाले प्रोटीन, आयरन और बी विटामिन का उत्कृष्ट स्रोत',
+        ta: 'உயர் தரமான புரதம், இரும்பு மற்றும் பி வைட்டமின்களின் சிறந்த ஆதாரம்'
+      }
+    ],
+    {
+      en: '3-4 ounce portion, 1-2 times per week',
+      hi: '3-4 औंस हिस्सा, प्रति सप्ताह 1-2 बार',
+      ta: '3-4 அவுன்ஸ் பகுதி, வாரத்திற்கு 1-2 முறை'
+    }
+  ),
+  createFoodItem(
+    'pineapple',
+    {
+      en: 'Pineapple',
+      hi: 'अनानास',
+      ta: 'அன்னாசிப்பழம்'
+    },
+    {
+      en: 'Tropical fruit with sweet-tart flavor and digestive enzymes',
+      hi: 'मीठे-खट्टे स्वाद और पाचक एंजाइमों के साथ उष्णकटिबंधीय फल',
+      ta: 'இனிப்பு-புளிப்பு சுவை மற்றும் செரிமான நொதிகளுடன் கூடிய வெப்பமண்டல பழம்'
+    },
+    'South America',
+    3.99,
+    'https://cdn.pixabay.com/photo/2016/03/05/19/13/pineapple-1238249_640.jpg',
+    ['fruits', 'tropical', 'digestive'],
+    {
+      calories: 83,
+      carbs: 22,
+      protein: 0.9,
+      fat: 0.2,
+      fiber: 2.3,
+      vitamins: { 'C': '88%', 'Manganese': '76%', 'B6': '11%' },
+      enzymes: { 'Bromelain': 'high' }
+    },
+    ['vegan', 'gluten-free'],
+    false,
+    [
+      {
+        en: 'Contains bromelain which may aid digestion and reduce inflammation',
+        hi: 'ब्रोमेलेन युक्त होता है जो पाचन में सहायता कर सकता है और सूजन को कम कर सकता है',
+        ta: 'ப்ரோமிலைன் கொண்டுள்ளது, இது செரிமானத்திற்கு உதவலாம் மற்றும் அழற்சியைக் குறைக்கலாம்'
+      }
+    ],
+    {
+      en: '1 cup diced pineapple as a snack or dessert',
+      hi: 'स्नैक या डेसर्ट के रूप में 1 कप कटा हुआ अनानास',
+      ta: 'சிற்றுண்டி அல்லது இனிப்பு உணவாக 1 கப் துண்டாக்கப்பட்ட அன்னாசிப்பழம்'
+    }
+  ),
+  createFoodItem(
+    'broccoli',
+    {
+      en: 'Broccoli',
+      hi: 'ब्रोकली',
+      ta: 'ப்ரோக்கோலி'
+    },
+    {
+      en: 'Nutritious green cruciferous vegetable with dense florets',
+      hi: 'घने फूलगोभी के साथ पौष्टिक हरी क्रूसिफेरस सब्जी',
+      ta: 'அடர்த்தியான பூக்கொத்துகளுடன் ஊட்டச்சத்து நிறைந்த பச்சை சிலுவை வகை காய்கறி'
+    },
+    'Mediterranean',
+    2.49,
+    'https://cdn.pixabay.com/photo/2016/03/05/19/02/broccoli-1238250_640.jpg',
+    ['vegetables', 'cruciferous', 'green'],
+    {
+      calories: 31,
+      carbs: 6,
+      protein: 2.6,
+      fat: 0.3,
+      fiber: 2.4,
+      vitamins: { 'C': '135%', 'K': '116%', 'Folate': '14%' },
+      antioxidants: { 'Sulforaphane': 'very high', 'Glucosinolates': 'high' }
+    },
+    ['vegan', 'gluten-free'],
+    true,
+    [
+      {
+        en: 'Contains compounds that may help detoxify carcinogens and reduce cancer risk',
+        hi: 'ऐसे यौगिक होते हैं जो कार्सिनोजेन को डिटॉक्सिफाई करने और कैंसर के जोखिम को कम करने में मदद कर सकते हैं',
+        ta: 'புற்றுநோய் உண்டாக்கிகளை நச்சு நீக்கவும் புற்றுநோய் ஆபத்தைக் குறைக்கவும் உதவும் சேர்மங்களைக் கொண்டுள்ளது'
+      }
+    ],
+    {
+      en: '1 cup cooked broccoli, 3-5 times per week',
+      hi: '1 कप पकी हुई ब्रोकली, प्रति सप्ताह 3-5 बार',
+      ta: '1 கப் சமைத்த ப்ரோக்கோலி, வாரத்திற்கு 3-5 முறை'
+    }
+  ),
+  createFoodItem(
+    'shrimp',
+    {
+      en: 'Shrimp',
+      hi: 'झींगा',
+      ta: 'இறால்'
+    },
+    {
+      en: 'Small, delicate seafood with mild, sweet flavor',
+      hi: 'हल्के, मीठे स्वाद वाले छोटे, नाजुक समुद्री भोजन',
+      ta: 'மிதமான, இனிப்பு சுவையுடன் சிறிய, மென்மையான கடல் உணவு'
+    },
+    'Global',
+    12.99,
+    'https://cdn.pixabay.com/photo/2016/03/05/20/00/shrimp-1239425_640.jpg',
+    ['seafood', 'shellfish', 'protein'],
+    {
+      calories: 84,
+      carbs: 0,
+      protein: 18,
+      fat: 1.7,
+      fiber: 0,
+      vitamins: { 'B12': '21%', 'Selenium': '48%', 'Phosphorus': '12%' },
+      omega3: 0.3
+    },
+    ['shellfish', 'crustacean'],
+    true,
+    [
+      {
+        en: 'Low in calories but high in protein and essential nutrients',
+        hi: 'कैलोरी में कम लेकिन प्रोटीन और आवश्यक पोषक तत्वों में उच्च',
+        ta: 'கலோரிகள் குறைவாகவும் ஆனால் புரதம் மற்றும் அத்தியாவசிய ஊட்டச்சத்துக்கள் அதிகமாகவும் உள்ளது'
+      }
+    ],
+    {
+      en: '4-6 ounces, 1-2 times per week',
+      hi: '4-6 औंस, प्रति सप्ताह 1-2 बार',
+      ta: '4-6 அவுன்ஸ், வாரத்திற்கு 1-2 முறை'
+    }
+  ),
+  createFoodItem(
+    'bell_pepper',
+    {
+      en: 'Bell Pepper',
+      hi: 'शिमला मिर्च',
+      ta: 'குடை மிளகாய்'
+    },
+    {
+      en: 'Colorful, crunchy vegetable available in multiple colors, especially red, yellow and green',
+      hi: 'कई रंगों में उपलब्ध रंगीन, कुरकुरी सब्जी, विशेष रूप से लाल, पीला और हरा',
+      ta: 'பல வண்ணங்களில் கிடைக்கும் வண்ணமயமான, நொறுமுறுமுறுப்பான காய்கறி, குறிப்பாக சிவப்பு, மஞ்சள் மற்றும் பச்சை'
+    },
+    'Central America',
+    1.49,
+    'https://cdn.pixabay.com/photo/2016/03/05/19/02/pepper-1238256_640.jpg',
+    ['vegetables', 'nightshade', 'colorful'],
+    {
+      calories: 31,
+      carbs: 7.6,
+      protein: 1,
+      fat: 0.3,
+      fiber: 2.5,
+      vitamins: { 'C': '169%', 'A': '19%', 'B6': '20%' },
+      antioxidants: { 'Capsanthin': 'high', 'Quercetin': 'medium' }
+    },
+    ['vegan', 'gluten-free'],
+    false,
+    [
+      {
+        en: 'Excellent source of vitamin C and antioxidants that may protect against cellular damage',
+        hi: 'विटामिन सी और एंटीऑक्सिडेंट का उत्कृष्ट स्रोत जो सेलुलर क्षति से बचा सकता है',
+        ta: 'வைட்டமின் சி மற்றும் செல் சேதத்திலிருந்து பாதுகாக்கக்கூடிய ஆன்டிஆக்ஸிடன்ட்களின் சிறந்த ஆதாரம்'
+      }
+    ],
+    {
+      en: '1/2 to 1 bell pepper daily, raw or cooked',
+      hi: 'रोजाना 1/2 से 1 शिमला मिर्च, कच्ची या पकी हुई',
+      ta: 'தினசரி 1/2 முதல் 1 குடை மிளகாய், பச்சையாக அல்லது சமைத்தது'
+    }
+  ),
+  createFoodItem(
+    'lobster',
+    {
+      en: 'Lobster',
+      hi: 'लॉबस्टर',
+      ta: 'இறால் மீன்'
+    },
+    {
+      en: 'Premium shellfish with sweet, tender meat and rich flavor',
+      hi: 'मीठा, कोमल मांस और समृद्ध स्वाद वाला प्रीमियम शेलफिश',
+      ta: 'இனிப்பான, மென்மையான இறைச்சி மற்றும் வளமான சுவை கொண்ட பிரீமியம் சிப்பி'
+    },
+    'North Atlantic',
+    24.99,
+    'https://cdn.pixabay.com/photo/2016/03/05/19/13/lobster-1238247_640.jpg',
+    ['seafood', 'shellfish', 'luxury'],
+    {
+      calories: 89,
+      carbs: 0,
+      protein: 19,
+      fat: 0.9,
+      fiber: 0,
+      vitamins: { 'B12': '155%', 'Copper': '185%', 'Selenium': '56%' },
+      omega3: 0.2
+    },
+    ['shellfish', 'crustacean'],
+    false,
+    [
+      {
+        en: 'Excellent source of lean protein, vitamin B12, and essential minerals',
+        hi: 'दुबले प्रोटीन, विटामिन बी12, और आवश्यक खनिजों का उत्कृष्ट स्रोत',
+        ta: 'குறைந்த கொழுப்புள்ள புரதம், வைட்டமின் பி12 மற்றும் அத்தியாவசிய தாதுக்களின் சிறந்த ஆதாரம்'
+      }
+    ],
+    {
+      en: '4-6 ounces, as a special occasion meal',
+      hi: '4-6 औंस, एक विशेष अवसर के भोजन के रूप में',
+      ta: '4-6 அவுன்ஸ், சிறப்பு நிகழ்வு உணவாக'
+    }
+  ),
+  createFoodItem(
+    'strawberry',
+    {
+      en: 'Strawberry',
+      hi: 'स्ट्रॉबेरी',
+      ta: 'ஸ்ட்ராபெரி'
+    },
+    {
+      en: 'Sweet, juicy red berries with seeds on the outside',
+      hi: 'बाहरी सतह पर बीजों के साथ मीठी, रसदार लाल बेरीज',
+      ta: 'வெளிப்புறத்தில் விதைகளுடன் இனிப்பான, சாறுள்ள சிவப்பு பெர்ரிகள்'
+    },
+    'Global',
+    3.99,
+    'https://cdn.pixabay.com/photo/2018/04/29/11/54/strawberries-3359755_640.jpg',
+    ['fruits', 'berries', 'summer'],
+    {
+      calories: 32,
+      carbs: 7.7,
+      protein: 0.7,
+      fat: 0.3,
+      fiber: 2,
+      vitamins: { 'C': '97%', 'Manganese': '24%', 'Folate': '9%' },
+      antioxidants: { 'Anthocyanins': 'high', 'Ellagic Acid': 'high' }
+    },
+    ['vegan', 'gluten-free'],
+    true,
+    [
+      {
+        en: 'Rich in antioxidants that may improve heart health and blood sugar control',
+        hi: 'एंटीऑक्सिडेंट से भरपूर जो हृदय स्वास्थ्य और रक्त शर्करा नियंत्रण में सुधार कर सकते हैं',
+        ta: 'இதய ஆரோக்கியத்தையும் இரத்த சர்க்கரை கட்டுப்பாட்டையும் மேம்படுத்தக்கூடிய ஆன்டிஆக்ஸிடன்ட்கள் நிறைந்தது'
+      }
+    ],
+    {
+      en: '1 cup fresh strawberries daily when in season',
+      hi: 'मौसम में होने पर रोजाना 1 कप ताजी स्ट्रॉबेरी',
+      ta: 'பருவகாலத்தில் தினசரி 1 கப் புதிய ஸ்ட்ராபெரி'
+    }
+  ),
+  createFoodItem(
+    'pork_chops',
+    {
+      en: 'Pork Chops',
+      hi: 'पोर्क चॉप्स',
+      ta: 'பன்றிக்கறி சாப்ஸ்'
+    },
+    {
+      en: 'Tender cut of pork from the loin, often bone-in',
+      hi: 'लॉइन से पोर्क का कोमल कट, अक्सर हड्डी सहित',
+      ta: 'பன்றியின் இடுப்பில் இருந்து மென்மையான வெட்டு, பெரும்பாலும் எலும்புடன்'
+    },
+    'Global',
+    7.99,
+    'https://cdn.pixabay.com/photo/2017/11/10/15/04/pork-2936534_640.jpg',
+    ['meat', 'pork', 'protein'],
+    {
+      calories: 231,
+      carbs: 0,
+      protein: 25,
+      fat: 14,
+      fiber: 0,
+      vitamins: { 'Thiamin': '54%', 'Selenium': '65%', 'Zinc': '20%' },
+      omega3: 0.1
+    },
+    ['meat', 'pork'],
+    false,
+    [
+      {
+        en: 'Good source of complete protein and essential vitamins and minerals',
+        hi: 'पूर्ण प्रोटीन और आवश्यक विटामिन और खनिजों का अच्छा स्रोत',
+        ta: 'முழுமையான புரதம் மற்றும் அத்தியாவசிய வைட்டமின்கள் மற்றும் தாதுக்களின் நல்ல ஆதாரம்'
+      }
+    ],
+    {
+      en: '3-4 ounce serving, 1-2 times per week',
+      hi: '3-4 औंस परोसा जाता है, प्रति सप्ताह 1-2 बार',
+      ta: '3-4 அவுன்ஸ் பரிமாறல், வாரத்திற்கு 1-2 முறை'
+    }
+  ),
+  createFoodItem(
+    'lamb_leg',
+    {
+      en: 'Lamb Leg',
+      hi: 'मेमने की टांग',
+      ta: 'ஆட்டுக்கால்'
+    },
+    {
+      en: 'Tender, flavorful cut of young sheep meat',
+      hi: 'युवा भेड़ के मांस का कोमल, स्वादिष्ट कट',
+      ta: 'இளம் ஆட்டு இறைச்சியின் மென்மையான, சுவையான வெட்டு'
+    },
+    'Global',
+    14.99,
+    'https://cdn.pixabay.com/photo/2017/12/29/12/03/lamb-3047152_640.jpg',
+    ['meat', 'lamb', 'protein'],
+    {
+      calories: 258,
+      carbs: 0,
+      protein: 25.6,
+      fat: 16.5,
+      fiber: 0,
+      vitamins: { 'B12': '51%', 'Zinc': '30%', 'Selenium': '35%' },
+      omega3: 0.4
+    },
+    ['meat', 'lamb'],
+    false,
+    [
+      {
+        en: 'Rich source of high-quality protein, iron, and B vitamins',
+        hi: 'उच्च गुणवत्ता वाले प्रोटीन, आयरन और बी विटामिन का समृद्ध स्रोत',
+        ta: 'உயர் தரமான புரதம், இரும்பு மற்றும் பி வைட்டமின்களின் செறிவான ஆதாரம்'
+      }
+    ],
+    {
+      en: '3-4 ounce serving, 1-2 times per week',
+      hi: '3-4 औंस परोसा जाता है, प्रति सप्ताह 1-2 बार',
+      ta: '3-4 அவுன்ஸ் பரிமாறல், வாரத்திற்கு 1-2 முறை'
+    }
+  ),
+  createFoodItem(
+    'carrot',
+    {
+      en: 'Carrot',
+      hi: 'गाजर',
+      ta: 'கேரட்'
+    },
+    {
+      en: 'Sweet, crunchy orange root vegetable rich in beta-carotene',
+      hi: 'बीटा-कैरोटीन से भरपूर मीठी, कुरकुरी नारंगी जड़ वाली सब्जी',
+      ta: 'பீட்டா-கரோட்டீன் நிறைந்த இனிப்பான, நொறுமுறுமுறுப்பான ஆரஞ்சு வேர் காய்கறி'
+    },
+    'Central Asia',
+    0.99,
+    'https://cdn.pixabay.com/photo/2016/11/23/00/33/carrots-1851424_640.jpg',
+    ['vegetables', 'root', 'orange'],
+    {
+      calories: 41,
+      carbs: 9.6,
+      protein: 0.9,
+      fat: 0.2,
+      fiber: 2.8,
+      vitamins: { 'A': '428%', 'K': '13%', 'C': '9%' },
+      antioxidants: { 'Beta-carotene': 'very high', 'Lutein': 'medium' }
+    },
+    ['vegan', 'gluten-free'],
+    true,
+    [
+      {
+        en: 'Excellent source of vitamin A in the form of beta-carotene, supporting eye health',
+        hi: 'बीटा-कैरोटीन के रूप में विटामिन ए का उत्कृष्ट स्रोत, आंखों के स्वास्थ्य का समर्थन करता है',
+        ta: 'பீட்டா-கரோட்டீன் வடிவில் வைட்டமின் ஏ-யின் சிறந்த ஆதாரம், கண் ஆரோக்கியத்தை ஆதரிக்கிறது'
+      }
+    ],
+    {
+      en: '1-2 medium carrots daily, raw or cooked',
+      hi: 'रोजाना 1-2 मध्यम गाजर, कच्ची या पकी हुई',
+      ta: 'தினசரி 1-2 நடுத்தர கேரட், பச்சையாக அல்லது சமைத்தது'
+    }
   )
 ];
