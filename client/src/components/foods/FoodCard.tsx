@@ -42,14 +42,9 @@ export function FoodCard({ item, onViewDetails, showPopularBadge = true }: FoodC
       </div>
       
       <CardContent className="p-4 flex-1 flex flex-col">
-        <div className="flex justify-between items-start">
-          <div>
-            <h3 className="font-medium text-lg">{t(item.name)}</h3>
-            <p className="text-gray-500 text-sm dark:text-gray-400">{item.origin}</p>
-          </div>
-          <div className="text-orange-500 font-medium">
-            ${item.price.toFixed(2)}
-          </div>
+        <div>
+          <h3 className="font-medium text-lg">{t(item.name)}</h3>
+          <p className="text-gray-500 text-sm dark:text-gray-400">{item.origin}</p>
         </div>
         
         <p className="mt-2 text-gray-600 text-sm line-clamp-2 dark:text-gray-300">

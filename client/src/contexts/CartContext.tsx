@@ -2,7 +2,6 @@ import { createContext, useState, useEffect, ReactNode, useContext } from 'react
 import { 
   getCartItems, 
   addToCart as addToCartDB, 
-  updateCartItemQuantity, 
   removeFromCart as removeFromCartDB,
   clearCart as clearCartDB,
   getFoodItemById
@@ -10,34 +9,35 @@ import {
 import type { FoodItemClient } from '@shared/schema';
 import { AppContext } from './AppContext';
 
-interface CartItem {
+// Renamed to FavoriteItem to better reflect its purpose
+interface FavoriteItem {
   id: string;
   foodItem: FoodItemClient;
-  quantity: number;
+  quantity: number; // Keeping for backwards compatibility with database
 }
 
-interface CartContextProps {
-  cartItems: CartItem[];
+// Renamed to FavoritesContextProps to better reflect its purpose
+interface FavoritesContextProps {
+  cartItems: FavoriteItem[];
   isCartOpen: boolean;
   openCart: () => void;
   closeCart: () => void;
   addToCart: (foodItem: FoodItemClient) => void;
-  updateQuantity: (id: string, quantity: number) => void;
   removeFromCart: (id: string) => void;
   clearCart: () => void;
-  cartTotal: () => number;
+  isFavorite: (foodId: string) => boolean;
 }
 
-export const CartContext = createContext<CartContextProps>({
+// We're keeping the name CartContext for backward compatibility
+export const CartContext = createContext<FavoritesContextProps>({
   cartItems: [],
   isCartOpen: false,
   openCart: () => {},
   closeCart: () => {},
   addToCart: () => {},
-  updateQuantity: () => {},
   removeFromCart: () => {},
   clearCart: () => {},
-  cartTotal: () => 0,
+  isFavorite: () => false,
 });
 
 interface CartProviderProps {
@@ -45,66 +45,68 @@ interface CartProviderProps {
 }
 
 export const CartProvider = ({ children }: CartProviderProps) => {
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [cartItems, setCartItems] = useState<FavoriteItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const { isLoading } = useContext(AppContext);
 
   useEffect(() => {
     if (!isLoading) {
-      loadCartItems();
+      loadFavoriteItems();
     }
   }, [isLoading]);
 
-  const loadCartItems = async () => {
+  const loadFavoriteItems = async () => {
     try {
-      const dbCartItems = await getCartItems();
-      const cartWithFoodItems: CartItem[] = [];
+      const dbFavoriteItems = await getCartItems();
+      const favoritesWithFoodItems: FavoriteItem[] = [];
       
-      for (const item of dbCartItems) {
+      for (const item of dbFavoriteItems) {
         const foodItem = await getFoodItemById(item.foodId);
         if (foodItem) {
-          cartWithFoodItems.push({
+          favoritesWithFoodItems.push({
             id: item.id,
             foodItem,
-            quantity: item.quantity
+            quantity: 1 // Default to 1 for favorites
           });
         }
       }
       
-      setCartItems(cartWithFoodItems);
+      setCartItems(favoritesWithFoodItems);
     } catch (error) {
-      console.error('Failed to load cart items:', error);
+      console.error('Failed to load favorite items:', error);
     }
   };
 
   const openCart = () => setIsCartOpen(true);
   const closeCart = () => setIsCartOpen(false);
 
-  const addToCart = async (foodItem: FoodItemClient) => {
-    try {
-      await addToCartDB(foodItem.id);
-      await loadCartItems();
-      openCart();
-    } catch (error) {
-      console.error('Failed to add item to cart:', error);
-    }
+  // Check if a food item is in favorites
+  const isFavorite = (foodId: string) => {
+    return cartItems.some(item => item.foodItem.id === foodId);
   };
 
-  const updateQuantity = async (id: string, quantity: number) => {
-    if (quantity <= 0) {
-      await removeFromCartDB(id);
-    } else {
-      await updateCartItemQuantity(id, quantity);
+  const addToCart = async (foodItem: FoodItemClient) => {
+    try {
+      // If item is already in favorites, don't add it again
+      if (isFavorite(foodItem.id)) {
+        openCart();
+        return;
+      }
+      
+      await addToCartDB(foodItem.id);
+      await loadFavoriteItems();
+      openCart();
+    } catch (error) {
+      console.error('Failed to add item to favorites:', error);
     }
-    await loadCartItems();
   };
 
   const removeFromCart = async (id: string) => {
     try {
       await removeFromCartDB(id);
-      await loadCartItems();
+      await loadFavoriteItems();
     } catch (error) {
-      console.error('Failed to remove item from cart:', error);
+      console.error('Failed to remove item from favorites:', error);
     }
   };
 
@@ -113,12 +115,8 @@ export const CartProvider = ({ children }: CartProviderProps) => {
       await clearCartDB();
       setCartItems([]);
     } catch (error) {
-      console.error('Failed to clear cart:', error);
+      console.error('Failed to clear favorites:', error);
     }
-  };
-
-  const cartTotal = () => {
-    return cartItems.reduce((total, item) => total + (item.foodItem.price * item.quantity), 0);
   };
 
   return (
@@ -128,10 +126,9 @@ export const CartProvider = ({ children }: CartProviderProps) => {
       openCart,
       closeCart,
       addToCart,
-      updateQuantity,
       removeFromCart,
       clearCart,
-      cartTotal
+      isFavorite
     }}>
       {children}
     </CartContext.Provider>

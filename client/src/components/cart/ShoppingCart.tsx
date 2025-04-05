@@ -6,19 +6,16 @@ import {
   SheetContent,
   SheetHeader,
   SheetTitle,
-  SheetClose,
 } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
-import { Minus, Plus, Heart as FavoriteIcon, X } from 'lucide-react';
+import { Heart as FavoriteIcon, X } from 'lucide-react';
 
 export function ShoppingCart() {
   const { 
     cartItems, 
     isCartOpen, 
     closeCart, 
-    updateQuantity, 
-    removeFromCart, 
-    cartTotal 
+    removeFromCart 
   } = useContext(CartContext);
   const { t, getLocalizedText } = useTranslation();
 
@@ -64,26 +61,33 @@ export function ShoppingCart() {
                     <div>
                       <div className="flex justify-between text-base font-medium text-gray-900 dark:text-white">
                         <h3>{t(item.foodItem.name)}</h3>
-                        <p className="ml-4">${(item.foodItem.price * item.quantity).toFixed(2)}</p>
                       </div>
                       <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">{item.foodItem.origin}</p>
                     </div>
-                    <div className="flex-1 flex items-end justify-between text-sm">
-                      <div className="flex items-center">
-                        <button 
-                          onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                          className="text-gray-400 hover:text-gray-500 bg-gray-100 w-6 h-6 rounded flex items-center justify-center dark:bg-gray-700 dark:hover:text-white"
-                        >
-                          <Minus className="h-3 w-3" />
-                        </button>
-                        <span className="mx-2 w-8 text-center font-medium">{item.quantity}</span>
-                        <button 
-                          onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                          className="text-gray-400 hover:text-gray-500 bg-gray-100 w-6 h-6 rounded flex items-center justify-center dark:bg-gray-700 dark:hover:text-white"
-                        >
-                          <Plus className="h-3 w-3" />
-                        </button>
+                    
+                    {/* Nutrition Preview */}
+                    <div className="mt-2 flex items-center space-x-3">
+                      <div className="flex flex-col items-center">
+                        <span className="text-xs text-gray-500 dark:text-gray-400">
+                          {getLocalizedText('food.calories')}
+                        </span>
+                        <span className="font-mono font-medium">{item.foodItem.nutrition.calories}</span>
                       </div>
+                      <div className="flex flex-col items-center">
+                        <span className="text-xs text-gray-500 dark:text-gray-400">
+                          {getLocalizedText('food.protein')}
+                        </span>
+                        <span className="font-mono font-medium">{item.foodItem.nutrition.protein}g</span>
+                      </div>
+                      <div className="flex flex-col items-center">
+                        <span className="text-xs text-gray-500 dark:text-gray-400">
+                          {getLocalizedText('food.carbs')}
+                        </span>
+                        <span className="font-mono font-medium">{item.foodItem.nutrition.carbs}g</span>
+                      </div>
+                    </div>
+                    
+                    <div className="flex-1 flex justify-end items-end text-sm">
                       <div className="flex">
                         <button 
                           onClick={() => removeFromCart(item.id)} 
@@ -102,21 +106,8 @@ export function ShoppingCart() {
 
         {cartItems.length > 0 && (
           <div className="border-t border-gray-200 py-6 px-4 sm:px-6 dark:border-gray-700">
-            <div className="flex justify-between text-base font-medium text-gray-900 dark:text-white">
-              <p>{getLocalizedText('cart.subtotal')}</p>
-              <p>${cartTotal().toFixed(2)}</p>
-            </div>
-            <p className="mt-0.5 text-sm text-gray-500 dark:text-gray-400">
-              {getLocalizedText('cart.shipping')}
-            </p>
-            <div className="mt-6">
-              <Button className="w-full">
-                {getLocalizedText('button.checkout')}
-              </Button>
-            </div>
             <div className="mt-6 flex justify-center text-sm text-center text-gray-500">
               <p>
-                {getLocalizedText('button.or')}{' '}
                 <button 
                   onClick={closeCart} 
                   className="text-primary-500 font-medium hover:text-primary-600 ml-1"

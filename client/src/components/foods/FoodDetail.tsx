@@ -69,10 +69,7 @@ export function FoodDetail({ item, isOpen, onClose }: FoodDetailProps) {
                 {t(item.description)}
               </DialogDescription>
               
-              <div className="flex items-center justify-between mb-5">
-                <div className="text-2xl font-medium text-orange-500">
-                  ${item.price.toFixed(2)}
-                </div>
+              <div className="flex items-center justify-end mb-5">
                 <Button 
                   onClick={() => {
                     addToCart(item);
