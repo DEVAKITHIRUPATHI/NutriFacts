@@ -18,7 +18,9 @@ interface NutriGlobeDB extends DBSchema {
   settings: {
     key: string;
     value: {
-      language: 'en' | 'hi' | 'ta';
+      language: 'en' | 'hi' | 'ta' | 'es' | 'fr' | 'de' | 'it' | 'pt' | 'ru' | 'zh' | 
+               'ja' | 'ko' | 'ar' | 'tr' | 'nl' | 'pl' | 'sv' | 'fi' | 'no' | 'da' |
+               'he' | 'th' | 'vi' | 'id' | 'ms';
       isOffline: boolean;
       lastSync: number;
     };
@@ -70,7 +72,8 @@ export async function getFoodItemsByCategory(category: string): Promise<FoodItem
   if (category === 'all') {
     return db.getAll('foodItems');
   }
-  return db.getAllFromIndex('foodItems', 'by-category', category);
+  // Use a valid IDBKeyRange or ensure category is used as an exact match
+  return db.getAllFromIndex('foodItems', 'by-category', category as any);
 }
 
 export async function getFoodItemById(id: string): Promise<FoodItemClient | undefined> {
@@ -83,7 +86,8 @@ export async function searchFoodItems(query: string, category?: string): Promise
   let items: FoodItemClient[];
   
   if (category && category !== 'all') {
-    items = await db.getAllFromIndex('foodItems', 'by-category', category);
+    // Use a valid IDBKeyRange or ensure category is used as an exact match
+    items = await db.getAllFromIndex('foodItems', 'by-category', category as any);
   } else {
     items = await db.getAll('foodItems');
   }
@@ -91,14 +95,19 @@ export async function searchFoodItems(query: string, category?: string): Promise
   if (!query) return items;
 
   const lowerQuery = query.toLowerCase();
-  return items.filter(item => 
-    item.name.en.toLowerCase().includes(lowerQuery) ||
-    item.name.hi.toLowerCase().includes(lowerQuery) ||
-    item.name.ta.toLowerCase().includes(lowerQuery) ||
-    item.description.en.toLowerCase().includes(lowerQuery) ||
-    item.description.hi.toLowerCase().includes(lowerQuery) ||
-    item.description.ta.toLowerCase().includes(lowerQuery)
-  );
+  return items.filter(item => {
+    // Search in all available name translations
+    const nameMatch = Object.values(item.name).some(
+      translation => translation && translation.toLowerCase().includes(lowerQuery)
+    );
+    
+    // Search in all available description translations
+    const descriptionMatch = Object.values(item.description).some(
+      translation => translation && translation.toLowerCase().includes(lowerQuery)
+    );
+    
+    return nameMatch || descriptionMatch;
+  });
 }
 
 // Cart operations
@@ -175,7 +184,9 @@ export async function getSettings() {
 }
 
 export async function updateSettings(settings: {
-  language?: 'en' | 'hi' | 'ta';
+  language?: 'en' | 'hi' | 'ta' | 'es' | 'fr' | 'de' | 'it' | 'pt' | 'ru' | 'zh' | 
+             'ja' | 'ko' | 'ar' | 'tr' | 'nl' | 'pl' | 'sv' | 'fi' | 'no' | 'da' |
+             'he' | 'th' | 'vi' | 'id' | 'ms';
   isOffline?: boolean;
   lastSync?: number;
 }) {

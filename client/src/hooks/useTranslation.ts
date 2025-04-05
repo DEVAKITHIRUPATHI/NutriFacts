@@ -7,11 +7,18 @@ export function useTranslation() {
   const { language } = useContext(AppContext);
 
   function t(content: TranslatedContent | {[key in Language]: string}): string {
-    return content[language];
+    // If translation for current language exists, use it
+    if (content[language]) {
+      return content[language];
+    }
+    
+    // Otherwise fallback to English
+    return content.en || Object.values(content)[0] || '';
   }
 
   function getLocalizedText(key: string): string {
-    const translations: Record<string, {[key in Language]: string}> = {
+    // Define language translations as a partial record - we only need to define existing translations
+    const translations: Record<string, Record<string, string>> = {
       'app.name': {
         en: 'NutriGlobe',
         hi: 'न्यूट्रीग्लोब',
@@ -474,7 +481,22 @@ export function useTranslation() {
       }
     };
 
-    return translations[key]?.[language] || key;
+    const translation = translations[key];
+    if (!translation) return key;
+    
+    // First try to get the translation in the current language
+    if (translation[language]) {
+      return translation[language];
+    }
+    
+    // If not available, fall back to English
+    if (translation['en']) {
+      return translation['en'];
+    }
+    
+    // If even English is not available, use the first available translation
+    const firstAvailableTranslation = Object.values(translation)[0];
+    return firstAvailableTranslation || key;
   }
 
   return { t, getLocalizedText, language };

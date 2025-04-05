@@ -88,8 +88,30 @@ export type InsertCartItem = z.infer<typeof insertCartItemSchema>;
 // Additional types for frontend use
 export type TranslatedContent = {
   en: string;
-  hi: string;
-  ta: string;
+  hi?: string;
+  ta?: string;
+  es?: string;
+  fr?: string;
+  de?: string;
+  it?: string;
+  pt?: string;
+  ru?: string;
+  zh?: string;
+  ja?: string;
+  ko?: string;
+  ar?: string;
+  tr?: string;
+  nl?: string;
+  pl?: string;
+  sv?: string;
+  fi?: string;
+  no?: string;
+  da?: string;
+  he?: string;
+  th?: string;
+  vi?: string;
+  id?: string;
+  ms?: string;
 };
 
 export type FoodItemClient = {
@@ -127,4 +149,7 @@ export type CartItemClient = {
   quantity: number;
 };
 
-export type Language = 'en' | 'hi' | 'ta';
+export type Language = 
+  'en' | 'hi' | 'ta' | 'es' | 'fr' | 'de' | 'it' | 'pt' | 'ru' | 'zh' | 
+  'ja' | 'ko' | 'ar' | 'tr' | 'nl' | 'pl' | 'sv' | 'fi' | 'no' | 'da' |
+  'he' | 'th' | 'vi' | 'id' | 'ms';
