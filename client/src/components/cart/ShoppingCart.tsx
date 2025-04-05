@@ -9,7 +9,7 @@ import {
   SheetClose,
 } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
-import { Minus, Plus, ShoppingCart as CartIcon, X } from 'lucide-react';
+import { Minus, Plus, Heart as FavoriteIcon, X } from 'lucide-react';
 
 export function ShoppingCart() {
   const { 
@@ -33,7 +33,7 @@ export function ShoppingCart() {
           {cartItems.length === 0 ? (
             <div className="text-center py-8">
               <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-gray-100">
-                <CartIcon className="h-6 w-6 text-gray-400" />
+                <FavoriteIcon className="h-6 w-6 text-pink-400" />
               </div>
               <h3 className="mt-2 text-lg font-medium text-gray-900 mb-1 dark:text-white">
                 {getLocalizedText('cart.empty')}

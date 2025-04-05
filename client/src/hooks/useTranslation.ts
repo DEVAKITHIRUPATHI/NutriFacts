@@ -135,9 +135,9 @@ export function useTranslation() {
         ta: 'விவரங்கள்'
       },
       'button.addToCart': {
-        en: 'Add to Cart',
-        hi: 'कार्ट में जोड़ें',
-        ta: 'கார்ட்டில் சேர்'
+        en: 'Add to Favorites',
+        hi: 'पसंदीदा में जोड़ें',
+        ta: 'பிடித்தவையில் சேர்'
       },
       'all.foods': {
         en: 'All Foods',
@@ -210,24 +210,24 @@ export function useTranslation() {
         ta: '100கி க்கு'
       },
       'cart.title': {
-        en: 'Shopping Cart',
-        hi: 'शॉपिंग कार्ट',
-        ta: 'ஷாப்பிங் கார்ட்'
+        en: 'Favorites',
+        hi: 'पसंदीदा',
+        ta: 'பிடித்தவை'
       },
       'cart.empty': {
-        en: 'Your cart is empty',
-        hi: 'आपकी कार्ट खाली है',
-        ta: 'உங்கள் கார்ட் காலியாக உள்ளது'
+        en: 'No favorites yet',
+        hi: 'अभी तक कोई पसंदीदा नहीं',
+        ta: 'இன்னும் பிடித்தவை எதுவும் இல்லை'
       },
       'cart.emptyMessage': {
-        en: 'Looks like you haven\'t added any items yet',
-        hi: 'ऐसा लगता है कि आपने अभी तक कोई आइटम नहीं जोड़ा है',
-        ta: 'நீங்கள் இன்னும் எந்த பொருட்களையும் சேர்க்கவில்லை போல் தெரிகிறது'
+        en: 'Looks like you haven\'t added any favorites yet',
+        hi: 'ऐसा लगता है कि आपने अभी तक कोई पसंदीदा नहीं जोड़ा है',
+        ta: 'நீங்கள் இன்னும் எந்த பிடித்தவையும் சேர்க்கவில்லை போல் தெரிகிறது'
       },
       'cart.continueShopping': {
-        en: 'Continue Shopping',
-        hi: 'खरीदारी जारी रखें',
-        ta: 'ஷாப்பிங் தொடரவும்'
+        en: 'Continue Exploring',
+        hi: 'खोज जारी रखें',
+        ta: 'ஆராய்ச்சியைத் தொடரவும்'
       },
       'cart.remove': {
         en: 'Remove',

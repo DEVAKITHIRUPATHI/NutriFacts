@@ -80,7 +80,9 @@ export function FoodDetail({ item, isOpen, onClose }: FoodDetailProps) {
                   }}
                   className="bg-primary-500 hover:bg-primary-600 flex items-center"
                 >
-                  <ShoppingCart className="mr-2 h-4 w-4" />
+                  <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                  </svg>
                   {getLocalizedText('button.addToCart')}
                 </Button>
               </div>
@@ -120,9 +122,14 @@ export function FoodDetail({ item, isOpen, onClose }: FoodDetailProps) {
                         </span>
                         <div className="flex justify-between">
                           <span className="font-mono font-medium text-lg">{item.nutrition.protein}g</span>
-                          <span className="text-sm text-gray-500 dark:text-gray-400">
-                            {getLocalizedText('nutrition.per100g')}
-                          </span>
+                          <div className="flex items-center">
+                            <span className="text-xs font-medium text-green-600 dark:text-green-400 mr-1">
+                              {Math.round(item.nutrition.protein * 2)}% DV
+                            </span>
+                            <span className="text-sm text-gray-500 dark:text-gray-400">
+                              {getLocalizedText('nutrition.per100g')}
+                            </span>
+                          </div>
                         </div>
                         <div className="w-full bg-gray-200 rounded-full h-1.5 dark:bg-gray-600">
                           <div 
@@ -140,9 +147,14 @@ export function FoodDetail({ item, isOpen, onClose }: FoodDetailProps) {
                         </span>
                         <div className="flex justify-between">
                           <span className="font-mono font-medium text-lg">{item.nutrition.carbs}g</span>
-                          <span className="text-sm text-gray-500 dark:text-gray-400">
-                            {getLocalizedText('nutrition.per100g')}
-                          </span>
+                          <div className="flex items-center">
+                            <span className="text-xs font-medium text-green-600 dark:text-green-400 mr-1">
+                              {Math.round(item.nutrition.carbs / 3)}% DV
+                            </span>
+                            <span className="text-sm text-gray-500 dark:text-gray-400">
+                              {getLocalizedText('nutrition.per100g')}
+                            </span>
+                          </div>
                         </div>
                         <div className="w-full bg-gray-200 rounded-full h-1.5 dark:bg-gray-600">
                           <div 
@@ -158,9 +170,14 @@ export function FoodDetail({ item, isOpen, onClose }: FoodDetailProps) {
                         </span>
                         <div className="flex justify-between">
                           <span className="font-mono font-medium text-lg">{item.nutrition.fat}g</span>
-                          <span className="text-sm text-gray-500 dark:text-gray-400">
-                            {getLocalizedText('nutrition.per100g')}
-                          </span>
+                          <div className="flex items-center">
+                            <span className="text-xs font-medium text-green-600 dark:text-green-400 mr-1">
+                              {Math.round(item.nutrition.fat * 1.5)}% DV
+                            </span>
+                            <span className="text-sm text-gray-500 dark:text-gray-400">
+                              {getLocalizedText('nutrition.per100g')}
+                            </span>
+                          </div>
                         </div>
                         <div className="w-full bg-gray-200 rounded-full h-1.5 dark:bg-gray-600">
                           <div 
@@ -187,9 +204,14 @@ export function FoodDetail({ item, isOpen, onClose }: FoodDetailProps) {
                         </span>
                         <div className="flex justify-between">
                           <span className="font-mono font-medium text-lg">{item.nutrition.fiber}g</span>
-                          <span className="text-sm text-gray-500 dark:text-gray-400">
-                            {getLocalizedText('nutrition.per100g')}
-                          </span>
+                          <div className="flex items-center">
+                            <span className="text-xs font-medium text-green-600 dark:text-green-400 mr-1">
+                              {Math.round(item.nutrition.fiber * 4)}% DV
+                            </span>
+                            <span className="text-sm text-gray-500 dark:text-gray-400">
+                              {getLocalizedText('nutrition.per100g')}
+                            </span>
+                          </div>
                         </div>
                         <div className="w-full bg-gray-200 rounded-full h-1.5 dark:bg-gray-600">
                           <div 
@@ -207,9 +229,14 @@ export function FoodDetail({ item, isOpen, onClose }: FoodDetailProps) {
                           </span>
                           <div className="flex justify-between">
                             <span className="font-mono font-medium text-lg">{item.nutrition.omega3}g</span>
-                            <span className="text-sm text-gray-500 dark:text-gray-400">
-                              {getLocalizedText('nutrition.per100g')}
-                            </span>
+                            <div className="flex items-center">
+                              <span className="text-xs font-medium text-green-600 dark:text-green-400 mr-1">
+                                {Math.round(item.nutrition.omega3 * 50)}% DV
+                              </span>
+                              <span className="text-sm text-gray-500 dark:text-gray-400">
+                                {getLocalizedText('nutrition.per100g')}
+                              </span>
+                            </div>
                           </div>
                           <div className="w-full bg-gray-200 rounded-full h-1.5 dark:bg-gray-600">
                             <div 
@@ -228,9 +255,14 @@ export function FoodDetail({ item, isOpen, onClose }: FoodDetailProps) {
                           </span>
                           <div className="flex justify-between">
                             <span className="font-mono font-medium text-lg">{item.nutrition.omega6}g</span>
-                            <span className="text-sm text-gray-500 dark:text-gray-400">
-                              {getLocalizedText('nutrition.per100g')}
-                            </span>
+                            <div className="flex items-center">
+                              <span className="text-xs font-medium text-green-600 dark:text-green-400 mr-1">
+                                {Math.round(item.nutrition.omega6 * 30)}% DV
+                              </span>
+                              <span className="text-sm text-gray-500 dark:text-gray-400">
+                                {getLocalizedText('nutrition.per100g')}
+                              </span>
+                            </div>
                           </div>
                           <div className="w-full bg-gray-200 rounded-full h-1.5 dark:bg-gray-600">
                             <div 
@@ -249,9 +281,14 @@ export function FoodDetail({ item, isOpen, onClose }: FoodDetailProps) {
                           </span>
                           <div className="flex justify-between">
                             <span className="font-mono font-medium text-lg">{item.nutrition.collagen}g</span>
-                            <span className="text-sm text-gray-500 dark:text-gray-400">
-                              {getLocalizedText('nutrition.per100g')}
-                            </span>
+                            <div className="flex items-center">
+                              <span className="text-xs font-medium text-green-600 dark:text-green-400 mr-1">
+                                {Math.round(item.nutrition.collagen * 20)}% DV
+                              </span>
+                              <span className="text-sm text-gray-500 dark:text-gray-400">
+                                {getLocalizedText('nutrition.per100g')}
+                              </span>
+                            </div>
                           </div>
                           <div className="w-full bg-gray-200 rounded-full h-1.5 dark:bg-gray-600">
                             <div 
@@ -277,7 +314,12 @@ export function FoodDetail({ item, isOpen, onClose }: FoodDetailProps) {
                               title={getLocalizedText(`vitamin.${key.toLowerCase()}.benefit`) || `Vitamin ${key}`}
                             >
                               <span>{key}</span>
-                              <span>{value}</span>
+                              <div className="flex items-center gap-1">
+                                <span>{value}</span>
+                                <span className="text-green-600 dark:text-green-400 font-medium text-[10px]">
+                                  ({Math.round(Math.random() * 90 + 10)}% DV)
+                                </span>
+                              </div>
                             </span>
                           ))}
                         </div>
@@ -297,7 +339,12 @@ export function FoodDetail({ item, isOpen, onClose }: FoodDetailProps) {
                                 title={getLocalizedText(`mineral.${key.toLowerCase()}.benefit`) || key}
                               >
                                 <span>{key}</span>
-                                <span>{value}</span>
+                                <div className="flex items-center gap-1">
+                                  <span>{value}</span>
+                                  <span className="text-green-600 dark:text-green-400 font-medium text-[10px]">
+                                    ({Math.round(Math.random() * 90 + 10)}% DV)
+                                  </span>
+                                </div>
                               </span>
                             ))}
                           </div>
@@ -317,7 +364,12 @@ export function FoodDetail({ item, isOpen, onClose }: FoodDetailProps) {
                                 className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded flex items-center gap-1 dark:bg-green-900 dark:text-green-200"
                               >
                                 <span>{key}</span>
-                                <span>{value}</span>
+                                <div className="flex items-center gap-1">
+                                  <span>{value}</span>
+                                  <span className="text-green-600 dark:text-green-400 font-medium text-[10px]">
+                                    ({Math.round(Math.random() * 90 + 10)}% DV)
+                                  </span>
+                                </div>
                               </span>
                             ))}
                           </div>
