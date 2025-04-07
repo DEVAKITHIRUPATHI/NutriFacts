@@ -87,31 +87,57 @@ export type InsertCartItem = z.infer<typeof insertCartItemSchema>;
 
 // Additional types for frontend use
 export type TranslatedContent = {
+  // English
   en: string;
-  hi?: string;
-  ta?: string;
-  es?: string;
-  fr?: string;
-  de?: string;
-  it?: string;
-  pt?: string;
-  ru?: string;
-  zh?: string;
-  ja?: string;
-  ko?: string;
-  ar?: string;
-  tr?: string;
-  nl?: string;
-  pl?: string;
-  sv?: string;
-  fi?: string;
-  no?: string;
-  da?: string;
-  he?: string;
-  th?: string;
-  vi?: string;
-  id?: string;
-  ms?: string;
+  
+  // Indian languages
+  hi?: string;  // Hindi
+  ta?: string;  // Tamil
+  bn?: string;  // Bengali
+  mr?: string;  // Marathi
+  te?: string;  // Telugu
+  gu?: string;  // Gujarati
+  ur?: string;  // Urdu
+  kn?: string;  // Kannada
+  or?: string;  // Odia (Oriya)
+  ml?: string;  // Malayalam
+  pa?: string;  // Punjabi
+  as?: string;  // Assamese
+  mai?: string; // Maithili
+  sat?: string; // Santali
+  ks?: string;  // Kashmiri
+  ne?: string;  // Nepali
+  sd?: string;  // Sindhi
+  kok?: string; // Konkani
+  
+  // International languages
+  es?: string;  // Spanish
+  fr?: string;  // French
+  ar?: string;  // Standard Arabic
+  ru?: string;  // Russian
+  pt?: string;  // Portuguese
+  id?: string;  // Indonesian
+  de?: string;  // German
+  ja?: string;  // Japanese
+  sw?: string;  // Swahili
+  tr?: string;  // Turkish
+  yue?: string; // Yue Chinese (Cantonese)
+  vi?: string;  // Vietnamese
+  ko?: string;  // Korean
+  it?: string;  // Italian
+  fa?: string;  // Persian (Farsi)
+  th?: string;  // Thai
+  ha?: string;  // Hausa
+  pl?: string;  // Polish
+  uk?: string;  // Ukrainian
+  ms?: string;  // Malay
+  ro?: string;  // Romanian
+  nl?: string;  // Dutch
+  am?: string;  // Amharic
+  fil?: string; // Filipino (Tagalog)
+  my?: string;  // Burmese
+  om?: string;  // Oromo
+  zh?: string;  // Mandarin Chinese
 };
 
 export type FoodItemClient = {
@@ -151,6 +177,14 @@ export type CartItemClient = {
 };
 
 export type Language = 
-  'en' | 'hi' | 'ta' | 'es' | 'fr' | 'de' | 'it' | 'pt' | 'ru' | 'zh' | 
-  'ja' | 'ko' | 'ar' | 'tr' | 'nl' | 'pl' | 'sv' | 'fi' | 'no' | 'da' |
-  'he' | 'th' | 'vi' | 'id' | 'ms';
+  // English
+  'en' | 
+  
+  // Indian languages
+  'hi' | 'ta' | 'bn' | 'mr' | 'te' | 'gu' | 'ur' | 'kn' | 'or' | 
+  'ml' | 'pa' | 'as' | 'mai' | 'sat' | 'ks' | 'ne' | 'sd' | 'kok' |
+  
+  // International languages
+  'es' | 'fr' | 'ar' | 'ru' | 'pt' | 'id' | 'de' | 'ja' | 'sw' | 
+  'tr' | 'yue' | 'vi' | 'ko' | 'it' | 'fa' | 'th' | 'ha' | 'pl' | 
+  'uk' | 'ms' | 'ro' | 'nl' | 'am' | 'fil' | 'my' | 'om' | 'zh';
