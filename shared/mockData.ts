@@ -1800,5 +1800,933 @@ export const foodItems: FoodItemClient[] = [
       hi: 'रोजाना 1-2 मध्यम गाजर, कच्ची या पकी हुई',
       ta: 'தினசரி 1-2 நடுத்தர கேரட், பச்சையாக அல்லது சமைத்தது'
     }
+  ),
+  
+  // Adding more fruits from the fruits list
+  createFoodItem(
+    'mango',
+    {
+      en: 'Mango',
+      hi: 'आम',
+      ta: 'மாம்பழம்'
+    },
+    {
+      en: 'Sweet, juicy tropical fruit with golden-orange flesh',
+      hi: 'मीठा, रसदार उष्णकटिबंधीय फल जिसका गूदा सुनहरा-नारंगी होता है',
+      ta: 'இனிப்பான, சாறுள்ள வெப்பமண்டல பழம், தங்க-ஆரஞ்சு நிற சதைப்பகுதியுடன்'
+    },
+    'India',
+    2.99,
+    'https://cdn.pixabay.com/photo/2016/03/05/22/18/food-1239241_640.jpg',
+    ['fruits', 'tropical', 'sweet'],
+    {
+      calories: 99,
+      carbs: 24.7,
+      protein: 1.4,
+      fat: 0.6,
+      fiber: 2.6,
+      vitamins: { 'C': '67%', 'A': '25%', 'B6': '12%' },
+      antioxidants: { 'Beta-carotene': 'high', 'Quercetin': 'medium' }
+    },
+    ['vegan', 'gluten-free'],
+    true,
+    [
+      {
+        en: 'Supports immune function and eye health with vitamins A and C',
+        hi: 'विटामिन ए और सी के साथ प्रतिरक्षा प्रणाली और आंखों के स्वास्थ्य का समर्थन करता है',
+        ta: 'வைட்டமின் ஏ மற்றும் சி உடன் நோய் எதிர்ப்பு செயல்பாடு மற்றும் கண் ஆரோக்கியத்தை ஆதரிக்கிறது'
+      }
+    ],
+    {
+      en: '1 medium mango as a snack or dessert',
+      hi: 'नाश्ते या डेसर्ट के रूप में 1 मध्यम आम',
+      ta: 'சிற்றுண்டி அல்லது இனிப்பாக 1 நடுத்தர மாம்பழம்'
+    }
+  ),
+  
+  createFoodItem(
+    'kiwi',
+    {
+      en: 'Kiwi Fruit',
+      hi: 'कीवी फल',
+      ta: 'கிவி பழம்'
+    },
+    {
+      en: 'Tangy, sweet fruit with bright green flesh and tiny black seeds',
+      hi: 'चटपटा, मीठा फल जिसका गूदा हरा और छोटे काले बीज होते हैं',
+      ta: 'புளிப்பான, இனிப்பான பழம், பிரகாசமான பச்சை சதைப்பகுதி மற்றும் சிறிய கருப்பு விதைகளுடன்'
+    },
+    'New Zealand',
+    1.50,
+    'https://cdn.pixabay.com/photo/2017/05/07/19/32/kiwi-2294181_640.jpg',
+    ['fruits', 'tropical', 'tangy'],
+    {
+      calories: 61,
+      carbs: 14.7,
+      protein: 1.1,
+      fat: 0.5,
+      fiber: 3,
+      vitamins: { 'C': '103%', 'K': '38%', 'E': '10%' },
+      antioxidants: { 'Lutein': 'high', 'Zeaxanthin': 'medium' }
+    },
+    ['vegan', 'gluten-free'],
+    false,
+    [
+      {
+        en: 'Exceptionally high in vitamin C, supporting immune health and collagen production',
+        hi: 'विटामिन सी में अत्यधिक उच्च, प्रतिरक्षा स्वास्थ्य और कोलेजन उत्पादन का समर्थन करता है',
+        ta: 'வைட்டமின் சி அதிகம் உள்ளது, நோய் எதிர்ப்பு ஆரோக்கியம் மற்றும் கொலாஜன் உற்பத்தியை ஆதரிக்கிறது'
+      }
+    ],
+    {
+      en: '1-2 kiwi fruits daily for optimal vitamin C intake',
+      hi: 'इष्टतम विटामिन सी सेवन के लिए रोजाना 1-2 कीवी फल',
+      ta: 'அதிகபட்ச வைட்டமின் சி உட்கொள்ளலுக்கு தினசரி 1-2 கிவி பழங்கள்'
+    }
+  ),
+  
+  createFoodItem(
+    'pomegranate',
+    {
+      en: 'Pomegranate',
+      hi: 'अनार',
+      ta: 'மாதுளை'
+    },
+    {
+      en: 'Ruby-red fruit filled with jewel-like seeds (arils) that are juicy and sweet-tart',
+      hi: 'रूबी-लाल फल जो मणि जैसे बीजों (एरिल्स) से भरा होता है जो रसदार और मीठे-खट्टे होते हैं',
+      ta: 'ரூபி-சிவப்பு பழம், சாறுள்ள மற்றும் இனிப்பு-புளிப்பான நகைபோன்ற விதைகள் (அரில்கள்) நிறைந்தது'
+    },
+    'Middle East',
+    3.49,
+    'https://cdn.pixabay.com/photo/2019/10/29/09/33/pomegranate-4586457_640.jpg',
+    ['fruits', 'antioxidant', 'superfood'],
+    {
+      calories: 83,
+      carbs: 18.7,
+      protein: 1.7,
+      fat: 1.2,
+      fiber: 4,
+      vitamins: { 'C': '16%', 'K': '21%', 'Folate': '10%' },
+      antioxidants: { 'Punicalagins': 'very high', 'Anthocyanins': 'high' }
+    },
+    ['vegan', 'gluten-free'],
+    true,
+    [
+      {
+        en: 'Packed with powerful antioxidants that may help reduce inflammation and protect against heart disease',
+        hi: 'शक्तिशाली एंटीऑक्सिडेंट से भरपूर जो सूजन को कम करने और हृदय रोग से बचाने में मदद कर सकता है',
+        ta: 'சக்திவாய்ந்த ஆன்டிஆக்ஸிடன்ட்களால் நிறைந்துள்ளது, இது அழற்சியைக் குறைக்கவும் இதய நோயிலிருந்து பாதுகாக்கவும் உதவலாம்'
+      }
+    ],
+    {
+      en: '1/2 to 1 pomegranate daily or 1/4 cup arils as a snack',
+      hi: 'रोजाना 1/2 से 1 अनार या नाश्ते के रूप में 1/4 कप एरिल्स',
+      ta: 'தினசரி 1/2 முதல் 1 மாதுளை அல்லது சிற்றுண்டியாக 1/4 கப் அரில்கள்'
+    }
+  ),
+  
+  // Adding vegetables from the vegetable list
+  createFoodItem(
+    'spinach',
+    {
+      en: 'Spinach',
+      hi: 'पालक',
+      ta: 'கீரை'
+    },
+    {
+      en: 'Nutrient-dense leafy green vegetable with tender leaves',
+      hi: 'कोमल पत्तियों वाली पोषक तत्वों से भरपूर पत्तेदार हरी सब्जी',
+      ta: 'மெருகேற்றப்பட்ட இலைகளைக் கொண்ட ஊட்டச்சத்து நிறைந்த இலைக்கறி'
+    },
+    'Persia (Iran)',
+    1.99,
+    'https://cdn.pixabay.com/photo/2016/03/05/19/02/spinach-1238251_640.jpg',
+    ['vegetables', 'leafy green', 'superfood'],
+    {
+      calories: 23,
+      carbs: 3.6,
+      protein: 2.9,
+      fat: 0.4,
+      fiber: 2.2,
+      vitamins: { 'K': '604%', 'A': '188%', 'Folate': '66%' },
+      minerals: { 'Iron': '15%', 'Magnesium': '20%', 'Potassium': '15%' },
+      antioxidants: { 'Lutein': 'very high', 'Zeaxanthin': 'high' }
+    },
+    ['vegan', 'gluten-free'],
+    true,
+    [
+      {
+        en: 'Highly nutritious green that supports bone health, eye health, and reduces oxidative stress',
+        hi: 'अत्यधिक पौष्टिक हरी सब्जी जो हड्डियों के स्वास्थ्य, आंखों के स्वास्थ्य का समर्थन करती है और ऑक्सीडेटिव तनाव को कम करती है',
+        ta: 'எலும்பு ஆரோக்கியம், கண் ஆரோக்கியத்தை ஆதரிக்கும் மற்றும் ஆக்ஸிஜனேற்ற அழுத்தத்தைக் குறைக்கும் அதிக ஊட்டச்சத்து நிறைந்த கீரை'
+      }
+    ],
+    {
+      en: '2-3 cups of fresh spinach daily, raw in salads or cooked',
+      hi: 'रोजाना 2-3 कप ताजा पालक, सलाद में कच्चा या पका हुआ',
+      ta: 'தினசரி 2-3 கப் புதிய கீரை, சாலட்டில் பச்சையாக அல்லது சமைத்தது'
+    }
+  ),
+  
+  createFoodItem(
+    'cauliflower',
+    {
+      en: 'Cauliflower',
+      hi: 'फूलगोभी',
+      ta: 'காலிஃபிளவர்'
+    },
+    {
+      en: 'Versatile cruciferous vegetable with dense white florets',
+      hi: 'घने सफेद फूलों वाली बहुमुखी क्रूसिफेरस सब्जी',
+      ta: 'அடர்த்தியான வெள்ளை பூக்கொத்துகளுடன் பலதரப்பட்ட குறுக்குச் செடி காய்கறி'
+    },
+    'Mediterranean',
+    2.49,
+    'https://cdn.pixabay.com/photo/2016/03/05/19/02/cauliflower-1238255_640.jpg',
+    ['vegetables', 'cruciferous', 'keto-friendly'],
+    {
+      calories: 25,
+      carbs: 5,
+      protein: 2,
+      fat: 0.1,
+      fiber: 2.5,
+      vitamins: { 'C': '77%', 'K': '20%', 'B6': '11%' },
+      antioxidants: { 'Glucosinolates': 'high', 'Isothiocyanates': 'high' }
+    },
+    ['vegan', 'gluten-free'],
+    false,
+    [
+      {
+        en: 'Low-carb vegetable that can help reduce inflammation and may aid in cancer prevention',
+        hi: 'कम कार्ब्स वाली सब्जी जो सूजन को कम करने में मदद कर सकती है और कैंसर की रोकथाम में सहायता कर सकती है',
+        ta: 'குறைந்த கார்போஹைட்ரேட் காய்கறி, அழற்சியைக் குறைக்க உதவும் மற்றும் புற்றுநோய் தடுப்பில் உதவலாம்'
+      }
+    ],
+    {
+      en: '1 cup cooked cauliflower, 3-4 times per week',
+      hi: '1 कप पकी हुई फूलगोभी, प्रति सप्ताह 3-4 बार',
+      ta: '1 கப் சமைத்த காலிஃபிளவர், வாரத்திற்கு 3-4 முறை'
+    }
+  ),
+  
+  createFoodItem(
+    'eggplant',
+    {
+      en: 'Eggplant',
+      hi: 'बैंगन',
+      ta: 'கத்தரிக்காய்'
+    },
+    {
+      en: 'Glossy purple vegetable with spongy flesh and mild flavor',
+      hi: 'चमकदार बैंगनी सब्जी जिसमें स्पंजी गूदा और हल्का स्वाद होता है',
+      ta: 'பளபளப்பான ஊதா நிற காய்கறி, ஸ்பான்ஜி போன்ற தசை மற்றும் மிதமான சுவையுடன்'
+    },
+    'India',
+    1.79,
+    'https://cdn.pixabay.com/photo/2016/09/10/17/47/eggplant-1659784_640.jpg',
+    ['vegetables', 'nightshade', 'low-calorie'],
+    {
+      calories: 25,
+      carbs: 6,
+      protein: 1,
+      fat: 0.2,
+      fiber: 3,
+      vitamins: { 'B6': '5%', 'K': '4%', 'C': '3%' },
+      antioxidants: { 'Nasunin': 'high', 'Chlorogenic Acid': 'medium' }
+    },
+    ['vegan', 'gluten-free'],
+    false,
+    [
+      {
+        en: 'Contains compounds that may help lower cholesterol and improve heart health',
+        hi: 'ऐसे यौगिक होते हैं जो कोलेस्ट्रॉल को कम करने और हृदय स्वास्थ्य में सुधार करने में मदद कर सकते हैं',
+        ta: 'கொலஸ்ட்ரோலைக் குறைக்கவும் இதய ஆரோக்கியத்தை மேம்படுத்தவும் உதவும் சேர்மங்களைக் கொண்டுள்ளது'
+      }
+    ],
+    {
+      en: '1 cup cooked eggplant, 2-3 times per week',
+      hi: '1 कप पका हुआ बैंगन, प्रति सप्ताह 2-3 बार',
+      ta: '1 கப் சமைத்த கத்தரிக்காய், வாரத்திற்கு 2-3 முறை'
+    }
+  ),
+  
+  // Adding non-vegetarian foods
+  createFoodItem(
+    'salmon',
+    {
+      en: 'Salmon',
+      hi: 'सामन मछली',
+      ta: 'சாமன் மீன்'
+    },
+    {
+      en: 'Oily fish with pink-orange flesh, rich in omega-3 fatty acids',
+      hi: 'गुलाबी-नारंगी मांस वाली तैलीय मछली, ओमेगा-3 फैटी एसिड से भरपूर',
+      ta: 'இளஞ்சிவப்பு-ஆரஞ்சு இறைச்சி கொண்ட எண்ணெய் மீன், ஒமேகா-3 கொழுப்பு அமிலங்கள் நிறைந்தது'
+    },
+    'Pacific Ocean',
+    12.99,
+    'https://cdn.pixabay.com/photo/2016/03/05/19/02/salmon-1238248_640.jpg',
+    ['seafood', 'fish', 'omega-3'],
+    {
+      calories: 206,
+      carbs: 0,
+      protein: 22,
+      fat: 13,
+      fiber: 0,
+      vitamins: { 'B12': '237%', 'D': '127%', 'B6': '38%' },
+      minerals: { 'Selenium': '53%', 'Phosphorus': '26%' },
+      omega3: 2.3
+    },
+    ['fish', 'pescatarian'],
+    true,
+    [
+      {
+        en: 'Excellent source of omega-3 fatty acids that support heart and brain health',
+        hi: 'ओमेगा-3 फैटी एसिड का उत्कृष्ट स्रोत जो हृदय और मस्तिष्क के स्वास्थ्य का समर्थन करता है',
+        ta: 'இதயம் மற்றும் மூளை ஆரோக்கியத்தை ஆதரிக்கும் ஒமேகா-3 கொழுப்பு அமிலங்களின் சிறந்த ஆதாரம்'
+      }
+    ],
+    {
+      en: '4-6 ounce portion, 2-3 times per week',
+      hi: '4-6 औंस हिस्सा, प्रति सप्ताह 2-3 बार',
+      ta: '4-6 அவுன்ஸ் பகுதி, வாரத்திற்கு 2-3 முறை'
+    }
+  ),
+  
+  createFoodItem(
+    'chicken_breast',
+    {
+      en: 'Chicken Breast',
+      hi: 'चिकन ब्रेस्ट',
+      ta: 'கோழி மார்புக்கறி'
+    },
+    {
+      en: 'Lean white meat cut from the breast of chicken, low in fat and high in protein',
+      hi: 'चिकन के छाती से काटा गया दुबला सफेद मांस, वसा में कम और प्रोटीन में उच्च',
+      ta: 'கோழியின் மார்பிலிருந்து வெட்டப்பட்ட குறைந்த கொழுப்புள்ள வெள்ளை இறைச்சி, குறைந்த கொழுப்பு மற்றும் அதிக புரதம் கொண்டது'
+    },
+    'Global',
+    5.99,
+    'https://cdn.pixabay.com/photo/2017/06/02/20/35/chicken-2367685_640.jpg',
+    ['meat', 'poultry', 'protein'],
+    {
+      calories: 165,
+      carbs: 0,
+      protein: 31,
+      fat: 3.6,
+      fiber: 0,
+      vitamins: { 'B6': '25%', 'B3': '87%', 'B12': '10%' },
+      minerals: { 'Selenium': '36%', 'Phosphorus': '21%' }
+    },
+    ['meat', 'poultry'],
+    true,
+    [
+      {
+        en: 'Excellent source of lean protein for muscle building and repair',
+        hi: 'मांसपेशियों के निर्माण और मरम्मत के लिए दुबले प्रोटीन का उत्कृष्ट स्रोत',
+        ta: 'தசை வளர்ச்சி மற்றும் பழுதுபார்ப்புக்கான குறைந்த கொழுப்புள்ள புரதத்தின் சிறந்த ஆதாரம்'
+      }
+    ],
+    {
+      en: '3-4 ounce portion, as part of a balanced meal',
+      hi: 'संतुलित भोजन के हिस्से के रूप में 3-4 औंस हिस्सा',
+      ta: 'சமநிலை உணவின் ஒரு பகுதியாக 3-4 அவுன்ஸ் பகுதி'
+    }
+  ),
+  
+  createFoodItem(
+    'eggs',
+    {
+      en: 'Eggs',
+      hi: 'अंडे',
+      ta: 'முட்டைகள்'
+    },
+    {
+      en: 'Versatile protein source with nutrient-rich yolk and high-protein white',
+      hi: 'पोषक तत्वों से भरपूर यॉक और उच्च प्रोटीन श्वेत के साथ बहुमुखी प्रोटीन स्रोत',
+      ta: 'ஊட்டச்சத்து நிறைந்த மஞ்சள் கரு மற்றும் அதிக புரதம் கொண்ட வெள்ளைப் பகுதியுடன் பலதரப்பட்ட புரத ஆதாரம்'
+    },
+    'Global',
+    2.99,
+    'https://cdn.pixabay.com/photo/2018/03/11/18/23/eggs-3217675_640.jpg',
+    ['protein', 'dairy-alternative', 'breakfast'],
+    {
+      calories: 72,
+      carbs: 0.4,
+      protein: 6.3,
+      fat: 5,
+      fiber: 0,
+      vitamins: { 'B12': '21%', 'B2': '16%', 'A': '8%' },
+      minerals: { 'Selenium': '28%', 'Phosphorus': '9%' },
+      omega3: 0.1,
+      collagen: 0
+    },
+    ['eggs'],
+    true,
+    [
+      {
+        en: 'Complete protein source containing all essential amino acids and important nutrients like choline',
+        hi: 'सभी आवश्यक अमीनो एसिड और कोलीन जैसे महत्वपूर्ण पोषक तत्वों वाला पूर्ण प्रोटीन स्रोत',
+        ta: 'அனைத்து அத்தியாவசிய அமினோ அமிலங்கள் மற்றும் கோலின் போன்ற முக்கியமான ஊட்டச்சத்துக்களைக் கொண்ட முழுமையான புரத ஆதாரம்'
+      }
+    ],
+    {
+      en: '1-2 eggs daily for most healthy adults',
+      hi: 'अधिकांश स्वस्थ वयस्कों के लिए रोजाना 1-2 अंडे',
+      ta: 'பெரும்பாலான ஆரோக்கியமான வயது வந்தவர்களுக்கு தினசரி 1-2 முட்டைகள்'
+    }
+  ),
+  
+  // Adding some grocery ingredients
+  createFoodItem(
+    'quinoa',
+    {
+      en: 'Quinoa',
+      hi: 'क्विनोआ',
+      ta: 'குயினோவா'
+    },
+    {
+      en: 'Nutrient-rich pseudocereal with a fluffy texture when cooked',
+      hi: 'पकाने पर रुई जैसी बनावट वाला पोषक तत्वों से भरपूर छद्म अनाज',
+      ta: 'சமைக்கும்போது புஷ்பவடிவ அமைப்புடன் ஊட்டச்சத்து நிறைந்த போலி தானியம்'
+    },
+    'South America',
+    4.99,
+    'https://cdn.pixabay.com/photo/2015/04/10/00/22/quinoa-715625_640.jpg',
+    ['grains', 'protein', 'gluten-free'],
+    {
+      calories: 120,
+      carbs: 21.3,
+      protein: 4.4,
+      fat: 1.9,
+      fiber: 2.8,
+      vitamins: { 'B1': '10%', 'B6': '11%', 'Folate': '19%' },
+      minerals: { 'Magnesium': '30%', 'Phosphorus': '28%', 'Iron': '15%' }
+    },
+    ['vegan', 'gluten-free'],
+    false,
+    [
+      {
+        en: 'Complete plant protein containing all nine essential amino acids',
+        hi: 'सभी नौ आवश्यक अमीनो एसिड वाला पूर्ण पौधे का प्रोटीन',
+        ta: 'அனைத்து ஒன்பது அத்தியாவசிய அமினோ அமிலங்களையும் கொண்ட முழுமையான தாவர புரதம்'
+      }
+    ],
+    {
+      en: '1/2 cup cooked quinoa as a side dish or base for bowls',
+      hi: 'साइड डिश या बाउल के आधार के रूप में 1/2 कप पका हुआ क्विनोआ',
+      ta: 'பக்க உணவாக அல்லது பவுல்களுக்கான அடிப்படையாக 1/2 கப் சமைத்த குயினோவா'
+    }
+  ),
+  
+  createFoodItem(
+    'lentils',
+    {
+      en: 'Lentils',
+      hi: 'दाल',
+      ta: 'பருப்பு'
+    },
+    {
+      en: 'Small, lens-shaped legumes available in various colors including green, brown, and red',
+      hi: 'छोटी, लेंस के आकार की फलियां जो हरे, भूरे और लाल सहित विभिन्न रंगों में उपलब्ध हैं',
+      ta: 'சிறிய, லென்ஸ் வடிவ பருப்பு வகைகள், பச்சை, பழுப்பு மற்றும் சிவப்பு உள்ளிட்ட பல வண்ணங்களில் கிடைக்கின்றன'
+    },
+    'Middle East',
+    1.49,
+    'https://cdn.pixabay.com/photo/2015/09/03/08/05/lentils-919384_640.jpg',
+    ['legumes', 'protein', 'fiber'],
+    {
+      calories: 115,
+      carbs: 20,
+      protein: 9,
+      fat: 0.4,
+      fiber: 8,
+      vitamins: { 'B1': '22%', 'B6': '18%', 'Folate': '90%' },
+      minerals: { 'Iron': '37%', 'Phosphorus': '18%', 'Potassium': '16%' }
+    },
+    ['vegan', 'gluten-free'],
+    false,
+    [
+      {
+        en: 'Excellent plant-based source of protein and fiber that may help lower cholesterol',
+        hi: 'प्रोटीन और फाइबर का उत्कृष्ट पौधे-आधारित स्रोत जो कोलेस्ट्रॉल को कम करने में मदद कर सकता है',
+        ta: 'புரதம் மற்றும் நார்ச்சத்தின் சிறந்த தாவர அடிப்படையிலான ஆதாரம், இது கொலஸ்ட்ரோலைக் குறைக்க உதவலாம்'
+      }
+    ],
+    {
+      en: '1/2 cup cooked lentils, 3-4 times per week',
+      hi: '1/2 कप पकी हुई दाल, प्रति सप्ताह 3-4 बार',
+      ta: '1/2 கப் சமைத்த பருப்பு, வாரத்திற்கு 3-4 முறை'
+    }
+  ),
+  
+  createFoodItem(
+    'olive_oil',
+    {
+      en: 'Olive Oil',
+      hi: 'जैतून का तेल',
+      ta: 'ஆலிவ் எண்ணெய்'
+    },
+    {
+      en: 'Heart-healthy plant oil extracted from olives, with fruity flavor and golden-green color',
+      hi: 'जैतून से निकाला गया हृदय-स्वस्थ वनस्पति तेल, फलदार स्वाद और सुनहरे-हरे रंग के साथ',
+      ta: 'ஆலிவ்களில் இருந்து பிரித்தெடுக்கப்பட்ட இதய-ஆரோக்கியமான தாவர எண்ணெய், பழச்சுவை மற்றும் தங்க-பச்சை நிறத்துடன்'
+    },
+    'Mediterranean',
+    8.99,
+    'https://cdn.pixabay.com/photo/2018/08/08/12/51/olive-oil-3592937_640.jpg',
+    ['oils', 'mediterranean', 'healthy-fats'],
+    {
+      calories: 119,
+      carbs: 0,
+      protein: 0,
+      fat: 14,
+      fiber: 0,
+      vitamins: { 'E': '10%', 'K': '8%' },
+      omega3: 0.1,
+      omega9: 9.8,
+      antioxidants: { 'Oleocanthal': 'high', 'Oleuropein': 'medium' }
+    },
+    ['vegan', 'gluten-free'],
+    true,
+    [
+      {
+        en: 'Rich in heart-healthy monounsaturated fats and antioxidants that may reduce inflammation',
+        hi: 'हृदय-स्वस्थ मोनोअनसैचुरेटेड वसा और एंटीऑक्सिडेंट से भरपूर जो सूजन को कम कर सकता है',
+        ta: 'இதயத்திற்கு ஆரோக்கியமான மோனோஅன்சாச்சுரேட்டட் கொழுப்புகள் மற்றும் அழற்சியைக் குறைக்கக்கூடிய ஆன்டிஆக்ஸிடன்ட்கள் நிறைந்தது'
+      }
+    ],
+    {
+      en: '1-2 tablespoons daily as part of a healthy diet',
+      hi: 'स्वस्थ आहार के हिस्से के रूप में रोजाना 1-2 बड़े चम्मच',
+      ta: 'ஆரோக்கியமான உணவின் ஒரு பகுதியாக தினசரி 1-2 மேஜைக்கரண்டி'
+    }
+  ),
+  
+  // Adding more vegetables
+  createFoodItem(
+    'asparagus',
+    {
+      en: 'Asparagus',
+      hi: 'शतावरी',
+      ta: 'அஸ்பாரகஸ்'
+    },
+    {
+      en: 'Tender spring vegetable with tall, slender stalks and pointed tips',
+      hi: 'लंबे, पतले तने और नुकीले सिरों वाली कोमल वसंत सब्जी',
+      ta: 'உயரமான, மெலிந்த தண்டுகள் மற்றும் கூர்மையான நுனிகளுடன் கூடிய மென்மையான வசந்த காய்கறி'
+    },
+    'Mediterranean',
+    3.99,
+    'https://cdn.pixabay.com/photo/2019/03/08/11/09/asparagus-4041925_640.jpg',
+    ['vegetables', 'stem', 'spring'],
+    {
+      calories: 20,
+      carbs: 3.7,
+      protein: 2.2,
+      fat: 0.2,
+      fiber: 2.1,
+      vitamins: { 'K': '57%', 'A': '20%', 'Folate': '68%' },
+      minerals: { 'Copper': '10%', 'Iron': '5%' },
+      antioxidants: { 'Glutathione': 'high', 'Rutin': 'medium' }
+    },
+    ['vegan', 'gluten-free'],
+    false,
+    [
+      {
+        en: 'Natural diuretic that may help flush excess fluid and support kidney health',
+        hi: 'प्राकृतिक मूत्रवर्धक जो अतिरिक्त तरल पदार्थ को बाहर निकालने और गुर्दे के स्वास्थ्य का समर्थन करने में मदद कर सकता है',
+        ta: 'இயற்கை சிறுநீர் பெருக்கி, அதிகப்படியான திரவத்தை வெளியேற்றவும் சிறுநீரக ஆரோக்கியத்தை ஆதரிக்கவும் உதவும்'
+      }
+    ],
+    {
+      en: '1 cup cooked asparagus, several times per week in season',
+      hi: 'मौसम में प्रति सप्ताह कई बार 1 कप पकी हुई शतावरी',
+      ta: 'பருவத்தில் வாரத்திற்கு பல முறை 1 கப் சமைத்த அஸ்பாரகஸ்'
+    }
+  ),
+  
+  createFoodItem(
+    'avocado',
+    {
+      en: 'Avocado',
+      hi: 'एवोकैडो',
+      ta: 'அவகேடோ'
+    },
+    {
+      en: 'Creamy fruit with green flesh, mild flavor and buttery texture',
+      hi: 'हरे गूदे वाला क्रीमी फल, हल्के स्वाद और मक्खन जैसी बनावट के साथ',
+      ta: 'பச்சை சதைப்பகுதி, மிதமான சுவை மற்றும் வெண்ணெய் போன்ற அமைப்புடன் கூடிய கிரீமியான பழம்'
+    },
+    'Mexico',
+    1.50,
+    'https://cdn.pixabay.com/photo/2017/05/19/20/28/avocado-2327811_640.jpg',
+    ['fruits', 'healthy-fats', 'superfood'],
+    {
+      calories: 160,
+      carbs: 9,
+      protein: 2,
+      fat: 15,
+      fiber: 7,
+      vitamins: { 'K': '26%', 'C': '17%', 'E': '10%' },
+      minerals: { 'Potassium': '14%', 'Folate': '20%', 'Copper': '9%' },
+      omega3: 0.1,
+      omega6: 1.7,
+      omega9: 9.1
+    },
+    ['vegan', 'gluten-free'],
+    true,
+    [
+      {
+        en: 'Nutrient-dense fruit rich in heart-healthy monounsaturated fats and fiber',
+        hi: 'हृदय-स्वस्थ मोनोअनसैचुरेटेड वसा और फाइबर से भरपूर पोषक तत्वों से भरपूर फल',
+        ta: 'இதயத்திற்கு ஆரோக்கியமான மோனோஅன்சாச்சுரேட்டட் கொழுப்புகள் மற்றும் நார்ச்சத்து நிறைந்த ஊட்டச்சத்து நிறைந்த பழம்'
+      }
+    ],
+    {
+      en: '1/2 to 1 avocado daily as part of meals or snacks',
+      hi: 'भोजन या नाश्ते के हिस्से के रूप में रोजाना 1/2 से 1 एवोकैडो',
+      ta: 'உணவு அல்லது சிற்றுண்டிகளின் ஒரு பகுதியாக தினசரி 1/2 முதல் 1 அவகேடோ வரை'
+    }
+  ),
+  
+  createFoodItem(
+    'kale',
+    {
+      en: 'Kale',
+      hi: 'केल',
+      ta: 'கேல்'
+    },
+    {
+      en: 'Nutrient-dense dark leafy green with curly or flat leaves',
+      hi: 'घुंघराले या चपटे पत्तों वाला पोषक तत्वों से भरपूर गहरा पत्तेदार हरा',
+      ta: 'சுருள் அல்லது தட்டையான இலைகளுடன் ஊட்டச்சத்து நிறைந்த அடர் இலைக்கறி'
+    },
+    'Mediterranean',
+    2.99,
+    'https://cdn.pixabay.com/photo/2022/01/03/19/09/kale-6913884_640.jpg',
+    ['vegetables', 'leafy green', 'superfood'],
+    {
+      calories: 33,
+      carbs: 7,
+      protein: 2.2,
+      fat: 0.5,
+      fiber: 2.6,
+      vitamins: { 'K': '684%', 'A': '206%', 'C': '134%' },
+      minerals: { 'Manganese': '26%', 'Calcium': '9%' },
+      antioxidants: { 'Quercetin': 'high', 'Kaempferol': 'high' }
+    },
+    ['vegan', 'gluten-free'],
+    true,
+    [
+      {
+        en: 'One of the most nutrient-dense foods on the planet, high in antioxidants that fight inflammation',
+        hi: 'दुनिया के सबसे अधिक पोषक तत्वों वाले खाद्य पदार्थों में से एक, सूजन से लड़ने वाले एंटीऑक्सिडेंट में उच्च',
+        ta: 'கிரகத்தில் மிகவும் ஊட்டச்சத்து நிறைந்த உணவுகளில் ஒன்று, அழற்சியை எதிர்த்துப் போராடும் ஆன்டிஆக்ஸிடன்ட்கள் அதிகம் உள்ளது'
+      }
+    ],
+    {
+      en: '1-2 cups of raw kale or 1/2 cup cooked kale, several times per week',
+      hi: 'प्रति सप्ताह कई बार 1-2 कप कच्ची केल या 1/2 कप पकी हुई केल',
+      ta: 'வாரத்திற்கு பல முறை 1-2 கப் பச்சை கேல் அல்லது 1/2 கப் சமைத்த கேல்'
+    }
+  ),
+  
+  // Adding more fruits
+  createFoodItem(
+    'blueberry',
+    {
+      en: 'Blueberry',
+      hi: 'ब्लूबेरी',
+      ta: 'புளூபெர்ரி'
+    },
+    {
+      en: 'Small, sweet-tart blue-purple berries with powerful antioxidant properties',
+      hi: 'शक्तिशाली एंटीऑक्सिडेंट गुणों वाली छोटी, मीठी-खट्टी नीली-बैंगनी बेरीज',
+      ta: 'சக்திவாய்ந்த ஆன்டிஆக்ஸிடன்ட் பண்புகளைக் கொண்ட சிறிய, இனிப்பு-புளிப்பான நீல-ஊதா பெர்ரி பழங்கள்'
+    },
+    'North America',
+    4.99,
+    'https://cdn.pixabay.com/photo/2017/05/07/19/32/blueberries-2294181_640.jpg',
+    ['fruits', 'berries', 'antioxidants'],
+    {
+      calories: 57,
+      carbs: 14.5,
+      protein: 0.7,
+      fat: 0.3,
+      fiber: 2.4,
+      vitamins: { 'K': '24%', 'C': '16%', 'Manganese': '25%' },
+      antioxidants: { 'Anthocyanins': 'very high', 'Resveratrol': 'medium' }
+    },
+    ['vegan', 'gluten-free'],
+    true,
+    [
+      {
+        en: 'Packed with antioxidants that may improve brain function, heart health, and blood sugar control',
+        hi: 'एंटीऑक्सिडेंट से भरपूर जो मस्तिष्क के कार्य, हृदय स्वास्थ्य और रक्त शर्करा नियंत्रण में सुधार कर सकता है',
+        ta: 'மூளை செயல்பாடு, இதய ஆரோக்கியம் மற்றும் இரத்த சர்க்கரை கட்டுப்பாட்டை மேம்படுத்தக்கூடிய ஆன்டிஆக்ஸிடன்ட்கள் நிறைந்துள்ளது'
+      }
+    ],
+    {
+      en: '1/2 cup fresh or frozen blueberries daily',
+      hi: 'रोजाना 1/2 कप ताजी या जमी हुई ब्लूबेरी',
+      ta: 'தினசரி 1/2 கப் புதிய அல்லது உறைந்த புளூபெர்ரி'
+    }
+  ),
+  
+  createFoodItem(
+    'orange',
+    {
+      en: 'Orange',
+      hi: 'संतरा',
+      ta: 'ஆரஞ்சு'
+    },
+    {
+      en: 'Juicy citrus fruit with bright orange skin and sweet-tart segmented flesh',
+      hi: 'चमकदार नारंगी त्वचा और मीठे-खट्टे खंडित गूदे वाला रसदार साइट्रस फल',
+      ta: 'பிரகாசமான ஆரஞ்சு தோல் மற்றும் இனிப்பு-புளிப்பான பிரிக்கப்பட்ட சதைப்பகுதி கொண்ட சாறுள்ள சிட்ரஸ் பழம்'
+    },
+    'China',
+    0.99,
+    'https://cdn.pixabay.com/photo/2017/01/20/15/06/oranges-1995056_640.jpg',
+    ['fruits', 'citrus', 'vitamin-c'],
+    {
+      calories: 62,
+      carbs: 15.4,
+      protein: 1.2,
+      fat: 0.2,
+      fiber: 3.1,
+      vitamins: { 'C': '93%', 'B1': '11%', 'Folate': '10%' },
+      minerals: { 'Potassium': '5%', 'Calcium': '5%' },
+      antioxidants: { 'Hesperidin': 'high', 'Limonene': 'high' }
+    },
+    ['vegan', 'gluten-free'],
+    true,
+    [
+      {
+        en: 'Excellent source of vitamin C, supporting immune function and collagen production',
+        hi: 'विटामिन सी का उत्कृष्ट स्रोत, प्रतिरक्षा प्रणाली और कोलेजन उत्पादन का समर्थन करता है',
+        ta: 'வைட்டமின் சி-யின் சிறந்த ஆதாரம், நோய் எதிர்ப்பு செயல்பாடு மற்றும் கொலாஜன் உற்பத்தியை ஆதரிக்கிறது'
+      }
+    ],
+    {
+      en: '1 medium orange daily, or 1/2 cup freshly squeezed orange juice',
+      hi: 'रोजाना 1 मध्यम संतरा, या 1/2 कप ताजा निचोड़ा हुआ संतरे का रस',
+      ta: 'தினசரி 1 நடுத்தர ஆரஞ்சு, அல்லது 1/2 கப் புதிதாக பிழிந்த ஆரஞ்சு ஜூஸ்'
+    }
+  ),
+  
+  // Adding more non-vegetarian foods
+  createFoodItem(
+    'tuna',
+    {
+      en: 'Tuna',
+      hi: 'ट्यूना मछली',
+      ta: 'டூனா மீன்'
+    },
+    {
+      en: 'Firm-fleshed ocean fish with meaty texture and mild flavor, available fresh or canned',
+      hi: 'मांसल बनावट और हल्के स्वाद वाली दृढ़ मांस वाली समुद्री मछली, ताजा या डिब्बाबंद रूप में उपलब्ध',
+      ta: 'இறைச்சி அமைப்பு மற்றும் மிதமான சுவையுடன் கூடிய உறுதியான சதைப்பகுதி கொண்ட கடல் மீன், புதியதாக அல்லது டின்னில் அடைக்கப்பட்டதாக கிடைக்கிறது'
+    },
+    'Pacific Ocean',
+    9.99,
+    'https://cdn.pixabay.com/photo/2016/03/05/23/02/tuna-1239347_640.jpg',
+    ['seafood', 'fish', 'lean-protein'],
+    {
+      calories: 144,
+      carbs: 0,
+      protein: 30,
+      fat: 1,
+      fiber: 0,
+      vitamins: { 'B12': '153%', 'B6': '53%', 'B3': '65%' },
+      minerals: { 'Selenium': '167%', 'Phosphorus': '25%' },
+      omega3: 0.8
+    },
+    ['fish', 'pescatarian'],
+    true,
+    [
+      {
+        en: 'High-quality protein source rich in omega-3 fatty acids and selenium',
+        hi: 'ओमेगा-3 फैटी एसिड और सेलेनियम से भरपूर उच्च गुणवत्ता वाला प्रोटीन स्रोत',
+        ta: 'ஒமேகா-3 கொழுப்பு அமிலங்கள் மற்றும் செலினியம் நிறைந்த உயர்தர புரத ஆதாரம்'
+      }
+    ],
+    {
+      en: '4-6 ounce portion, 1-2 times per week (limiting albacore/yellowfin due to mercury)',
+      hi: '4-6 औंस हिस्सा, प्रति सप्ताह 1-2 बार (पारा के कारण अल्बाकोर/येलोफिन को सीमित करना)',
+      ta: '4-6 அவுன்ஸ் பகுதி, வாரத்திற்கு 1-2 முறை (பாதரசம் காரணமாக ஆல்பகோர்/யெல்லோஃபின் மீன்களை மட்டுப்படுத்துதல்)'
+    }
+  ),
+  
+  createFoodItem(
+    'lamb_chops',
+    {
+      en: 'Lamb Chops',
+      hi: 'लैम्ब चॉप्स',
+      ta: 'ஆட்டுக்கறி சாப்ஸ்'
+    },
+    {
+      en: 'Tender, flavorful cuts of meat from young sheep, typically from the rib, loin, or shoulder',
+      hi: 'युवा भेड़ के मांस के कोमल, स्वादिष्ट कट, आमतौर पर पसली, कमर, या कंधे से',
+      ta: 'இளம் ஆடுகளிலிருந்து மென்மையான, சுவையான இறைச்சி, பொதுவாக விலா, இடுப்பு அல்லது தோள் பகுதியிலிருந்து'
+    },
+    'Australia/New Zealand',
+    16.99,
+    'https://cdn.pixabay.com/photo/2019/04/21/19/44/lamb-chops-4146378_640.jpg',
+    ['meat', 'lamb', 'high-protein'],
+    {
+      calories: 310,
+      carbs: 0,
+      protein: 22,
+      fat: 24,
+      fiber: 0,
+      vitamins: { 'B12': '71%', 'B3': '35%', 'B2': '22%' },
+      minerals: { 'Zinc': '36%', 'Selenium': '27%', 'Iron': '14%' },
+      omega3: 0.5
+    },
+    ['meat', 'lamb'],
+    false,
+    [
+      {
+        en: 'Rich source of complete protein, zinc, and B vitamins important for immune function',
+        hi: 'प्रतिरक्षा प्रणाली के लिए महत्वपूर्ण पूर्ण प्रोटीन, जिंक और बी विटामिन का समृद्ध स्रोत',
+        ta: 'நோய் எதிர்ப்பு செயல்பாட்டிற்கு முக்கியமான முழுமையான புரதம், துத்தநாகம் மற்றும் பி வைட்டமின்களின் செறிவான ஆதாரம்'
+      }
+    ],
+    {
+      en: '2-3 lamb chops as an occasional main dish',
+      hi: 'कभी-कभी मुख्य व्यंजन के रूप में 2-3 लैम्ब चॉप्स',
+      ta: 'அவ்வப்போது முக்கிய உணவாக 2-3 ஆட்டுக்கறி சாப்ஸ்'
+    }
+  ),
+  
+  // Adding more grocery items
+  createFoodItem(
+    'almonds',
+    {
+      en: 'Almonds',
+      hi: 'बादाम',
+      ta: 'பாதாம் பருப்பு'
+    },
+    {
+      en: 'Crunchy, nutrient-dense tree nuts with brown skin and cream-colored interior',
+      hi: 'कुरकुरे, पोषक तत्वों से भरपूर पेड़ के मेवे जिनकी भूरी त्वचा और क्रीम रंग का आंतरिक भाग होता है',
+      ta: 'பழுப்பு நிற தோல் மற்றும் வெண்ணிற உள்ளுறையுடன் கூடிய நொறுமுறுமுறுப்பான, ஊட்டச்சத்து நிறைந்த மரக்கொட்டைகள்'
+    },
+    'Mediterranean',
+    7.99,
+    'https://cdn.pixabay.com/photo/2017/05/01/05/18/pastry-2274750_640.jpg',
+    ['nuts', 'protein', 'healthy-fats'],
+    {
+      calories: 161,
+      carbs: 6,
+      protein: 6,
+      fat: 14,
+      fiber: 3.5,
+      vitamins: { 'E': '37%', 'B2': '17%', 'Manganese': '32%' },
+      minerals: { 'Magnesium': '20%', 'Phosphorus': '15%' },
+      antioxidants: { 'Flavonoids': 'high', 'Resveratrol': 'low' }
+    },
+    ['vegan', 'gluten-free'],
+    true,
+    [
+      {
+        en: 'Heart-healthy nuts that may help lower cholesterol and reduce blood pressure',
+        hi: 'हृदय-स्वस्थ मेवे जो कोलेस्ट्रॉल को कम करने और रक्तचाप को कम करने में मदद कर सकते हैं',
+        ta: 'கொலஸ்ட்ரோலைக் குறைக்கவும் இரத்த அழுத்தத்தைக் குறைக்கவும் உதவக்கூடிய இதய ஆரோக்கியமான கொட்டைகள்'
+      }
+    ],
+    {
+      en: '1 ounce (23 almonds) daily as a snack or added to meals',
+      hi: 'नाश्ते के रूप में या भोजन में जोड़कर रोजाना 1 औंस (23 बादाम)',
+      ta: 'சிற்றுண்டியாக அல்லது உணவுகளில் சேர்த்து தினசரி 1 அவுன்ஸ் (23 பாதாம் பருப்பு)'
+    }
+  ),
+  
+  createFoodItem(
+    'greek_yogurt',
+    {
+      en: 'Greek Yogurt',
+      hi: 'ग्रीक योगर्ट',
+      ta: 'கிரேக்க தயிர்'
+    },
+    {
+      en: 'Thick, strained yogurt with creamy texture and tangy flavor, higher in protein than regular yogurt',
+      hi: 'क्रीमी बनावट और खट्टे स्वाद वाला मोटा, छना हुआ दही, नियमित दही की तुलना में प्रोटीन में अधिक',
+      ta: 'கிரீமி அமைப்பு மற்றும் புளிப்பு சுவையுடன் கூடிய கெட்டியான, வடிகட்டப்பட்ட தயிர், சாதாரண தயிரை விட புரதம் அதிகம் கொண்டது'
+    },
+    'Greece',
+    3.99,
+    'https://cdn.pixabay.com/photo/2016/06/07/17/51/greek-yogurt-1442034_640.jpg',
+    ['dairy', 'protein', 'probiotics'],
+    {
+      calories: 100,
+      carbs: 3.6,
+      protein: 17,
+      fat: 0.7,
+      fiber: 0,
+      vitamins: { 'B12': '28%', 'B2': '28%', 'B5': '10%' },
+      minerals: { 'Calcium': '18%', 'Phosphorus': '18%', 'Selenium': '34%' },
+      probiotics: { 'Lactobacillus': 'high', 'Bifidobacterium': 'medium' }
+    },
+    ['dairy'],
+    true,
+    [
+      {
+        en: 'Excellent source of protein and beneficial probiotics that support gut health',
+        hi: 'प्रोटीन और लाभकारी प्रोबायोटिक्स का उत्कृष्ट स्रोत जो आंत के स्वास्थ्य का समर्थन करता है',
+        ta: 'குடல் ஆரோக்கியத்தை ஆதரிக்கும் புரதம் மற்றும் பயனுள்ள ப்ரோபயாடிக்ஸின் சிறந்த ஆதாரம்'
+      }
+    ],
+    {
+      en: '1 cup daily, plain or with fruit and honey',
+      hi: 'रोजाना 1 कप, सादा या फल और शहद के साथ',
+      ta: 'தினசரி 1 கப், எளிதாக அல்லது பழங்கள் மற்றும் தேனுடன்'
+    }
+  ),
+  
+  createFoodItem(
+    'honey',
+    {
+      en: 'Honey',
+      hi: 'शहद',
+      ta: 'தேன்'
+    },
+    {
+      en: 'Natural sweet substance produced by bees from flower nectar, with varying colors and flavors depending on flower source',
+      hi: 'फूलों के अमृत से मधुमक्खियों द्वारा उत्पादित प्राकृतिक मीठा पदार्थ, फूल के स्रोत के आधार पर अलग-अलग रंग और स्वाद के साथ',
+      ta: 'பூக்களின் தேன் பகுதியிலிருந்து தேனீக்களால் உற்பத்தி செய்யப்படும் இயற்கையான இனிப்பு பொருள், பூக்களின் ஆதாரத்தைப் பொறுத்து வெவ்வேறு நிறங்கள் மற்றும் சுவைகளுடன்'
+    },
+    'Global',
+    6.99,
+    'https://cdn.pixabay.com/photo/2015/11/07/11/55/honey-1031057_640.jpg',
+    ['sweeteners', 'natural', 'antimicrobial'],
+    {
+      calories: 64,
+      carbs: 17,
+      protein: 0.1,
+      fat: 0,
+      fiber: 0,
+      vitamins: { 'B6': '1%', 'C': '1%' },
+      minerals: { 'Iron': '1%', 'Manganese': '2%' },
+      antioxidants: { 'Flavonoids': 'medium', 'Phenolic Acids': 'medium' },
+      enzymes: { 'Glucose Oxidase': 'high', 'Diastase': 'medium' }
+    },
+    ['gluten-free'],
+    false,
+    [
+      {
+        en: 'Natural sweetener with antimicrobial properties and trace amounts of antioxidants',
+        hi: 'रोगाणुरोधी गुणों और एंटीऑक्सिडेंट की थोड़ी मात्रा वाला प्राकृतिक स्वीटनर',
+        ta: 'நுண்ணுயிர் எதிர்ப்பு பண்புகள் மற்றும் ஆன்டிஆக்ஸிடன்ட்களின் அளவுகள் கொண்ட இயற்கை இனிப்பூட்டி'
+      }
+    ],
+    {
+      en: '1-2 teaspoons as a sweetener for beverages or foods (not for infants under 12 months)',
+      hi: 'पेय या खाद्य पदार्थों के लिए स्वीटनर के रूप में 1-2 चम्मच (12 महीने से कम उम्र के शिशुओं के लिए नहीं)',
+      ta: 'பானங்கள் அல்லது உணவுகளுக்கு இனிப்பூட்டியாக 1-2 தேக்கரண்டி (12 மாதங்களுக்குட்பட்ட குழந்தைகளுக்கு அல்ல)'
+    }
   )
 ];
