@@ -45,24 +45,24 @@ export function Navbar() {
         <div className="hidden md:flex items-center space-x-4">
           <nav className="flex space-x-4">
             <Link href="/">
-              <a className={`py-1 border-b-2 ${location === '/' ? 'border-primary-500' : 'border-transparent hover:border-primary-500'} font-medium`}>
+              <span className={`py-1 border-b-2 ${location === '/' ? 'border-primary-500' : 'border-transparent hover:border-primary-500'} font-medium cursor-pointer`}>
                 {getLocalizedText('nav.home')}
-              </a>
+              </span>
             </Link>
             <Link href="/foods">
-              <a className={`py-1 border-b-2 ${location === '/foods' ? 'border-primary-500' : 'border-transparent hover:border-primary-500'} font-medium`}>
+              <span className={`py-1 border-b-2 ${location === '/foods' ? 'border-primary-500' : 'border-transparent hover:border-primary-500'} font-medium cursor-pointer`}>
                 {getLocalizedText('nav.foods')}
-              </a>
+              </span>
             </Link>
             <Link href="/nutrition">
-              <a className={`py-1 border-b-2 ${location === '/nutrition' ? 'border-primary-500' : 'border-transparent hover:border-primary-500'} font-medium`}>
+              <span className={`py-1 border-b-2 ${location === '/nutrition' ? 'border-primary-500' : 'border-transparent hover:border-primary-500'} font-medium cursor-pointer`}>
                 {getLocalizedText('nav.nutrition')}
-              </a>
+              </span>
             </Link>
             <Link href="/about">
-              <a className={`py-1 border-b-2 ${location === '/about' ? 'border-primary-500' : 'border-transparent hover:border-primary-500'} font-medium`}>
+              <span className={`py-1 border-b-2 ${location === '/about' ? 'border-primary-500' : 'border-transparent hover:border-primary-500'} font-medium cursor-pointer`}>
                 {getLocalizedText('nav.about')}
-              </a>
+              </span>
             </Link>
           </nav>
         </div>
@@ -144,32 +144,32 @@ export function Navbar() {
                     </h3>
                     <nav className="space-y-1">
                       <Link href="/">
-                        <a className={`flex items-center px-3 py-3 rounded-lg text-base font-medium ${location === '/' ? 'bg-primary-50 text-primary-600 dark:bg-primary-900/20 dark:text-primary-400' : 'hover:bg-gray-50 dark:hover:bg-gray-800'}`}>
+                        <div className={`flex items-center px-3 py-3 rounded-lg text-base font-medium ${location === '/' ? 'bg-primary-50 text-primary-600 dark:bg-primary-900/20 dark:text-primary-400' : 'hover:bg-gray-50 dark:hover:bg-gray-800'} cursor-pointer`}>
                           <Home className="h-5 w-5 mr-3" />
                           {getLocalizedText('nav.home')}
                           <ChevronRight className="h-4 w-4 ml-auto" />
-                        </a>
+                        </div>
                       </Link>
                       <Link href="/foods">
-                        <a className={`flex items-center px-3 py-3 rounded-lg text-base font-medium ${location === '/foods' ? 'bg-primary-50 text-primary-600 dark:bg-primary-900/20 dark:text-primary-400' : 'hover:bg-gray-50 dark:hover:bg-gray-800'}`}>
+                        <div className={`flex items-center px-3 py-3 rounded-lg text-base font-medium ${location === '/foods' ? 'bg-primary-50 text-primary-600 dark:bg-primary-900/20 dark:text-primary-400' : 'hover:bg-gray-50 dark:hover:bg-gray-800'} cursor-pointer`}>
                           <Apple className="h-5 w-5 mr-3" />
                           {getLocalizedText('nav.foods')}
                           <ChevronRight className="h-4 w-4 ml-auto" />
-                        </a>
+                        </div>
                       </Link>
                       <Link href="/nutrition">
-                        <a className={`flex items-center px-3 py-3 rounded-lg text-base font-medium ${location === '/nutrition' ? 'bg-primary-50 text-primary-600 dark:bg-primary-900/20 dark:text-primary-400' : 'hover:bg-gray-50 dark:hover:bg-gray-800'}`}>
+                        <div className={`flex items-center px-3 py-3 rounded-lg text-base font-medium ${location === '/nutrition' ? 'bg-primary-50 text-primary-600 dark:bg-primary-900/20 dark:text-primary-400' : 'hover:bg-gray-50 dark:hover:bg-gray-800'} cursor-pointer`}>
                           <ScrollText className="h-5 w-5 mr-3" />
                           {getLocalizedText('nav.nutrition')}
                           <ChevronRight className="h-4 w-4 ml-auto" />
-                        </a>
+                        </div>
                       </Link>
                       <Link href="/about">
-                        <a className={`flex items-center px-3 py-3 rounded-lg text-base font-medium ${location === '/about' ? 'bg-primary-50 text-primary-600 dark:bg-primary-900/20 dark:text-primary-400' : 'hover:bg-gray-50 dark:hover:bg-gray-800'}`}>
+                        <div className={`flex items-center px-3 py-3 rounded-lg text-base font-medium ${location === '/about' ? 'bg-primary-50 text-primary-600 dark:bg-primary-900/20 dark:text-primary-400' : 'hover:bg-gray-50 dark:hover:bg-gray-800'} cursor-pointer`}>
                           <Info className="h-5 w-5 mr-3" />
                           {getLocalizedText('nav.about')}
                           <ChevronRight className="h-4 w-4 ml-auto" />
-                        </a>
+                        </div>
                       </Link>
                     </nav>
                   </div>

@@ -42,7 +42,7 @@ export function FoodCard({ item, onViewDetails, showPopularBadge = true }: FoodC
 
   return (
     <Card className="overflow-hidden h-full flex flex-col bg-white dark:bg-gray-800 hover:shadow-md transition-shadow">
-      <div className="relative h-48 overflow-hidden group">
+      <div className="relative h-40 xs:h-48 overflow-hidden group">
         <img 
           src={item.image} 
           alt={t(item.name)} 
@@ -51,8 +51,8 @@ export function FoodCard({ item, onViewDetails, showPopularBadge = true }: FoodC
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         
-        {/* Quick action buttons */}
-        <div className="absolute top-2 right-2 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        {/* Quick action buttons - more visible on mobile with default opacity */}
+        <div className="absolute top-2 right-2 flex gap-2 transition-opacity duration-300 xs:opacity-0 xs:group-hover:opacity-100">
           <button 
             onClick={(e) => {
               e.stopPropagation();
@@ -76,9 +76,9 @@ export function FoodCard({ item, onViewDetails, showPopularBadge = true }: FoodC
         </div>
         
         {/* Tags and badges */}
-        <div className="absolute bottom-0 left-0 right-0 p-3 flex justify-between items-end">
-          <div className="flex flex-wrap gap-1 max-w-[80%]">
-            {item.category.slice(0, isMobile ? 2 : 3).map(tag => (
+        <div className="absolute bottom-0 left-0 right-0 p-2 xs:p-3 flex justify-between items-end">
+          <div className="flex flex-wrap gap-1 max-w-[75%]">
+            {item.category.slice(0, isMobile ? 1 : 2).map(tag => (
               <Badge key={tag} variant="secondary" className="bg-white/30 backdrop-blur-sm text-white border-none text-xs">
                 {tag}
               </Badge>
@@ -93,60 +93,60 @@ export function FoodCard({ item, onViewDetails, showPopularBadge = true }: FoodC
         </div>
       </div>
       
-      <CardContent className="p-4 flex-1 flex flex-col" onClick={() => onViewDetails(item)}>
+      <CardContent className="p-2 xs:p-3 sm:p-4 flex-1 flex flex-col" onClick={() => onViewDetails(item)}>
         <div>
-          <h3 className="font-medium text-lg line-clamp-1 hover:text-primary-500 transition-colors">
+          <h3 className="font-medium text-base xs:text-lg line-clamp-1 hover:text-primary-500 transition-colors">
             {t(item.name)}
           </h3>
-          <p className="text-gray-500 text-sm dark:text-gray-400">{item.origin}</p>
+          <p className="text-gray-500 text-xs xs:text-sm dark:text-gray-400">{item.origin}</p>
         </div>
         
-        <p className="mt-2 text-gray-600 text-sm line-clamp-2 dark:text-gray-300">
-          {truncate(t(item.description), isMobile ? 80 : 100)}
+        <p className="mt-1 xs:mt-2 text-gray-600 text-xs xs:text-sm line-clamp-2 dark:text-gray-300">
+          {truncate(t(item.description), isMobile ? 60 : 100)}
         </p>
         
-        {/* Nutrition Preview */}
-        <div className="mt-3 grid grid-cols-3 gap-2">
+        {/* Nutrition Preview - Grid on larger screens, horizontal scroll on mobile */}
+        <div className="mt-2 xs:mt-3 grid grid-cols-3 gap-1 xs:gap-2">
           <div className="flex flex-col items-center p-1 rounded bg-gray-50 dark:bg-gray-700/50">
-            <span className="text-xs text-gray-500 dark:text-gray-400">
+            <span className="text-[10px] xs:text-xs text-gray-500 dark:text-gray-400">
               {getLocalizedText('food.calories')}
             </span>
-            <span className="font-mono font-medium">{item.nutrition.calories}</span>
+            <span className="font-mono text-xs xs:text-sm font-medium">{item.nutrition.calories}</span>
           </div>
           <div className="flex flex-col items-center p-1 rounded bg-gray-50 dark:bg-gray-700/50">
-            <span className="text-xs text-gray-500 dark:text-gray-400">
+            <span className="text-[10px] xs:text-xs text-gray-500 dark:text-gray-400">
               {getLocalizedText('food.protein')}
             </span>
-            <span className="font-mono font-medium">{item.nutrition.protein}g</span>
+            <span className="font-mono text-xs xs:text-sm font-medium">{item.nutrition.protein}g</span>
           </div>
           <div className="flex flex-col items-center p-1 rounded bg-gray-50 dark:bg-gray-700/50">
-            <span className="text-xs text-gray-500 dark:text-gray-400">
+            <span className="text-[10px] xs:text-xs text-gray-500 dark:text-gray-400">
               {getLocalizedText('food.carbs')}
             </span>
-            <span className="font-mono font-medium">{item.nutrition.carbs}g</span>
+            <span className="font-mono text-xs xs:text-sm font-medium">{item.nutrition.carbs}g</span>
           </div>
         </div>
         
-        {/* Nutrient Highlight */}
+        {/* Nutrient Highlight - Show only on larger screens */}
         {nutrientHighlight && (
-          <div className="mt-3">
-            <Badge variant="outline" className="w-full justify-center py-1.5 border-green-200 bg-green-50 text-green-700 dark:border-green-900 dark:bg-green-900/20 dark:text-green-400">
+          <div className="mt-2 xs:mt-3 hidden xs:block">
+            <Badge variant="outline" className="w-full justify-center py-1 xs:py-1.5 border-green-200 bg-green-50 text-green-700 dark:border-green-900 dark:bg-green-900/20 dark:text-green-400 text-xs">
               {getLocalizedText(`filter.${nutrientHighlight}`) || nutrientHighlight.replace('_', ' ')}
             </Badge>
           </div>
         )}
         
-        {/* Action buttons for non-hover state */}
-        <div className="mt-4 flex gap-2 mt-auto">
+        {/* Action buttons - Smaller on mobile */}
+        <div className="mt-2 xs:mt-4 flex gap-1 xs:gap-2 mt-auto">
           <Button 
             onClick={(e) => {
               e.stopPropagation();
               onViewDetails(item);
             }}
             variant="default" 
-            className="flex-1"
+            className="flex-1 h-8 xs:h-10 text-xs xs:text-sm"
           >
-            <Info className="h-4 w-4 mr-1.5" />
+            <Info className="h-3 w-3 xs:h-4 xs:w-4 mr-1 xs:mr-1.5" />
             {getLocalizedText('button.details')}
           </Button>
           <Button 
@@ -155,10 +155,10 @@ export function FoodCard({ item, onViewDetails, showPopularBadge = true }: FoodC
               addToCart(item);
             }}
             variant={isItemFavorite ? "secondary" : "outline"}
-            className={`w-12 p-0 flex items-center justify-center ${isItemFavorite ? 'bg-pink-100 text-pink-700 hover:bg-pink-200 dark:bg-pink-900/30 dark:text-pink-400' : ''}`}
+            className={`w-8 xs:w-12 p-0 h-8 xs:h-10 flex items-center justify-center ${isItemFavorite ? 'bg-pink-100 text-pink-700 hover:bg-pink-200 dark:bg-pink-900/30 dark:text-pink-400' : ''}`}
           >
             <Heart 
-              className="h-5 w-5" 
+              className="h-4 w-4 xs:h-5 xs:w-5" 
               fill={isItemFavorite ? "currentColor" : "none"} 
             />
           </Button>
