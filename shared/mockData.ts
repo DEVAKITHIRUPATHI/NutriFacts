@@ -24,6 +24,7 @@ const createFoodItem = (
     collagen?: number,
     antioxidants?: Record<string, string>,
     probiotics?: Record<string, string>,
+    enzymes?: Record<string, string>,
   },
   allergens: string[],
   isPopular: boolean,
@@ -43,6 +44,8 @@ const createFoodItem = (
   allergens,
   isPopular
 });
+
+import { additionalFoodItems } from './additionalFoodItems';
 
 export const foodItems: FoodItemClient[] = [
   {
@@ -2728,5 +2731,6 @@ export const foodItems: FoodItemClient[] = [
       hi: 'पेय या खाद्य पदार्थों के लिए स्वीटनर के रूप में 1-2 चम्मच (12 महीने से कम उम्र के शिशुओं के लिए नहीं)',
       ta: 'பானங்கள் அல்லது உணவுகளுக்கு இனிப்பூட்டியாக 1-2 தேக்கரண்டி (12 மாதங்களுக்குட்பட்ட குழந்தைகளுக்கு அல்ல)'
     }
-  )
+  ),
+  ...additionalFoodItems
 ];
