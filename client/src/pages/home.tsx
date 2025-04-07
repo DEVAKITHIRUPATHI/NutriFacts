@@ -99,10 +99,10 @@ export default function Home() {
             {getLocalizedText('popular.foods')}
           </h2>
           <Link href="/foods">
-            <a className="text-primary-500 hover:underline flex items-center">
+            <span className="text-primary-500 hover:underline flex items-center cursor-pointer">
               {getLocalizedText('view.all')}
               <ArrowRight className="ml-1 h-4 w-4" />
-            </a>
+            </span>
           </Link>
         </div>
         

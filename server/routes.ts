@@ -1,7 +1,8 @@
 import type { Express, Request, Response, NextFunction } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import type { Language } from "../shared/schema";
+import type { Language, FoodItemClient } from "../shared/schema";
+import { generateCompleteFoodItem } from "./utils/anthropicHelper";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   const httpServer = createServer(app);
@@ -59,6 +60,76 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.get(`${API_PREFIX}/status`, (req, res) => {
     res.json({ status: 'online' });
   });
+
+  // Generate food item with multilingual content using Claude
+  app.post(`${API_PREFIX}/foods/generate`, asyncHandler(async (req: Request, res: Response) => {
+    const { foodName, description, categories, imagePath, languages } = req.body;
+    
+    if (!foodName || !description || !categories) {
+      return res.status(400).json({ error: 'Missing required fields' });
+    }
+    
+    try {
+      const newFoodItem = await generateCompleteFoodItem(
+        foodName,
+        description,
+        categories,
+        imagePath,
+        languages || ['en', 'es', 'fr', 'hi', 'ta']
+      );
+      
+      res.json(newFoodItem);
+    } catch (error) {
+      console.error('Error generating food item:', error);
+      res.status(500).json({ error: 'Failed to generate food item' });
+    }
+  }));
+
+  // Batch generate multiple food items
+  app.post(`${API_PREFIX}/foods/batch-generate`, asyncHandler(async (req: Request, res: Response) => {
+    const { foodItems, languages } = req.body;
+    
+    if (!foodItems || !Array.isArray(foodItems) || foodItems.length === 0) {
+      return res.status(400).json({ error: 'Invalid food items array' });
+    }
+    
+    try {
+      // Using Promise.all to process multiple items in parallel
+      const languageCodes = languages || ['en', 'es', 'fr', 'hi', 'ta'];
+      const generatedItems: FoodItemClient[] = [];
+      
+      // Process in smaller batches to avoid overwhelming the API
+      const batchSize = 5;
+      
+      for (let i = 0; i < foodItems.length; i += batchSize) {
+        const batch = foodItems.slice(i, i + batchSize);
+        
+        const batchResults = await Promise.all(
+          batch.map(async (item: any) => {
+            return generateCompleteFoodItem(
+              item.name,
+              item.description || `${item.name} is a nutritious food.`,
+              item.categories || ['fruits'],
+              item.imagePath || '',
+              languageCodes
+            );
+          })
+        );
+        
+        generatedItems.push(...batchResults);
+        
+        // Small delay between batches to avoid rate limiting
+        if (i + batchSize < foodItems.length) {
+          await new Promise(resolve => setTimeout(resolve, 1000));
+        }
+      }
+      
+      res.json(generatedItems);
+    } catch (error) {
+      console.error('Error batch generating food items:', error);
+      res.status(500).json({ error: 'Failed to generate food items' });
+    }
+  }));
 
   return httpServer;
 }

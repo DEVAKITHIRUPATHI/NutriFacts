@@ -17,14 +17,18 @@ export function Hero() {
           </p>
           <div className="mt-6 flex space-x-3">
             <Link href="/foods">
-              <Button className="bg-white text-primary-500 hover:bg-gray-100 px-6 py-2">
-                {getLocalizedText('button.exploreFoods')}
-              </Button>
+              <div className="inline-block">
+                <Button className="bg-white text-primary-500 hover:bg-gray-100 px-6 py-2">
+                  {getLocalizedText('button.exploreFoods')}
+                </Button>
+              </div>
             </Link>
             <Link href="/nutrition">
-              <Button variant="outline" className="border border-white text-white hover:bg-white hover:bg-opacity-10 px-6 py-2">
-                {getLocalizedText('button.learnMore')}
-              </Button>
+              <div className="inline-block">
+                <Button variant="outline" className="border border-white text-white hover:bg-white hover:bg-opacity-10 px-6 py-2">
+                  {getLocalizedText('button.learnMore')}
+                </Button>
+              </div>
             </Link>
           </div>
         </div>

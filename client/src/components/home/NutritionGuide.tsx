@@ -51,9 +51,9 @@ export function NutritionGuide() {
             </div>
           </div>
           <Link href="/nutrition">
-            <a className="inline-block mt-5 text-primary-500 hover:underline font-medium">
+            <span className="inline-block mt-5 text-primary-500 hover:underline font-medium cursor-pointer">
               {getLocalizedText('nutrition.readGuide')} <span aria-hidden="true">→</span>
-            </a>
+            </span>
           </Link>
         </div>
         <div className="md:w-1/2">
