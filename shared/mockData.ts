@@ -1928,21 +1928,21 @@ export const foodItems: FoodItemClient[] = [
   
   // Adding vegetables from the vegetable list
   createFoodItem(
-    'spinach',
+    'spinach_baby',
     {
-      en: 'Spinach',
-      hi: 'पालक',
-      ta: 'கீரை'
+      en: 'Baby Spinach',
+      hi: 'बेबी पालक',
+      ta: 'பேபி கீரை'
     },
     {
-      en: 'Nutrient-dense leafy green vegetable with tender leaves',
-      hi: 'कोमल पत्तियों वाली पोषक तत्वों से भरपूर पत्तेदार हरी सब्जी',
-      ta: 'மெருகேற்றப்பட்ட இலைகளைக் கொண்ட ஊட்டச்சத்து நிறைந்த இலைக்கறி'
+      en: 'Young, tender spinach leaves with mild flavor, harvested early for softer texture',
+      hi: 'कोमल बनावट के लिए जल्दी काटे गए युवा, कोमल पालक के पत्ते जिनका स्वाद हल्का होता है',
+      ta: 'மென்மையான அமைப்புக்காக ஆரம்பத்திலேயே அறுவடை செய்யப்பட்ட மிதமான சுவையுடன் கூடிய இளம், மென்மையான கீரை இலைகள்'
     },
     'Persia (Iran)',
-    1.99,
+    2.49,
     'https://cdn.pixabay.com/photo/2016/03/05/19/02/spinach-1238251_640.jpg',
-    ['vegetables', 'leafy green', 'superfood'],
+    ['vegetables', 'leafy green', 'superfood', 'baby greens'],
     {
       calories: 23,
       carbs: 3.6,
@@ -1963,28 +1963,28 @@ export const foodItems: FoodItemClient[] = [
       }
     ],
     {
-      en: '2-3 cups of fresh spinach daily, raw in salads or cooked',
-      hi: 'रोजाना 2-3 कप ताजा पालक, सलाद में कच्चा या पका हुआ',
-      ta: 'தினசரி 2-3 கப் புதிய கீரை, சாலட்டில் பச்சையாக அல்லது சமைத்தது'
+      en: '2-3 cups of fresh baby spinach daily, raw in salads or lightly cooked',
+      hi: 'रोजाना 2-3 कप ताजा बेबी पालक, सलाद में कच्चा या हल्का पका हुआ',
+      ta: 'தினசரி 2-3 கப் புதிய பேபி கீரை, சாலட்டில் பச்சையாக அல்லது லேசாக சமைத்தது'
     }
   ),
   
   createFoodItem(
-    'cauliflower',
+    'cauliflower_organic',
     {
-      en: 'Cauliflower',
-      hi: 'फूलगोभी',
-      ta: 'காலிஃபிளவர்'
+      en: 'Organic Cauliflower',
+      hi: 'जैविक फूलगोभी',
+      ta: 'ஆர்கானிக் காலிஃபிளவர்'
     },
     {
-      en: 'Versatile cruciferous vegetable with dense white florets',
-      hi: 'घने सफेद फूलों वाली बहुमुखी क्रूसिफेरस सब्जी',
-      ta: 'அடர்த்தியான வெள்ளை பூக்கொத்துகளுடன் பலதரப்பட்ட குறுக்குச் செடி காய்கறி'
+      en: 'Versatile cruciferous vegetable with dense white florets, organically grown',
+      hi: 'घने सफेद फूलों वाली बहुमुखी क्रूसिफेरस सब्जी, जैविक रूप से उगाई गई',
+      ta: 'அடர்த்தியான வெள்ளை பூக்கொத்துகளுடன் பலதரப்பட்ட குறுக்குச் செடி காய்கறி, இயற்கை முறையில் வளர்க்கப்பட்டது'
     },
     'Mediterranean',
     2.49,
     'https://cdn.pixabay.com/photo/2016/03/05/19/02/cauliflower-1238255_640.jpg',
-    ['vegetables', 'cruciferous', 'keto-friendly'],
+    ['vegetables', 'cruciferous', 'keto-friendly', 'organic'],
     {
       calories: 25,
       carbs: 5,
@@ -2053,21 +2053,21 @@ export const foodItems: FoodItemClient[] = [
   
   // Adding non-vegetarian foods
   createFoodItem(
-    'salmon',
+    'salmon_wild',
     {
-      en: 'Salmon',
-      hi: 'सामन मछली',
-      ta: 'சாமன் மீன்'
+      en: 'Wild-Caught Salmon',
+      hi: 'जंगली पकड़ी गई सामन मछली',
+      ta: 'இயற்கையாக பிடிக்கப்பட்ட சாமன் மீன்'
     },
     {
-      en: 'Oily fish with pink-orange flesh, rich in omega-3 fatty acids',
-      hi: 'गुलाबी-नारंगी मांस वाली तैलीय मछली, ओमेगा-3 फैटी एसिड से भरपूर',
-      ta: 'இளஞ்சிவப்பு-ஆரஞ்சு இறைச்சி கொண்ட எண்ணெய் மீன், ஒமேகா-3 கொழுப்பு அமிலங்கள் நிறைந்தது'
+      en: 'Wild-caught oily fish with pink-orange flesh, rich in omega-3 fatty acids',
+      hi: 'गुलाबी-नारंगी मांस वाली जंगली पकड़ी गई तैलीय मछली, ओमेगा-3 फैटी एसिड से भरपूर',
+      ta: 'இளஞ்சிவப்பு-ஆரஞ்சு இறைச்சி கொண்ட இயற்கையாக பிடிக்கப்பட்ட எண்ணெய் மீன், ஒமேகா-3 கொழுப்பு அமிலங்கள் நிறைந்தது'
     },
     'Pacific Ocean',
     12.99,
     'https://cdn.pixabay.com/photo/2016/03/05/19/02/salmon-1238248_640.jpg',
-    ['seafood', 'fish', 'omega-3'],
+    ['seafood', 'fish', 'omega-3', 'wild-caught'],
     {
       calories: 206,
       carbs: 0,
@@ -2095,21 +2095,21 @@ export const foodItems: FoodItemClient[] = [
   ),
   
   createFoodItem(
-    'chicken_breast',
+    'chicken_breast_boneless',
     {
-      en: 'Chicken Breast',
-      hi: 'चिकन ब्रेस्ट',
-      ta: 'கோழி மார்புக்கறி'
+      en: 'Boneless Chicken Breast',
+      hi: 'हड्डी रहित चिकन ब्रेस्ट',
+      ta: 'எலும்பு இல்லாத கோழி மார்புக்கறி'
     },
     {
-      en: 'Lean white meat cut from the breast of chicken, low in fat and high in protein',
-      hi: 'चिकन के छाती से काटा गया दुबला सफेद मांस, वसा में कम और प्रोटीन में उच्च',
-      ta: 'கோழியின் மார்பிலிருந்து வெட்டப்பட்ட குறைந்த கொழுப்புள்ள வெள்ளை இறைச்சி, குறைந்த கொழுப்பு மற்றும் அதிக புரதம் கொண்டது'
+      en: 'Lean white meat cut from the breast of chicken, boneless, low in fat and high in protein',
+      hi: 'चिकन के छाती से काटा गया दुबला सफेद मांस, हड्डी रहित, वसा में कम और प्रोटीन में उच्च',
+      ta: 'கோழியின் மார்பிலிருந்து வெட்டப்பட்ட குறைந்த கொழுப்புள்ள வெள்ளை இறைச்சி, எலும்பு இல்லாத, குறைந்த கொழுப்பு மற்றும் அதிக புரதம் கொண்டது'
     },
     'Global',
     5.99,
     'https://cdn.pixabay.com/photo/2017/06/02/20/35/chicken-2367685_640.jpg',
-    ['meat', 'poultry', 'protein'],
+    ['meat', 'poultry', 'protein', 'boneless'],
     {
       calories: 165,
       carbs: 0,
@@ -2136,21 +2136,21 @@ export const foodItems: FoodItemClient[] = [
   ),
   
   createFoodItem(
-    'eggs',
+    'eggs_free_range',
     {
-      en: 'Eggs',
-      hi: 'अंडे',
-      ta: 'முட்டைகள்'
+      en: 'Free-Range Eggs',
+      hi: 'मुक्त रेंज वाले अंडे',
+      ta: 'சுதந்திரமாக வளர்க்கப்பட்ட முட்டைகள்'
     },
     {
-      en: 'Versatile protein source with nutrient-rich yolk and high-protein white',
-      hi: 'पोषक तत्वों से भरपूर यॉक और उच्च प्रोटीन श्वेत के साथ बहुमुखी प्रोटीन स्रोत',
-      ta: 'ஊட்டச்சத்து நிறைந்த மஞ்சள் கரு மற்றும் அதிக புரதம் கொண்ட வெள்ளைப் பகுதியுடன் பலதரப்பட்ட புரத ஆதாரம்'
+      en: 'Versatile protein source from free-range chickens with nutrient-rich yolk and high-protein white',
+      hi: 'मुक्त रेंज वाली मुर्गियों से पोषक तत्वों से भरपूर यॉक और उच्च प्रोटीन श्वेत के साथ बहुमुखी प्रोटीन स्रोत',
+      ta: 'சுதந்திரமாக வளர்க்கப்பட்ட கோழிகளின் ஊட்டச்சத்து நிறைந்த மஞ்சள் கரு மற்றும் அதிக புரதம் கொண்ட வெள்ளைப் பகுதியுடன் பலதரப்பட்ட புரத ஆதாரம்'
     },
     'Global',
     2.99,
     'https://cdn.pixabay.com/photo/2018/03/11/18/23/eggs-3217675_640.jpg',
-    ['protein', 'dairy-alternative', 'breakfast'],
+    ['protein', 'dairy-alternative', 'breakfast', 'free-range'],
     {
       calories: 72,
       carbs: 0.4,
@@ -2180,21 +2180,21 @@ export const foodItems: FoodItemClient[] = [
   
   // Adding some grocery ingredients
   createFoodItem(
-    'quinoa',
+    'quinoa_organic',
     {
-      en: 'Quinoa',
-      hi: 'क्विनोआ',
-      ta: 'குயினோவா'
+      en: 'Organic Quinoa',
+      hi: 'जैविक क्विनोआ',
+      ta: 'ஆர்கானிக் குயினோவா'
     },
     {
-      en: 'Nutrient-rich pseudocereal with a fluffy texture when cooked',
-      hi: 'पकाने पर रुई जैसी बनावट वाला पोषक तत्वों से भरपूर छद्म अनाज',
-      ta: 'சமைக்கும்போது புஷ்பவடிவ அமைப்புடன் ஊட்டச்சத்து நிறைந்த போலி தானியம்'
+      en: 'Nutrient-rich pseudocereal with a fluffy texture when cooked, organically grown',
+      hi: 'पकाने पर रुई जैसी बनावट वाला पोषक तत्वों से भरपूर जैविक रूप से उगाया गया छद्म अनाज',
+      ta: 'சமைக்கும்போது புஷ்பவடிவ அமைப்புடன் ஊட்டச்சத்து நிறைந்த போலி தானியம், இயற்கை முறையில் வளர்க்கப்பட்டது'
     },
     'South America',
     4.99,
     'https://cdn.pixabay.com/photo/2015/04/10/00/22/quinoa-715625_640.jpg',
-    ['grains', 'protein', 'gluten-free'],
+    ['grains', 'protein', 'gluten-free', 'organic'],
     {
       calories: 120,
       carbs: 21.3,
@@ -2348,21 +2348,21 @@ export const foodItems: FoodItemClient[] = [
   ),
   
   createFoodItem(
-    'avocado',
+    'avocado_hass',
     {
-      en: 'Avocado',
-      hi: 'एवोकैडो',
-      ta: 'அவகேடோ'
+      en: 'Hass Avocado',
+      hi: 'हास एवोकैडो',
+      ta: 'ஹாஸ் அவகேடோ'
     },
     {
-      en: 'Creamy fruit with green flesh, mild flavor and buttery texture',
-      hi: 'हरे गूदे वाला क्रीमी फल, हल्के स्वाद और मक्खन जैसी बनावट के साथ',
-      ta: 'பச்சை சதைப்பகுதி, மிதமான சுவை மற்றும் வெண்ணெய் போன்ற அமைப்புடன் கூடிய கிரீமியான பழம்'
+      en: 'Creamy Hass variety fruit with green-black skin, mild flavor and buttery texture',
+      hi: 'हरे-काले छिलके वाला क्रीमी हास किस्म का फल, हल्के स्वाद और मक्खन जैसी बनावट के साथ',
+      ta: 'பச்சை-கருப்பு தோலுடன் கூடிய கிரீமியான ஹாஸ் வகை பழம், மிதமான சுவை மற்றும் வெண்ணெய் போன்ற அமைப்புடன்'
     },
     'Mexico',
     1.50,
     'https://cdn.pixabay.com/photo/2017/05/19/20/28/avocado-2327811_640.jpg',
-    ['fruits', 'healthy-fats', 'superfood'],
+    ['fruits', 'healthy-fats', 'superfood', 'hass'],
     {
       calories: 160,
       carbs: 9,
@@ -2392,21 +2392,21 @@ export const foodItems: FoodItemClient[] = [
   ),
   
   createFoodItem(
-    'kale',
+    'kale_fresh',
     {
-      en: 'Kale',
-      hi: 'केल',
-      ta: 'கேல்'
+      en: 'Fresh Kale',
+      hi: 'ताजा केल',
+      ta: 'புத்தம் புதிய கேல்'
     },
     {
-      en: 'Nutrient-dense dark leafy green with curly or flat leaves',
-      hi: 'घुंघराले या चपटे पत्तों वाला पोषक तत्वों से भरपूर गहरा पत्तेदार हरा',
-      ta: 'சுருள் அல்லது தட்டையான இலைகளுடன் ஊட்டச்சத்து நிறைந்த அடர் இலைக்கறி'
+      en: 'Nutrient-dense dark leafy green with curly or flat leaves, freshly harvested',
+      hi: 'घुंघराले या चपटे पत्तों वाला पोषक तत्वों से भरपूर ताजा काटा गया गहरा पत्तेदार हरा',
+      ta: 'சுருள் அல்லது தட்டையான இலைகளுடன் ஊட்டச்சத்து நிறைந்த அடர் இலைக்கறி, புதிதாக அறுவடை செய்யப்பட்டது'
     },
     'Mediterranean',
     2.99,
     'https://cdn.pixabay.com/photo/2022/01/03/19/09/kale-6913884_640.jpg',
-    ['vegetables', 'leafy green', 'superfood'],
+    ['vegetables', 'leafy green', 'superfood', 'fresh'],
     {
       calories: 33,
       carbs: 7,
@@ -2604,21 +2604,21 @@ export const foodItems: FoodItemClient[] = [
   
   // Adding more grocery items
   createFoodItem(
-    'almonds',
+    'almonds_raw',
     {
-      en: 'Almonds',
-      hi: 'बादाम',
-      ta: 'பாதாம் பருப்பு'
+      en: 'Raw Almonds',
+      hi: 'कच्चे बादाम',
+      ta: 'பச்சை பாதாம் பருப்பு'
     },
     {
-      en: 'Crunchy, nutrient-dense tree nuts with brown skin and cream-colored interior',
-      hi: 'कुरकुरे, पोषक तत्वों से भरपूर पेड़ के मेवे जिनकी भूरी त्वचा और क्रीम रंग का आंतरिक भाग होता है',
-      ta: 'பழுப்பு நிற தோல் மற்றும் வெண்ணிற உள்ளுறையுடன் கூடிய நொறுமுறுமுறுப்பான, ஊட்டச்சத்து நிறைந்த மரக்கொட்டைகள்'
+      en: 'Crunchy, nutrient-dense raw tree nuts with brown skin and cream-colored interior',
+      hi: 'कुरकुरे, पोषक तत्वों से भरपूर कच्चे पेड़ के मेवे जिनकी भूरी त्वचा और क्रीम रंग का आंतरिक भाग होता है',
+      ta: 'பழுப்பு நிற தோல் மற்றும் வெண்ணிற உள்ளுறையுடன் கூடிய நொறுமுறுமுறுப்பான, ஊட்டச்சத்து நிறைந்த பச்சை மரக்கொட்டைகள்'
     },
     'Mediterranean',
     7.99,
     'https://cdn.pixabay.com/photo/2017/05/01/05/18/pastry-2274750_640.jpg',
-    ['nuts', 'protein', 'healthy-fats'],
+    ['nuts', 'protein', 'healthy-fats', 'raw'],
     {
       calories: 161,
       carbs: 6,
@@ -2646,21 +2646,21 @@ export const foodItems: FoodItemClient[] = [
   ),
   
   createFoodItem(
-    'greek_yogurt',
+    'greek_yogurt_nonfat',
     {
-      en: 'Greek Yogurt',
-      hi: 'ग्रीक योगर्ट',
-      ta: 'கிரேக்க தயிர்'
+      en: 'Non-Fat Greek Yogurt',
+      hi: 'बिना वसा वाला ग्रीक योगर्ट',
+      ta: 'கொழுப்பு இல்லாத கிரேக்க தயிர்'
     },
     {
-      en: 'Thick, strained yogurt with creamy texture and tangy flavor, higher in protein than regular yogurt',
-      hi: 'क्रीमी बनावट और खट्टे स्वाद वाला मोटा, छना हुआ दही, नियमित दही की तुलना में प्रोटीन में अधिक',
-      ta: 'கிரீமி அமைப்பு மற்றும் புளிப்பு சுவையுடன் கூடிய கெட்டியான, வடிகட்டப்பட்ட தயிர், சாதாரண தயிரை விட புரதம் அதிகம் கொண்டது'
+      en: 'Thick, strained non-fat yogurt with creamy texture and tangy flavor, higher in protein than regular yogurt',
+      hi: 'क्रीमी बनावट और खट्टे स्वाद वाला बिना वसा वाला मोटा, छना हुआ दही, नियमित दही की तुलना में प्रोटीन में अधिक',
+      ta: 'கிரீமி அமைப்பு மற்றும் புளிப்பு சுவையுடன் கூடிய கொழுப்பு இல்லாத கெட்டியான, வடிகட்டப்பட்ட தயிர், சாதாரண தயிரை விட புரதம் அதிகம் கொண்டது'
     },
     'Greece',
     3.99,
     'https://cdn.pixabay.com/photo/2016/06/07/17/51/greek-yogurt-1442034_640.jpg',
-    ['dairy', 'protein', 'probiotics'],
+    ['dairy', 'protein', 'probiotics', 'nonfat'],
     {
       calories: 100,
       carbs: 3.6,
