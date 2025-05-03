@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect } from 'react';
 import { Link, useLocation } from 'wouter';
-import { LanguageSelector } from '@/components/ui/language-selector';
+// Import LanguageSelector with alias to ensure correct resolution and prevent caching issues
+import * as LanguageSelectorModule from '@/components/ui/language-selector';
 import { AppContext } from '@/contexts/AppContext';
 import { CartContext } from '@/contexts/CartContext';
 import { useTranslation } from '@/hooks/useTranslation';
@@ -11,6 +12,8 @@ import {
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { useIsMobile } from '@/hooks/use-mobile';
+
+const LanguageSelector = LanguageSelectorModule.default;
 
 export function Navbar() {
   const { offlineStatus, toggleOfflineMode, language } = useContext(AppContext);
@@ -33,11 +36,12 @@ export function Navbar() {
   }, [isMobile]);
 
   return (
-    <header className="bg-white shadow-sm dark:bg-gray-800 sticky top-0 z-40">
+    <nav className="bg-white shadow-sm dark:bg-gray-800 sticky top-0 z-40">
       <div className="container mx-auto px-4 py-3 flex flex-wrap items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Leaf className="text-primary-500 mr-2" />
+          {/* App name */}
           <span className="text-xl font-semibold">{getLocalizedText('app.name')}</span>
         </Link>
         
@@ -65,14 +69,17 @@ export function Navbar() {
               </span>
             </Link>
           </nav>
+        
         </div>
         
         {/* Actions */}
         <div className="flex items-center space-x-3">
           {/* Language Selector */}
           <LanguageSelector />
+          {/* End Language Selector */}
           
           {/* Favorites Button */}
+          {/* Cart Button */}
           <button 
             onClick={openCart}
             className="relative p-2 text-gray-600 hover:text-primary-500 dark:text-gray-300 dark:hover:text-white"
@@ -90,6 +97,7 @@ export function Navbar() {
           </button>
           
           {/* Toggle offline - Desktop */}
+          {/* Toggle Offline Mode */}
           <Button 
             onClick={toggleOfflineMode} 
             variant="outline" 
@@ -117,6 +125,7 @@ export function Navbar() {
                 aria-label={getLocalizedText('button.menu')}
               >
                 <Menu className="h-5 w-5" />
+                {/* Mobile Menu Icon */}
               </button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[85vw] sm:w-[385px] p-0">
@@ -130,6 +139,7 @@ export function Navbar() {
                     <button 
                       onClick={() => setIsOpen(false)} 
                       className="rounded-full p-1 hover:bg-gray-100 dark:hover:bg-gray-700"
+                      aria-label={getLocalizedText('button.close')}
                     >
                       <X className="h-5 w-5" />
                     </button>
@@ -245,6 +255,6 @@ export function Navbar() {
           </Sheet>
         </div>
       </div>
-    </header>
+    </nav>
   );
 }

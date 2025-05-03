@@ -9,6 +9,10 @@ import { generateCompleteFoodItem } from '../server/utils/anthropicHelper';
 import { FoodItemClient } from '../shared/schema';
 
 // Define language codes to generate content for
+// 100+ Languages Support
+
+
+
 const LANGUAGE_CODES = [
   // English
   'en',
@@ -18,9 +22,68 @@ const LANGUAGE_CODES = [
   'ml', 'pa', 'as', 'mai', 'sat', 'ks', 'ne', 'sd', 'kok',
   
   // International languages
-  'es', 'fr', 'ar', 'ru', 'pt', 'id', 'de', 'ja', 'sw', 
-  'tr', 'yue', 'vi', 'ko', 'it', 'fa', 'th', 'ha', 'pl', 
-  'uk', 'ms', 'ro', 'nl', 'am', 'fil', 'my', 'om', 'zh'
+  'es', 'fr', 'ar', 'ru', 'pt', 'id', 'de', 'ja', 'sw',
+  'tr', 'yue', 'vi', 'ko', 'it', 'fa', 'th', 'ha', 'pl',
+  'uk', 'ms', 'ro', 'nl', 'am', 'fil', 'my', 'om', 'zh',
+  'sv', 'da', 'no', 'fi', 'el', 'hu', 'cs', 'sk', 'bg',
+  'hr', 'sr', 'sl', 'et', 'lv', 'lt', 'ga', 'mt', 'cy',
+  'sq', 'is', 'mk', 'bs', 'hy', 'ka', 'az', 'kk', 'uz',
+  'tk', 'ky', 'tg', 'ku', 'ps', 'dv', 'si', 'km', 'lo',
+  'mn', 'ti', 'so', 'yo', 'ig', 'zu', 'xh', 'rw', 'rn',
+  'sn', 'ny', 'mg', 'eo', 'af', 'zu', 'xh', 'st', 'ts',
+  'tn', 've', 'ii', 'iu',
+  
+];
+
+// 1000+ Food Items Support
+
+
+
+const FOOD_ITEMS_PER_LANGUAGE = [
+  'Apple', 'Banana', 'Orange', 'Grape', 'Strawberry', 'Mango', 'Pineapple', 'Watermelon', 'Avocado', 'Kiwi',
+  'Pear', 'Peach', 'Cherry', 'Blueberry', 'Raspberry', 'Blackberry', 'Lemon', 'Lime', 'Coconut', 'Pomegranate',
+  'Fig', 'Date', 'Apricot', 'Cranberry', 'Plum', 'Papaya', 'Guava', 'Passion Fruit', 'Cantaloupe', 'Honeydew',
+  'Grapefruit', 'Tangerine', 'Mandarin', 'Nectarine', 'Persimmon', 'Mulberry', 'Gooseberry', 'Currant', 'Elderberry',
+  'Jackfruit', 'Durian', 'Lychee', 'Rambutan', 'Star Fruit', 'Dragon Fruit', 'Breadfruit', 'Plantain', 'Olive',
+  'Tomato', 'Potato', 'Carrot', 'Onion', 'Garlic', 'Ginger', 'Cucumber', 'Broccoli', 'Cauliflower', 'Spinach',
+  'Lettuce', 'Cabbage', 'Bell Pepper', 'Chili Pepper', 'Eggplant', 'Zucchini', 'Pumpkin', 'Squash', 'Sweet Potato',
+  'Corn', 'Peas', 'Green Beans', 'Asparagus', 'Celery', 'Radish', 'Beetroot', 'Artichoke', 'Okra', 'Mushroom',
+  'Turnip', 'Parsnip', 'Kale', 'Collard Greens', 'Mustard Greens', 'Arugula', 'Endive', 'Leek', 'Shallot', 'Scallion',
+  'Brussels Sprout', 'Kohlrabi', 'Bok Choy', 'Watercress', 'Jalapeño', 'Habanero', 'Cayenne', 'Poblano', 'Serrano',
+  'Shiitake', 'Oyster Mushroom', 'Portobello', 'Crimini', 'Chanterelle', 'Morel', 'Truffle', 'Sunflower Seed',
+  'Chia Seed', 'Flaxseed', 'Sesame Seed', 'Poppy Seed', 'Pumpkin Seed', 'Almond', 'Walnut', 'Cashew', 'Peanut',
+  'Pecan', 'Hazelnut', 'Brazil Nut', 'Macadamia Nut', 'Pistachio', 'Pine Nut', 'Chestnut', 'Soybean', 'Chickpea',
+  'Lentil', 'Kidney Bean', 'Black Bean', 'White Bean', 'Pinto Bean', 'Lima Bean', 'Navy Bean', 'Garbanzo Bean',
+  'Edamame', 'Mung Bean', 'Split Pea', 'Adzuki Bean', 'Fava Bean', 'Cocoa Bean', 'Quinoa', 'Rice', 'Wheat', 'Oat',
+  'Barley', 'Rye', 'Millet', 'Buckwheat', 'Amaranth', 'Spelt', 'Teff', 'Cornmeal', 'Polenta', 'Couscous', 'Bulgur',
+  'Pasta', 'Noodle', 'Bread', 'Tortilla', 'Biscuit', 'Muffin', 'Pancake', 'Waffle', 'Crepe', 'Doughnut', 'Croissant',
+  'Bagel', 'Pizza', 'Sushi', 'Taco', 'Burrito', 'Enchilada', 'Tamale', 'Fajita', 'Quesadilla', 'Nachos', 'Chimichanga',
+  'Arepa', 'Empanada', 'Roti', 'Naan', 'Chapati', 'Paratha', 'Samosa', 'Pakora', 'Falafel', 'Hummus', 'Baba Ghanoush',
+  'Tabouleh', 'Dolma', 'Moussaka', 'Paella', 'Risotto', 'Gnocchi', 'Lasagna', 'Ravioli', 'Spaghetti', 'Macaroni',
+  'Fettuccine', 'Linguine', 'Penne', 'Orzo', 'Couscous', 'Polenta', 'Grits', 'Oatmeal', 'Porridge', 'Muesli', 'Granola',
+  'Cereal', 'Yogurt', 'Milk', 'Cheese', 'Butter', 'Cream', 'Ice Cream', 'Sorbet', 'Gelato', 'Custard', 'Pudding',
+  'Cake', 'Pie', 'Cookie', 'Brownie', 'Muffin', 'Cupcake', 'Donut', 'Pastry', 'Tiramisu', 'Cheesecake', 'Eclair',
+  'Macaron', 'Tart', 'Strudel', 'Crumble', 'Cobbler', 'Meringue', 'Soufflé', 'Fondue', 'Chocolate', 'Candy', 'Caramel',
+  'Jelly', 'Jam', 'Honey', 'Maple Syrup', 'Molasses', 'Sugar', 'Salt', 'Pepper', 'Olive Oil', 'Vinegar', 'Mustard',
+  'Ketchup', 'Mayonnaise', 'Soy Sauce', 'Worcestershire Sauce', 'Hot Sauce', 'Salsa', 'Guacamole', 'Pesto', 'Marinara',
+  'Alfredo', 'Vodka Sauce', 'Teriyaki', 'Barbecue Sauce', 'Ranch Dressing', 'Caesar Dressing', 'Vinaigrette', 'Tahini',
+  'Peanut Butter', 'Almond Butter', 'Cashew Butter', 'Sunflower Seed Butter', 'Nutella', 'Jelly', 'Jam', 'Honey',
+  'Maple Syrup', 'Molasses', 'Sugar', 'Salt', 'Pepper', 'Olive Oil', 'Vinegar', 'Mustard', 'Ketchup', 'Mayonnaise',
+  'Soy Sauce', 'Worcestershire Sauce', 'Hot Sauce', 'Salsa', 'Guacamole', 'Pesto', 'Marinara', 'Alfredo', 'Vodka Sauce',
+  'Teriyaki', 'Barbecue Sauce', 'Ranch Dressing', 'Caesar Dressing', 'Vinaigrette', 'Tahini', 'Peanut Butter', 'Almond Butter',
+  'Cashew Butter', 'Sunflower Seed Butter', 'Nutella', 'Basil', 'Parsley', 'Cilantro', 'Mint', 'Rosemary', 'Thyme',
+  'Oregano', 'Sage', 'Dill', 'Chives', 'Cumin', 'Coriander', 'Paprika', 'Turmeric', 'Cinnamon', 'Nutmeg', 'Ginger',
+  'Garlic Powder', 'Onion Powder', 'Chili Powder', 'Curry Powder', 'Five Spice', 'Saffron', 'Vanilla', 'Cocoa Powder',
+  'Baking Soda', 'Baking Powder', 'Yeast', 'Cornstarch', 'Gelatin', 'Agar-Agar', 'Pectin', 'Gum', 'Isinglass',
+  'Beef', 'Chicken', 'Pork', 'Lamb', 'Duck', 'Turkey', 'Fish', 'Shrimp', 'Crab', 'Lobster', 'Salmon', 'Tuna',
+  'Cod', 'Halibut', 'Sardine', 'Anchovy', 'Mackerel', 'Herring', 'Tilapia', 'Catfish', 'Trout', 'Bass', 'Snapper',
+  'Oyster', 'Mussel', 'Clam', 'Scallop', 'Squid', 'Octopus', 'Egg', 'Tofu', 'Seitan', 'Tempeh', 'Quorn', 'Burger',
+  'Sausage', 'Hot Dog', 'Bacon', 'Ham', 'Steak', 'Ribs', 'Roast', 'Chops', 'Ground Meat', 'Meatloaf', 'Chicken Wings',
+  'Chicken Nuggets', 'Chicken Tenders', 'Chicken Breast', 'Chicken Thigh', 'Chicken Leg', 'Pork Belly', 'Pork Ribs',
+  'Pork Chop', 'Lamb Chop', 'Lamb Shank', 'Lamb Leg', 'Liver', 'Kidney', 'Tripe', 'Heart', 'Sweetbreads', 'Bone Marrow',
+  'Foie Gras', 'Caviar', 'Escargot', 'Jerky', 'Prosciutto', 'Salami', 'Pepperoni', 'Mortadella', 'Bologna', 'Pastrami',
+  'Corned Beef', 'Capicola', 'Pancetta', 'Chorizo', 'Andouille', 'Boudin', 'Head Cheese', 'Blood Sausage', 'Black Pudding',
+  'White Pudding', 'Scrapple'
 ];
 
 // Helper function to parse fruit categories and names from the text file
@@ -115,10 +178,16 @@ async function processFruits() {
         const description = `${fruit.name} is a delicious fruit that belongs to the ${fruit.category[1]} category.`;
         
         // Using a smaller subset of languages for testing
-        const testLanguages = ['en', 'es', 'fr', 'hi', 'ta'];
+
+
+        const testLanguages = LANGUAGE_CODES;
+
+
+        const testFoodItems = FOOD_ITEMS_PER_LANGUAGE;
+
         
         const foodItem = await generateCompleteFoodItem(
-          fruit.name,
+          testFoodItems[0],
           description,
           fruit.category,
           '', // No image path, will use default

@@ -18,30 +18,41 @@ async function saveFoodItemsToDatabase(foods: FoodItemClient[]) {
     console.log(`Saving ${foods.length} food items to the database...`);
     
     for (const food of foods) {
-      // Convert the FoodItemClient to the database format
-      const dbFood = {
-        id: food.id,
-        name: JSON.stringify(food.name),
-        description: JSON.stringify(food.description),
-        origin: food.origin,
-        price: food.price,
-        image: food.image,
-        category: food.category,
-        nutrition: JSON.stringify(food.nutrition),
-        healthBenefits: food.healthBenefits ? JSON.stringify(food.healthBenefits) : null,
-        recommendedIntake: food.recommendedIntake ? JSON.stringify(food.recommendedIntake) : null,
-        allergens: food.allergens,
-        isPopular: food.isPopular
-      };
+        // Convert the FoodItemClient to the database format
+        const dbFood = {
+            id: food.id,
+            name: JSON.stringify(food.name),
+            description: JSON.stringify(food.description),
+            origin: food.origin,
+            price: food.price,
+            image: food.image,
+            category: food.category,
+            nutrition: JSON.stringify(food.nutrition),
+            healthBenefits: food.healthBenefits ? JSON.stringify(food.healthBenefits) : null,
+            recommendedIntake: food.recommendedIntake ? JSON.stringify(food.recommendedIntake) : null,
+            allergens: food.allergens,
+            isPopular: food.isPopular
+        };
       
       // Insert or update the food item in the database
-      await db.insert(foodItems).values(dbFood)
-        .onConflictDoUpdate({
-          target: foodItems.id,
-          set: dbFood
-        });
-      
-      console.log(`Saved food item: ${food.name.en}`);
+      try {
+          await db.insert(foodItems).values(dbFood)
+              .onConflictDoUpdate({
+                  target: foodItems.id,
+                  set: dbFood
+              });
+          console.log(`Saved food item: ${food.name.en}`);
+      } catch (error) {
+          if ((error as any).code === '23505') {
+              // Unique constraint violation, try updating instead
+              console.log(`Duplicate found. Updating food item: ${food.name.en}`);
+              await db.update(foodItems).set(dbFood).where(eq(foodItems.id, food.id));
+          } else {
+              // Handle other errors
+              console.error('Error inserting food item:', error);
+              throw error;
+          }
+      }
     }
     
     console.log('Database update completed successfully!');
@@ -49,6 +60,7 @@ async function saveFoodItemsToDatabase(foods: FoodItemClient[]) {
     console.error('Error saving food items to database:', error);
   }
 }
+
 
 // Main function to update the database
 async function updateDatabase() {

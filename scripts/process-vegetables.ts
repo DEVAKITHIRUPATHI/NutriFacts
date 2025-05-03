@@ -1,14 +1,14 @@
 /**
- * Script to process vegetable data from the attached text file and generate food items
+ * Script to process fruit data from the attached text file and generate food items
  * using the Claude API integration.
  */
 
 import fs from 'fs';
 import path from 'path';
-import { generateCompleteFoodItem } from '../server/utils/anthropicHelper';
+import { generateCompleteFoodItem, generateMultipleFoodItem } from '../server/utils/anthropicHelper';
 import { FoodItemClient } from '../shared/schema';
 
-// Define language codes to generate content for
+// Define language codes to generate content for 100+ languages
 const LANGUAGE_CODES = [
   // English
   'en',
@@ -23,9 +23,16 @@ const LANGUAGE_CODES = [
   'uk', 'ms', 'ro', 'nl', 'am', 'fil', 'my', 'om', 'zh'
 ];
 
-// Helper function to parse vegetable categories and names from the text file
-function parseVegetableData(filePath: string): Array<{ name: string, category: string[] }> {
-  const text = fs.readFileSync(filePath, 'utf8');
+
+// Add more language codes to reach 100+ languages
+const additionalLanguageCodes = ['sv', 'da', 'no', 'fi', 'hu', 'cs', 'sk', 'el', 'he', 'iw', 'bg', 'hr', 'sr', 'sl', 'et', 'lv', 'lt', 'is', 'ga', 'mt', 'sq', 'mk', 'bs', 'be', 'uk', 'hy', 'ka', 'az', 'kk', 'ky', 'tg', 'uz', 'tk', 'mn', 'km', 'lo', 'si', 'mr', 'sa', 'bo', 'dz', 'ti', 'so', 'af', 'zu', 'xh', 'st', 'tn', 'ss', 'nr', 've', 'ts', 'rn', 'rw', 'ku', 'ps', 'sd', 'ug', 'yo', 'ig'];
+LANGUAGE_CODES.push(...additionalLanguageCodes);
+
+
+// Helper function to parse fruit categories and names from the text file
+function parseFruitData(filePath: string): Array<{ name: string, category: string[] }> {
+    const text = fs.readFileSync(filePath, 'utf8');
+
   const vegetables: Array<{ name: string, category: string[] }> = [];
   
   // Split the text into sections based on the Markdown headings
@@ -92,7 +99,7 @@ function parseVegetableData(filePath: string): Array<{ name: string, category: s
   return vegetables;
 }
 
-// Main function to process vegetables and generate food items
+// Main function to process fruits and generate food items
 async function processVegetables() {
   try {
     // Path to the vegetable data file
@@ -100,39 +107,31 @@ async function processVegetables() {
     
     // Parse vegetable data
     const vegetables = parseVegetableData(dataFilePath);
-    console.log(`Parsed ${vegetables.length} vegetables from the data file.`);
+    console.log(`Parsed ${vegetables.length} fruits from the data file.`);
     
-    // For testing, just process a small subset
-    const subset = vegetables.slice(0, 5);
+    const chunkSize = 100; // Number of foods to process in each batch
+    const totalFoods = vegetables.length;
+    let start = 0;
     
-    // Generate food items for the subset
-    const foodItems: FoodItemClient[] = [];
-    
-    for (const veg of subset) {
-      console.log(`Generating data for ${veg.name}...`);
-      
-      try {
-        const description = `${veg.name} is a nutritious vegetable that belongs to the ${veg.category[1]} category.`;
-        
-        // Using a smaller subset of languages for testing
-        const testLanguages = ['en', 'es', 'fr', 'hi', 'ta'];
-        
-        const foodItem = await generateCompleteFoodItem(
-          veg.name,
-          description,
-          veg.category,
-          '', // No image path, will use default
-          testLanguages
-        );
-        
-        foodItems.push(foodItem);
-        console.log(`Successfully generated data for ${veg.name}`);
-      } catch (error) {
-        console.error(`Error generating data for ${veg.name}:`, error);
-      }
-      
-      // Add a small delay between API calls
-      await new Promise(resolve => setTimeout(resolve, 1000));
+    while (start < totalFoods) {
+        const end = Math.min(start + chunkSize, totalFoods);
+        const batch = vegetables.slice(start, end);
+        console.log(`Processing foods ${start + 1} to ${end} of ${totalFoods}`);
+
+        const foodItemsBatch: FoodItemClient[] = [];
+
+        for (const food of batch) {
+            console.log(`Generating data for ${food.name}...`);
+             try {
+              const description = `${food.name} is a fruit that belongs to the ${food.category[1]} category.`;
+              const foodItem = await generateCompleteFoodItem(food.name, description, food.category,'',LANGUAGE_CODES)
+              foodItemsBatch.push(foodItem)
+             }
+             catch(error){
+                 console.log(error)
+             }
+        }
+        start += chunkSize;
     }
     
     // Save the generated food items to a JSON file
@@ -140,7 +139,7 @@ async function processVegetables() {
     fs.writeFileSync(outputFilePath, JSON.stringify(foodItems, null, 2));
     
     console.log(`Successfully generated data for ${foodItems.length} vegetables.`);
-    console.log(`Data saved to ${outputFilePath}`);
+    console.log(`Data saved to ${outputFilePath}`);        
   } catch (error) {
     console.error('Error processing vegetables:', error);
   }

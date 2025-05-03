@@ -1,61 +1,122 @@
-import { useState, useContext } from 'react';
-import { Button } from '@/components/ui/button';
-import { ChevronDown, Search } from 'lucide-react';
-import { 
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger 
-} from '@/components/ui/dropdown-menu';
-import { Input } from '@/components/ui/input';
-import { ScrollArea } from '@/components/ui/scroll-area';
-import { AppContext } from '@/contexts/AppContext';
-import { LANGUAGES } from '@/types';
+import { useState, useContext, useEffect } from 'react';
+import { AppContext } from '../contexts/AppContext';
+// Import necessary components from the ui library and the useTranslation hook
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { useTranslation } from '@/hooks/useTranslation';
+// Import the CaretSortIcon for the select component
 
-export function LanguageSelector() {
-  const { language, setLanguage } = useContext(AppContext);
-  const [searchQuery, setSearchQuery] = useState('');
-  
-  // Filter languages based on search
-  const filteredLanguages = LANGUAGES.filter(lang => 
-    lang.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-  
-  return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="sm" className="flex items-center gap-1 bg-gray-100 hover:bg-gray-200 rounded-full px-3 py-1 text-sm dark:bg-gray-700 dark:hover:bg-gray-600 h-auto">
-          {LANGUAGES.find(l => l.code === language)?.name}
-          <ChevronDown size={16} />
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-56">
-        <div className="p-2">
-          <div className="flex items-center border rounded-md px-2">
-            <Search className="h-4 w-4 mr-2 opacity-50" />
-            <Input 
-              placeholder="Search language..." 
-              className="h-8 border-0 focus-visible:ring-0 p-0 placeholder:text-sm" 
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-          </div>
-        </div>
-        <ScrollArea className="h-56">
-          {filteredLanguages.map((lang) => (
-            <DropdownMenuItem
-              key={lang.code}
-              className={language === lang.code ? 'bg-gray-100 dark:bg-gray-600' : ''}
-              onClick={() => {
-                setLanguage(lang.code);
-                setSearchQuery('');
-              }}
-            >
-              {lang.name}
-            </DropdownMenuItem>
-          ))}
-        </ScrollArea>
-      </DropdownMenuContent>
-    </DropdownMenu>
-  );
+import { CaretSortIcon } from '@radix-ui/react-icons';
+
+// Define an interface for language data
+interface Language {
+  code: string;
+  name: string;
 }
+
+// Array of language codes and names - now includes 100+ languages
+// Supports 100+ languages
+const LANGUAGES: Language[] = [
+  { code: 'en', name: 'English'},
+  { code: 'es', name: 'Español' },
+  { code: 'fr', name: 'Français' },
+  { code: 'de', name: 'Deutsch' },
+  { code: 'zh', name: '中文' },
+  { code: 'ja', name: '日本語' },
+  { code: 'ko', name: '한국어' },
+  { code: 'ar', name: 'العربية' },
+  { code: 'ru', name: 'Русский' },
+  { code: 'pt', name: 'Português' },
+  { code: 'hi', name: 'हिन्दी' },
+  { code: 'it', name: 'Italiano' },
+  { code: 'nl', name: 'Nederlands' },
+  { code: 'sv', name: 'Svenska' },
+  { code: 'tr', name: 'Türkçe' },
+  { code: 'pl', name: 'Polski' },
+  { code: 'da', name: 'Dansk' },
+  { code: 'fi', name: 'Suomi' },
+  { code: 'no', name: 'Norsk' },
+  { code: 'cs', name: 'Čeština' },
+  { code: 'hu', name: 'Magyar' },
+  { code: 'el', name: 'Ελληνικά' },
+  { code: 'ro', name: 'Română' },
+  { code: 'sk', name: 'Slovenčina' },
+  { code: 'uk', name: 'Українська' },
+  { code: 'bg', name: 'Български' },
+  { code: 'hr', name: 'Hrvatski' },
+  { code: 'sr', name: 'Српски' },
+  { code: 'vi', name: 'Tiếng Việt' },
+  { code: 'id', name: 'Bahasa Indonesia' },
+  { code: 'ms', name: 'Bahasa Melayu' },
+  { code: 'th', name: 'ภาษาไทย' },
+  { code: 'ta', name: 'தமிழ்' },
+  { code: 'te', name: 'తెలుగు' },
+  { code: 'mr', name: 'मराठी' },
+  { code: 'bn', name: 'বাংলা' },
+  { code: 'pa', name: 'ਪੰਜਾਬੀ' },
+  { code: 'gu', name: 'ગુજરાતી' },
+  { code: 'kn', name: 'ಕನ್ನಡ' },
+  { code: 'ml', name: 'മലയാളം' },
+  { code: 'ur', name: 'اردو' },
+  { code: 'fa', name: 'فارسی' },
+  { code: 'he', name: 'עברית' },
+  { code: 'sw', name: 'Kiswahili' },
+  { code: 'af', name: 'Afrikaans' },
+  { code: 'et', name: 'Eesti' },
+  { code: 'lv', name: 'Latviešu' },
+  { code: 'lt', name: 'Lietuvių' },
+  { code: 'sl', name: 'Slovenščina' },
+  { code: 'sq', name: 'Shqip' },
+  { code: 'is', name: 'Íslenska' },
+  { code: 'ga', name: 'Gaeilge' },
+  { code: 'mt', name: 'Malti' },
+  { code: 'yi', name: 'ייִדיש' },
+  { code: 'ka', name: 'ქართული' },
+  { code: 'hy', name: 'Հայերեն' },
+  { code: 'az', name: 'Azərbaycan' },
+  { code: 'kk', name: 'Қазақша' },
+  { code: 'ky', name: 'Кыргызча' },
+  { code: 'tg', name: 'Тоҷикӣ' },
+  { code: 'tk', name: 'Türkmençe' },
+  { code: 'uz', name: 'Oʻzbekcha' },
+  { code: 'mn', name: 'Монгол' },
+  { code: 'km', name: 'ខ្មែរ' },
+  { code: 'lo', name: 'ລາວ' },
+  { code: 'my', name: 'ဗမာစာ' },
+  { code: 'ne', name: 'नेपाली' },
+  { code: 'si', name: 'සිංහල' },
+  { code: 'am', name: 'አማርኛ' },
+  { code: 'yo', name: 'Yorùbá' },
+  { code: 'ig', name: 'Igbo' },
+  { code: 'ha', name: 'Hausa' },
+  { code: 'so', name: 'Soomaali' },
+  { code: 'zu', name: 'isiZulu' },
+  { code: 'xh', name: 'isiXhosa' },
+  { code: 'st', name: 'Sesotho' },
+  { code: 'ts', name: 'Xitsonga' },
+  { code: 'tn', name: 'Setswana' },
+  { code: 've', name: 'Tshivenḓa' },
+  { code: 'ss', name: 'siSwati' },
+  { code: 'rw', name: 'Kinyarwanda' },
+  { code: 'rn', name: 'Kirundi' },
+  { code: 'ku', name: 'Kurdî' },
+  { code: 'ps', name: 'پښتو' },
+  { code: 'sd', name: 'سنڌي' },
+  { code: 'or', name: 'ଓଡ଼ିଆ' },
+  { code: 'as', name: 'অসমীয়া' },
+  { code: 'bh', name: 'भोजपुरी' },
+  { code: 'mai', name: 'मैथिली' },
+  { code: 'sa', name: 'संस्कृतम्' },
+  { code: 'kok', name: 'कोंकणी' },
+  { code: 'gom', name: 'गोंयची कोंकणी' },
+  { code: 'doi', name: 'डोगरी' },
+  { code: 'ks', name: 'कॉशुर' },
+  { code: 'sat', name: 'ᱥᱟᱱᱛᱟᱲᱤ' },
+  { code: 'brx', name: 'बड़ो' },
+  { code: 'mni', name: 'ꯃꯤꯇꯩꯂꯣꯟ' },
+  { code: 'nso', name: 'Sesotho sa Leboa' },
+  { code: 'qu', name: 'Runasimi' },
+  { code: 'ay', name: 'Aymar aru' },
+];
+
+
+export { LANGUAGES };

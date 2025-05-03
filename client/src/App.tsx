@@ -17,11 +17,14 @@ import NotFound from "@/pages/not-found";
 
 function Layout({ children }: { children: React.ReactNode }) {
   return (
+    // Main layout container with flexbox
     <div className="min-h-screen flex flex-col">
       <OfflineBanner />
       <Navbar />
-      <main className="container mx-auto flex-1 px-4 py-6">
+       {/* Main content area that grows to fill space */}
+      <main className="container mx-auto flex-1 px-4 py-6 ">
         {children}
+
       </main>
       <Footer />
       <ShoppingCart />
@@ -30,16 +33,20 @@ function Layout({ children }: { children: React.ReactNode }) {
 }
 
 function Router() {
+  // Router component to handle different routes
   return (
     <Switch>
+        {/* Home Route */}
       <Route path="/" component={() => (
         <Layout>
           <Home />
         </Layout>
       )} />
+      {/* Foods Route */}
       <Route path="/foods" component={() => (
         <Layout>
-          <Foods />
+        <Foods/>
+
         </Layout>
       )} />
       <Route path="/nutrition" component={() => (

@@ -1,19 +1,33 @@
 import * as React from "react"
 
-const MOBILE_BREAKPOINT = 768
+const BREAKPOINTS = {
+  SMALL: 480,   // Small mobile devices
+  MEDIUM: 768,  // Tablets and larger mobile devices
+  LARGE: 1024,  // Larger tablets and smaller laptops
+}
 
 export function useIsMobile() {
-  const [isMobile, setIsMobile] = React.useState<boolean | undefined>(undefined)
+  const [isMobile, setIsMobile] = React.useState<boolean>(false);
+  const [isSmallMobile, setIsSmallMobile] = React.useState<boolean>(false);
+  const [isMediumMobile, setIsMediumMobile] = React.useState<boolean>(false);
+  const [isLargeMobile, setIsLargeMobile] = React.useState<boolean>(false);
 
   React.useEffect(() => {
-    const mql = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`)
-    const onChange = () => {
-      setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
-    }
-    mql.addEventListener("change", onChange)
-    setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
-    return () => mql.removeEventListener("change", onChange)
-  }, [])
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < BREAKPOINTS.MEDIUM);
+      setIsSmallMobile(window.innerWidth < BREAKPOINTS.SMALL);
+      setIsMediumMobile(window.innerWidth >= BREAKPOINTS.SMALL && window.innerWidth < BREAKPOINTS.MEDIUM);
+      setIsLargeMobile(window.innerWidth >= BREAKPOINTS.MEDIUM && window.innerWidth < BREAKPOINTS.LARGE);
+    };
 
-  return !!isMobile
+    // Initial check
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return {
+    isMobile, isSmallMobile, isMediumMobile, isLargeMobile
+  };
 }

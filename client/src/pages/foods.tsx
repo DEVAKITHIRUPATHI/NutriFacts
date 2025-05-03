@@ -80,7 +80,8 @@ export default function Foods() {
   };
 
   return (
-    <div className="py-6">
+    // Main container for the foods page
+    <div className="py-6 flex flex-col min-h-screen">
       <h1 className="text-3xl font-bold mb-6">{getLocalizedText('nav.foods')}</h1>
       
       <SearchFilter onSearch={handleSearch} />
@@ -97,7 +98,9 @@ export default function Foods() {
           </p>
         </div>
       ) : isLoading ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        // Loading skeleton UI for food cards
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 w-full">
+          {/* Skeleton card for each food item */}
           {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
             <div key={index} className="bg-white rounded-xl overflow-hidden shadow-sm h-[450px] dark:bg-gray-800">
               <div className="h-48 bg-gray-200 animate-pulse dark:bg-gray-700"></div>
@@ -119,15 +122,21 @@ export default function Foods() {
           ))}
         </div>
       ) : (
-        <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 max-w-7xl mx-auto">
+        // Grid container for food cards with responsive design
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 flex-grow">
+          {/* Map through the foods array and render each item as a FoodCard */}
           {foods.map((item) => (
+             // FoodCard component for each food item
             <FoodCard 
               key={item.id}
               item={item}
               onViewDetails={handleViewDetails}
               showPopularBadge={true}
             />
-          ))}
+           ))}
+         {/* End of food cards grid */}
+       
+       
         </div>
       )}
       

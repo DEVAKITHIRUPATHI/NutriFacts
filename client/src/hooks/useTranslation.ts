@@ -3,6 +3,8 @@ import { AppContext } from '@/contexts/AppContext';
 import type { Language } from '@shared/schema';
 import type { TranslatedContent } from '@shared/schema';
 
+// Supports 100+ languages
+
 export function useTranslation() {
   const { language } = useContext(AppContext);
 

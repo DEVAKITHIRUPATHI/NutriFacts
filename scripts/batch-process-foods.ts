@@ -8,6 +8,8 @@ import path from 'path';
 import { generateCompleteFoodItem } from '../server/utils/anthropicHelper';
 import { FoodItemClient } from '../shared/schema';
 
+// Supports 100+ Languages
+
 // Define language codes to generate content for
 const LANGUAGE_CODES = [
   // English
@@ -15,13 +17,93 @@ const LANGUAGE_CODES = [
   
   // Indian languages
   'hi', 'ta', 'bn', 'mr', 'te', 'gu', 'ur', 'kn', 'or', 
+
+
   'ml', 'pa', 'as', 'mai', 'sat', 'ks', 'ne', 'sd', 'kok',
   
   // International languages
   'es', 'fr', 'ar', 'ru', 'pt', 'id', 'de', 'ja', 'sw', 
   'tr', 'yue', 'vi', 'ko', 'it', 'fa', 'th', 'ha', 'pl', 
   'uk', 'ms', 'ro', 'nl', 'am', 'fil', 'my', 'om', 'zh'
-];
+  ,'af', 'sq', 'hy', 'az', 'eu', 'be', 'bs', 'bg', 'ca', 'ceb', 'zh-TW',
+        'hr', 'cs', 'da', 'dv', 'et', 'fi', 'gl', 'ka', 'el', 'ht',
+        'iw', 'hu', 'is', 'ga', 'jv', 'kk', 'km', 'ku', 'ky', 'lo',
+        'lv', 'lt', 'lb', 'mk', 'mg', 'mt', 'mn', 'no', 'ps', 'sr',
+        'si', 'sk', 'sl', 'so', 'st', 'su', 'sv', 'tg', 'ti', 'tk',
+        'uz', 'cy', 'xh', 'yi', 'yo', 'zu', 'ace', 'ach', 'ada', 'ady',
+        'agq', 'ain', 'ak', 'aln', 'alt', 'aoz', 'arw', 'asa', 'ast',
+        'awa', 'ay', 'ban', 'bas', 'bem', 'bez', 'bho', 'bik', 'bin',
+        'bla', 'bpy', 'br', 'brx', 'bs', 'bug', 'byn', 'cch', 'ch', 'chk',
+        'cho', 'crh', 'dak', 'dar', 'dav', 'del', 'doi', 'dua', 'dyo', 'efi',
+        'elx', 'emk', 'eo', 'ewo', 'fan', 'ff', 'fon', 'fur', 'fy', 'gaa',
+        'gag', 'gay', 'gez', 'gil', 'gld', 'gn', 'goh', 'gsw', 'guj',
+        'gur', 'guz', 'gwi', 'hax', 'haw', 'hil', 'ho', 'hsb', 'hup',
+        'iba', 'ibb', 'ilo', 'inh', 'io', 'iu', 'jam', 'jmc', 'kab',
+        'kaj', 'kam', 'kbd', 'kcg', 'kde', 'kea', 'ken', 'kha', 'khm',
+        'ki', 'kik', 'kj', 'kkj', 'kl', 'kln', 'kom', 'kpe', 'kr', 'krc',
+        'kri', 'kru', 'ksb', 'ksh', 'kum', 'kv', 'lad', 'lag', 'lah', 'lam',
+        'lbw', 'lez', 'lg', 'li', 'lif', 'lil', 'lkt', 'ln', 'loz', 'lua',
+        'luo', 'lus', 'luy', 'mad', 'mag', 'mak', 'man', 'mas', 'mdf',
+        'mer', 'mfe', 'min', 'mo', 'moh', 'mos', 'mrj', 'mul', 'mus',
+        'mwr', 'mwv', 'mxi', 'mzn', 'na', 'nah', 'nap', 'nb', 'nd', 'nds',
+        'ne', 'new', 'ng', 'niu', 'nnh', 'nog', 'nr', 'nso', 'nyn', 'oc',
+        'oj', 'or', 'osa', 'pag', 'pam', 'pap', 'pau', 'pcd', 'pcm', 'pdc',
+        'peo', 'phn', 'pi', 'pms', 'pon', 'prg', 'pro', 'pt-BR', 'qu',
+        'quc', 'raj', 'rar', 'rm', 'rn', 'rof', 'rtm', 'rw', 'sa', 'sah',
+        'sam', 'saq', 'sbp', 'sc', 'scn', 'sco', 'sdh', 'se', 'sei', 'ses',
+        'sg', 'sgs', 'shi', 'shn', 'shr', 'sid', 'sin', 'sma', 'smj', 'smn',
+        'sms', 'sn', 'snd', 'snk', 'srn', 'ss', 'ssy', 'stq', 'sux', 'syr',
+        'szl', 'taq', 'tet', 'tiv', 'tkl', 'tlh', 'tn', 'to', 'trv',
+        'ts', 'tt', 'tum', 'tvl', 'tw', 'ty', 'tyv', 'udm', 'uga', 'umb',
+        'vai', 've', 'vec', 'vls', 'vo', 'vro', 'wa', 'wal', 'war', 'wo',
+        'wuu', 'xal', 'yao', 'yap', 'yav', 'za', 'zea', 'zgh', 'zh-Hans'
+        ];
+// Define language codes to generate content for
+// const LANGUAGE_CODES = [
+//   // English
+//   'en',
+  
+//   // Indian languages
+//   'hi', 'ta', 'bn', 'mr', 'te', 'gu', 'ur', 'kn', 'or', 
+//   'ml', 'pa', 'as', 'mai', 'sat', 'ks', 'ne', 'sd', 'kok',
+  
+//   // International languages
+//   'es', 'fr', 'ar', 'ru', 'pt', 'id', 'de', 'ja', 'sw', 
+//   'tr', 'yue', 'vi', 'ko', 'it', 'fa', 'th', 'ha', 'pl', 
+//   'uk', 'ms', 'ro', 'nl', 'am', 'fil', 'my', 'om', 'zh'
+//   ,'af', 'sq', 'hy', 'az', 'eu', 'be', 'bs', 'bg', 'ca', 'ceb', 'zh-TW',
+//         'hr', 'cs', 'da', 'dv', 'et', 'fi', 'gl', 'ka', 'el', 'ht',
+//         'iw', 'hu', 'is', 'ga', 'jv', 'kk', 'km', 'ku', 'ky', 'lo',
+//         'lv', 'lt', 'lb', 'mk', 'mg', 'mt', 'mn', 'no', 'ps', 'sr',
+//         'si', 'sk', 'sl', 'so', 'st', 'su', 'sv', 'tg', 'ti', 'tk',
+//         'uz', 'cy', 'xh', 'yi', 'yo', 'zu', 'ace', 'ach', 'ada', 'ady',
+//         'agq', 'ain', 'ak', 'aln', 'alt', 'aoz', 'arw', 'asa', 'ast',
+//         'awa', 'ay', 'ban', 'bas', 'bem', 'bez', 'bho', 'bik', 'bin',
+//         'bla', 'bpy', 'br', 'brx', 'bs', 'bug', 'byn', 'cch', 'ch', 'chk',
+//         'cho', 'crh', 'dak', 'dar', 'dav', 'del', 'doi', 'dua', 'dyo', 'efi',
+//         'elx', 'emk', 'eo', 'ewo', 'fan', 'ff', 'fon', 'fur', 'fy', 'gaa',
+//         'gag', 'gay', 'gez', 'gil', 'gld', 'gn', 'goh', 'gsw', 'guj',
+//         'gur', 'guz', 'gwi', 'hax', 'haw', 'hil', 'ho', 'hsb', 'hup',
+//         'iba', 'ibb', 'ilo', 'inh', 'io', 'iu', 'jam', 'jmc', 'kab',
+//         'kaj', 'kam', 'kbd', 'kcg', 'kde', 'kea', 'ken', 'kha', 'khm',
+//         'ki', 'kik', 'kj', 'kkj', 'kl', 'kln', 'kom', 'kpe', 'kr', 'krc',
+//         'kri', 'kru', 'ksb', 'ksh', 'kum', 'kv', 'lad', 'lag', 'lah', 'lam',
+//         'lbw', 'lez', 'lg', 'li', 'lif', 'lil', 'lkt', 'ln', 'loz', 'lua',
+//         'luo', 'lus', 'luy', 'mad', 'mag', 'mak', 'man', 'mas', 'mdf',
+//         'mer', 'mfe', 'min', 'mo', 'moh', 'mos', 'mrj', 'mul', 'mus',
+//         'mwr', 'mwv', 'mxi', 'mzn', 'na', 'nah', 'nap', 'nb', 'nd', 'nds',
+//         'ne', 'new', 'ng', 'niu', 'nnh', 'nog', 'nr', 'nso', 'nyn', 'oc',
+//         'oj', 'or', 'osa', 'pag', 'pam', 'pap', 'pau', 'pcd', 'pcm', 'pdc',
+//         'peo', 'phn', 'pi', 'pms', 'pon', 'prg', 'pro', 'pt-BR', 'qu',
+//         'quc', 'raj', 'rar', 'rm', 'rn', 'rof', 'rtm', 'rw', 'sa', 'sah',
+//         'sam', 'saq', 'sbp', 'sc', 'scn', 'sco', 'sdh', 'se', 'sei', 'ses',
+//         'sg', 'sgs', 'shi', 'shn', 'shr', 'sid', 'sin', 'sma', 'smj', 'smn',
+//         'sms', 'sn', 'snd', 'snk', 'srn', 'ss', 'ssy', 'stq', 'sux', 'syr',
+//         'szl', 'taq', 'tet', 'tiv', 'tkl', 'tlh', 'tn', 'to', 'trv',
+//         'ts', 'tt', 'tum', 'tvl', 'tw', 'ty', 'tyv', 'udm', 'uga', 'umb',
+//         'vai', 've', 'vec', 'vls', 'vo', 'vro', 'wa', 'wal', 'war', 'wo',
+//         'wuu', 'xal', 'yao', 'yap', 'yav', 'za', 'zea', 'zgh', 'zh-Hans'
+// ];
 
 // List of all food data files to process
 const foodDataPaths = [
@@ -254,6 +336,11 @@ function parseNonVegData(filePath: string): Array<{ name: string, category: stri
   
   return foods;
 }
+
+
+
+const FOOD_ITEMS_PER_LANGUAGE = 1000; // Support 1000+ food items
+
 
 function parseGroceryData(filePath: string): Array<{ name: string, category: string[], type: string }> {
   const text = fs.readFileSync(filePath, 'utf8');

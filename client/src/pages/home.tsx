@@ -11,6 +11,7 @@ import { FoodItemClient } from '@shared/schema';
 import type { SearchFilters } from '@/types';
 import { ArrowRight, AlertCircle, Search } from 'lucide-react';
 import { foodItems } from '@shared/mockData';
+
 import { getFoodItems, searchFoodItems } from '@/lib/idb';
 
 export default function Home() {
@@ -81,6 +82,7 @@ export default function Home() {
     }
   };
 
+  // Function to handle viewing food details
   const handleViewDetails = (item: FoodItemClient) => {
     setSelectedFood(item);
     setIsDetailOpen(true);
@@ -88,11 +90,14 @@ export default function Home() {
 
   return (
     <>
+    {/* Hero Section */}
       <Hero />
-      
+       {/* Search Filter Section */}
       <SearchFilter onSearch={handleSearch} />
       
       {/* Popular Items Section */}
+      
+     {/* Container for popular food items */}
       <section className="mb-12">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-2xl font-semibold">
@@ -106,13 +111,13 @@ export default function Home() {
           </Link>
         </div>
         
+         {/* Loading state UI */}
         {isLoading ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {[1, 2, 3, 4].map((index) => (
-              <div key={index} className="bg-white rounded-xl overflow-hidden shadow-sm h-[450px] dark:bg-gray-800">
-                <div className="h-48 bg-gray-200 animate-pulse dark:bg-gray-700"></div>
-                <div className="p-4">
-                  <div className="h-6 bg-gray-200 rounded animate-pulse mb-2 w-3/4 dark:bg-gray-700"></div>
+           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+             {[1, 2, 3, 4].map((index) => (
+               <div key={index} className="bg-white rounded-xl overflow-hidden shadow-sm h-[450px] dark:bg-gray-800">
+                 <div className="h-48 bg-gray-200 animate-pulse dark:bg-gray-700"></div>
+                 <div className="p-4"> <div className="h-6 bg-gray-200 rounded animate-pulse mb-2 w-3/4 dark:bg-gray-700"></div>
                   <div className="h-4 bg-gray-200 rounded animate-pulse mb-4 w-1/2 dark:bg-gray-700"></div>
                   <div className="h-4 bg-gray-200 rounded animate-pulse mb-6 dark:bg-gray-700"></div>
                   <div className="flex space-x-4 mb-6">
@@ -125,28 +130,33 @@ export default function Home() {
                     <div className="h-10 bg-gray-200 rounded animate-pulse flex-1 dark:bg-gray-700"></div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {popularFoods.map((item) => (
-              <FoodCard 
-                key={item.id}
-                item={item}
+               </div>
+             ))}
+           </div>
+          ) : (
+           <>
+            {/* Grid layout for displaying food cards on larger screens */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {popularFoods.map((item) => (
+                <FoodCard
+                  key={item.id}
+                  item={item}
                 onViewDetails={handleViewDetails}
               />
             ))}
           </div>
+           </>
         )}
       </section>
       
-      {/* All Foods Section */}
-      <section className="mb-8">
+     {/* All Foods Section */}
+     {/* Container for all food items */}
+      <section className="mb-8  max-w-7xl mx-auto px-4">
         <h2 className="text-2xl font-semibold mb-4">
-          {getLocalizedText('all.foods')}
+           {getLocalizedText('all.foods')}
         </h2>
         
+        {/* No results message UI */}
         {/* No results message */}
         {filteredFoods.length === 0 && !isLoading ? (
           <div className="bg-gray-100 dark:bg-gray-800 rounded-lg p-8 text-center">
@@ -156,10 +166,9 @@ export default function Home() {
             </h3>
             <p className="text-gray-500 dark:text-gray-400">
               {getLocalizedText('noResults.message')}
-            </p>
+             </p>
           </div>
-        ) : isLoading ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        ) : isLoading ? (<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
               <div key={index} className="bg-white rounded-xl overflow-hidden shadow-sm h-[450px] dark:bg-gray-800">
                 <div className="h-48 bg-gray-200 animate-pulse dark:bg-gray-700"></div>
@@ -179,25 +188,26 @@ export default function Home() {
                 </div>
               </div>
             ))}
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 max-w-7xl mx-auto">
-            {filteredFoods.map((item) => (
-              <FoodCard 
-                key={item.id}
-                item={item}
-                onViewDetails={handleViewDetails}
-                showPopularBadge={true}
-              />
-            ))}
-          </div>
-        )}
-      </section>
-      
-      <NutritionGuide />
-      
-      {/* Food Detail Modal */}
-      <FoodDetail 
+          </div>) : (
+              // Grid layout for displaying food cards on all screens
+              <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 max-w-7xl mx-auto">
+                {filteredFoods.map((item) => (
+                  <FoodCard
+                    key={item.id}
+                    item={item}
+                    onViewDetails={handleViewDetails}
+                    showPopularBadge={true}
+                  />
+                ))}
+              </div>
+            )}
+          </section>
+          {/* Nutrition Guide Section */}
+          <NutritionGuide />
+          {/* Food Detail Modal */}
+
+          {/* Food Detail Modal */}
+          <FoodDetail
         item={selectedFood}
         isOpen={isDetailOpen}
         onClose={() => setIsDetailOpen(false)}
@@ -205,3 +215,4 @@ export default function Home() {
     </>
   );
 }
+

@@ -1,13 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+/* Mobile First Approach */
 @layer base {
   * {
     @apply border-border;
+    box-sizing: border-box;
   }
-
   body {
     @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-screen-xl mx-auto px-4 md:px-8; /* Responsive container */
+  }
+
+  /* Small devices (phones, less than 768px) */
+  @media (max-width: 767.98px) {
+    body {@apply text-sm}
+  }
+
+  /* Medium devices (tablets, 768px and up) */
+  @media (min-width: 768px) and (max-width: 1023.98px) {
+    body {@apply text-base}
+  }
+  /* Large devices (desktops, 1024px and up) */
+  @media (min-width: 1024px) {
+    body {@apply text-lg}
+  }
+  /* Extra large devices (large desktops, 1280px and up) */
+  @media (min-width: 1280px) {
+    body{@apply text-xl}
   }
 }
